@@ -14,6 +14,9 @@
 
 ## User Experience
 
+### Color palette
+<img src="color_palette.jpg">
+
 
 ### User Stories
 
