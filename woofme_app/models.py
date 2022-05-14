@@ -13,4 +13,44 @@ class Breed(models.Model):
     def __unicode__(self):
         return self.name
 
-        
+class BreedReview(models.Model):
+    ADAPTABILITY_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    ),
+
+    FRIENDLINESS_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    TRAINABILITY_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    HEALTH_GROOMING_NEEDS_CHOICES=(
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
+    breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
+    published_date = models.DateTimeField('date published')
+    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    review = models. Charfield(max_length=200)
+    adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES)
+    friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)
+    trainability = models.IntegerField(choices=TRAINABILITY_CHOICES)
+    needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
