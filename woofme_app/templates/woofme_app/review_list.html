@@ -1,0 +1,27 @@
+<h1> Reviews List </h1>
+
+{% if review_list %}
+
+<div>
+    {% for review in review_list %}
+
+
+    <div>
+        <h2> <a href="{% url 'reviews:review_page' review.id %}">
+                {{ review.breed.name }}
+            </a></h2>
+
+        <h3> rated {{ review.adaptability }} </h3>
+        <h3> rated {{ review.friendliness </h3> 
+        <h3> rated {{ review.trainability </h3>
+        <h3> rated {{ review.needs }} </h3>
+        <p> {{ review.review }} </p>
+
+    </div>
+</div>
+{% endfor %}
+{% else %}
+
+<p> No reviews are available. </p>
+
+{% endif %}

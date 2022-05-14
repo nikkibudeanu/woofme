@@ -7,15 +7,15 @@ def home(request):
     return render(request, 'woofme_app/home.html', {})
 
 def add_review(request):
-    return render(request, 'add_review.html', {})
+    return render(request, 'woofme_app/add_review.html', {})
 
 def review_list(request):
-    updated_review_list = Review.objects.order_by('-published_date')[:9]
-    context = {'updated_review_list':updated_review_list}
-    return render(request, 'reviews/review_list.html', context)
+    review_list = BreedReview.objects.order_by('-published_date')[:9]
+    context = {'review_list':review_list}
+    return render(request, 'woofme_app/review_list.html', context)
 
 def review_page(request, review_id):
-    review = get_object_or_404(Review, pk=review_id)
+    review = get_object_or_404(BreedReview, pk=review_id)
     return render(request, 'reviews/review_page.html', {'review':review})
 
 def breed_list(request):
