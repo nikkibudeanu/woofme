@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from cloudinary.models import CloudinaryField
 import numpy as np
 
 # Create your models here.
@@ -46,11 +47,12 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
-    breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
+    breed = models.CharField(max_length=200, unique=True)
+    breed_image = CloudinaryField('image', default='placeholder')
     published_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
-    review = models. CharField(max_length=200)
+    review = models.CharField(max_length=200)
     adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES)
     friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)
     trainability = models.IntegerField(choices=TRAINABILITY_CHOICES)
-    needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
+    health_and_grooming_needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
