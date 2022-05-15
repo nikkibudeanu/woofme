@@ -9,4 +9,6 @@ class BreedReviewAdmin(admin.ModelAdmin):
     list_filter = ['published_date', 'user_name']
     search_fields = ['breed','review']
 
+admin.site.register(Breed)
 admin.site.register(BreedReview, BreedReviewAdmin)
+

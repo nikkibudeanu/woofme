@@ -47,7 +47,7 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
-    breed = models.CharField(max_length=200, unique=True)
+    breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     breed_image = CloudinaryField('image', default='placeholder')
     published_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)

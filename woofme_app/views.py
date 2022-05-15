@@ -16,13 +16,13 @@ def review_list(request):
 
 def review_page(request, review_id):
     review = get_object_or_404(BreedReview, pk=review_id)
-    return render(request, 'reviews/review_page.html', {'review':review})
+    return render(request, 'woofme_app/review_page.html', {'review':review})
 
 def breed_list(request):
     breed_list = Breed.objects.order_by('-name')
     context = {'breed_list':breed_list}
-    return render(request, 'reviews/breed_list.html', context)
+    return render(request, 'woofme_app/breed_list.html', context)
 
 def breed_page(request, breed_id):
     breed = get_object_or_404(Breed, pk=breed_id)
-    return render(request, 'reviews/breed_page.html',{'breed':breed})
+    return render(request, 'woofme_app/breed_page.html',{'breed':breed})
