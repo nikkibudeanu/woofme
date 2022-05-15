@@ -10,5 +10,5 @@ class BreedReviewAdmin(admin.ModelAdmin):
     search_fields = ['breed','review']
 
 admin.site.register(Breed)
-admin.site.register(BreedReview, BreedReviewAdmin)
+admin.site.register(BreedReview)
 

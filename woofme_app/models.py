@@ -8,11 +8,11 @@ class Breed(models.Model):
     breed_name = models.CharField(max_length=200)
 
     def average_review(self):
-        all_reviews = map(lambda x: x.rating, self.review_set.all())
-        return np.mean(all_reviews)
+        all_ratings= map(lambda x: x.rating, self.review_set.all())
+        return np.mean(all_ratings)
 
-    def __unicode__(self):
-        return self.name
+    def __str__(self):
+        return self.breed_name
 
 class BreedReview(models.Model):
     ADAPTABILITY_CHOICES = (
