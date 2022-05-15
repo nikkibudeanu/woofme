@@ -1,13 +1,22 @@
 from django.shortcuts import render, get_object_or_404
 from .models import BreedReview, Breed
+from .forms import BreedReviewForm
 
 # Create your views here.
 def home(request):
-
     return render(request, 'woofme_app/home.html', {})
 
-def review(request):
-    return render(request, 'woofme_app/add_review.html', {})
+
+def add_review(request):
+    form = BreedReviewForm(request.POST or None)
+    if form.is_valid():
+        form.save()
+    context = {
+        'form':form
+    }
+
+    return render(request, 'woofme_app/add_review.html', context)
+
 
 def review_list(request):
     review_list = BreedReview.objects.order_by('-published_date')[:9]
