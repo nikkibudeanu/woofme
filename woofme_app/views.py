@@ -6,7 +6,7 @@ def home(request):
 
     return render(request, 'woofme_app/home.html', {})
 
-def add_review(request):
+def review(request):
     return render(request, 'woofme_app/add_review.html', {})
 
 def review_list(request):
