@@ -47,6 +47,14 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
+    RATING_CHOICES = (
+        (1, '1'),
+        (2, '2'),
+        (3, '3'),
+        (4, '4'),
+        (5, '5'),
+    )
+
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     breed_image = CloudinaryField('image', default='placeholder')
     published_date = models.DateTimeField('date published')
@@ -56,3 +64,4 @@ class BreedReview(models.Model):
     friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)
     trainability = models.IntegerField(choices=TRAINABILITY_CHOICES)
     health_and_grooming_needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
+    # rating = models.IntegerField(choices=RATING_CHOICES)
