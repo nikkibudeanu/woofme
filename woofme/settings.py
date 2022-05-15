@@ -47,7 +47,9 @@ INSTALLED_APPS = [
 
     # apps
     'woofme_app',
+    'users',
 ]
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
