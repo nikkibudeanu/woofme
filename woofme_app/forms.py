@@ -1,5 +1,5 @@
 from django import forms
-form .models import BreedReview
+from .models import BreedReview
 
 class BreedReviewForm(forms.ModelForm):
     class Meta:
