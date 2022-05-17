@@ -5,17 +5,37 @@ from cloudinary.models import CloudinaryField
 import numpy as np
 
 # Create your models here.
-class Breed(models.Model):
-    breed_name = models.CharField(max_length=200)
 
-    def average_review(self):
-        all_ratings= map(lambda x: x.rating, self.review_set.all())
-        return np.mean(all_ratings)
+
+class BreedGroup(models.Model):
+    """ Create a breed group model form """
+    breed_group = models.CharField(max_length=200, unique=True)
 
     def __str__(self):
-        return self.breed_name
+        """ Return breed group name string """
+        return str(self.breed_group).lower()
+
+    def get_absolute_url(self):
+        """ Redirect user to add review page"""
+        return reverse('add_review')
+
+
+class Breed(models.Model):
+    """ Create a breed model form"""
+    breed_name = models.CharField(max_length=200)
+    group = models.ManyToManyField(BreedGroup)
+
+    def __str__(self):
+        """ Return breed name string """
+        return str(self.breed_name).lower()
+
+    def get_absolute_url(self):
+        """ Redirect user to add review """
+        return reverse('add_review')
+
 
 class BreedReview(models.Model):
+    """ Create a breed review model form"""
     ADAPTABILITY_CHOICES = (
         (1, '1'),
         (2, '2'),
@@ -40,7 +60,7 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
-    HEALTH_GROOMING_NEEDS_CHOICES=(
+    HEALTH_GROOMING_NEEDS_CHOICES = (
         (1, '1'),
         (2, '2'),
         (3, '3'),
@@ -56,7 +76,9 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
+    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
+    slug = models.CharField(max_length=50)
     breed_image = CloudinaryField('image', default='placeholder')
     published_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
@@ -72,3 +94,6 @@ class BreedReview(models.Model):
 
     def get_absolute_url(self):
         return reverse('woofme', kwargs={'pk': self.pk})
+
+
+breed_review = BreedReview.objects.all()

@@ -1,7 +1,7 @@
 from django.shortcuts import render, get_object_or_404
+from django.views.generic import ListView, DetailView, CreateView
 from .models import BreedReview, Breed
 from .forms import BreedReviewForm
-from django.views.generic import ListView, DetailView, CreateView
 
 
 # Create your views here.
