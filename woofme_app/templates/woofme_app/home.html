@@ -4,7 +4,12 @@
 
 {% block content %}
 
-<h1> Home</h1>
+<h1> List view</h1>
+<ul>
+    <li>{% for breed in objects_list %}
+</ul>
+   {{ breed.breed }} - { breed.user_name }
+   {{ breed.review }}</li>
 
-
+{% endfor %}
 {% endblock content %} 
