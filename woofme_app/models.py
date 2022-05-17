@@ -9,7 +9,7 @@ import numpy as np
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
-    breed_group = models.CharField(max_length=200, unique=True)
+    breed_group = models.CharField(max_length=200)
 
     def __str__(self):
         """ Return breed group name string """
@@ -76,9 +76,9 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
-    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE)
+    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
-    slug = models.CharField(max_length=50)
+    slug = models.CharField(max_length=50, null=True)
     breed_image = CloudinaryField('image', default='placeholder')
     published_date = models.DateTimeField('date published')
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
