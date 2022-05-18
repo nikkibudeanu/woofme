@@ -58,14 +58,24 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
                             data-bs-toggle="dropdown" aria-expanded="false">
-                            Breeds
+                            Breed Groups
                         </a>
+                        <ul class="dropdown-menu" aria-label="Dropdown Breed Group">
+                            {% for item in cat_style_menu %}
+                            <li>
+                                <a class="dropdown-item" href="{% url 'groups' item %}">{{ item|title}}
+                                </a>
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </li>
                 </ul>
-
-                <form class="d-flex">
-                    <input class="form-control me-2" type="search" placeholder="Search a breed"
-                        aria-label="Search a breed">
-                    <button class="btn btn-light" type="submit">Search a breed</button>
+                <!--  Search beer button -->
+                <form class="d-flex text-end" action="{% url 'breedgroup' %}" method="POST">
+                    {% csrf_token %}
+                    <input class="form-control me-2" type="search" placeholder="Search by breed name" 
+                       aria-label="Search your beer" name="searched">
+                    <button class="btn btn-light btn-outline-dark" name="submit" type="submit">Search</button>
                 </form>
             </div>
         </div>
