@@ -6,12 +6,15 @@ from .forms import BreedReviewForm
 
 # Create your views here.
 class HomeView(ListView):
+    """Render homepage view"""
+
     model = BreedReview
     template_name = 'home.html'
 
 
 
 class AddReviewView(CreateView):
+    """ Render add review page view """
     model = BreedReview
     template_name = 'add_review.html'
     fields = '__all__'
