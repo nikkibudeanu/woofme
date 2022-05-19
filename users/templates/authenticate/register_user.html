@@ -16,18 +16,22 @@
 
 {% endif %}
 
-<h1> Register </h1>
-<br />
-<hr>
+<div class="container container-box-signin">
+  <div class="d-flex justify-content-center col-lg-8 col-11">
+    <div class="bg-dark bg-opacity-50">
+      <div class="text-light">
+        <h3>Sign In In</h3>
+         <form action="{% url 'register' %}" method="POST">
+          {% csrf_token %}
+          {{ form}}
 
-<form action="{% url 'register' %}" method="POST">
-    {% csrf_token %}
-    {{ form.as_p}}
+          <input type="submit" value="Register" class="btn btn-secondary">
 
+        </form>
+      </div>
 
-
-    <input type="submit" value="Register" class="btn btn-secondary">
-
-</form>
+    </div>
+  </div>
+</div>
 
 {% endblock content %}

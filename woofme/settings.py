@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
+    'crispy_forms',
 
     # apps
     'woofme_app',
@@ -78,6 +79,9 @@ TEMPLATES = [
         },
     },
 ]
+
+crispy_template_pack ='uni_form'
+
 
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
