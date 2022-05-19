@@ -1,12 +1,23 @@
 from django.urls import path, include
 from .views import HomeView, BreedRatingView, AddReviewView
+   ## ReviewPageView, UpdateReviewView, DeleteReviewView, \
+   # breed_group_view
+from . import views
+
 
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
-    path('rate/<int:pk>', BreedRatingView.as_view(), name = "breed_rate"),
-    path('add_review', AddReviewView.as_view(), name = "add_review"),
-    path('review_list/pk:<review_id>', views.review_page, name='review_page'),
-    path('breed', views.breed_list, name='breed_list'),
-    path('breed/pk:<breed_id>', views.breed_page, name='breed_page'),
+    path('add_review', AddReviewView.as_view(), name= "add_review"),
+    path('review_list/', BreedRatingView.as_view(), name= "breed_rate"),
+    ##path('review_list/review_page/<int:pk>',
+         #ReviewPageView.as_view(), name='review_page'),
+   # path('review_list/edit/<int:pk>',
+   #     UpdateReviewView.as_view(), name='review_update'),
+    #path('review_list/delete/<int:pk>',
+         #DeleteReviewView.as_view(), name='review_delete'),
+    #path('review_list/group/<str:group>',
+        # breed_group_view, name='group'),
+    #path('review_list/group',
+        # views.breed_group_view, name='breedgroup'),
 
 ]
