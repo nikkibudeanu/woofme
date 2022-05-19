@@ -3,14 +3,13 @@ from django import forms
 
 
 class SignupForm(forms.Form):
-    username = forms.CharField(lavel='Enter Username', min_length=4, max_length=150)
+    username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
     email = forms.EmailField(label='Enter Email')
     password1 = forms.CharField(label='Enter your password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm your password', widget=forms.PasswordInput)
-
-   
+    
     def __init__(self, *args, **kwargs):
-        super(SignupForm, self).__init__(*args, **kwaargs)
+        super(SignupForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
 
@@ -40,7 +39,7 @@ class SignupForm(forms.Form):
     def save(self, commit=True):
         user = User.objects.create_user(
             self.cleaned_data['username'],
-            self.cleaned_data['email']
+            self.cleaned_data['email'],
             self.cleaned_data['password1']
         )
         return user

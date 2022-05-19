@@ -6,6 +6,7 @@
 
 {% block content %}
 
+<!-----------------------------------Login container ----------------------->
 
 <div class="container container-box">
   <div class="d-flex justify-content-center col-lg-4 col-11">
@@ -13,6 +14,8 @@
       <div class="card-header text-light">
         <h3>Log In</h3>
       </div>
+
+  <!-----------------------------------Login form ----------------------->
 
       <div class="card-body m-auto">
         <form action="" method="POST">
@@ -39,12 +42,15 @@
           </div>
         </form>
       </div>
+
+      <!-----------------------------------Create a account section ----------------------->
+
       <div class="card-footer">
         <div class="d-flex justify-content-center text-light">
-          Don't have an account? &nbsp;<a href="{% url 'register' %}" class="text-decoration-none text-warning zoom">Sign Up</a>
-        </div>
+          Don't have an account? &nbsp;<a href="{% url 'register' %}"
+          class="text-decoration-none text-warning zoom">Sign Up</a>        </div>
         <div class="d-flex justify-content-center">
-          <a href="#" class="text-decoration-none text-warning zoom" >Forgot your password?</a>
+          <a href="#" class="text-decoration-none text-warning zoom">Forgot your password?</a>
         </div>
       </div>
     </div>
