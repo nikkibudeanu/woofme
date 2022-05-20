@@ -90,7 +90,7 @@ class BreedReview(models.Model):
     # rating = models.IntegerField(choices=RATING_CHOICES)
 
     def __str__(self):
-        return self.breed + '|' + str(self.user_name)
+        return str(self.breed) + '|' + str(self.user_name)
 
     def get_absolute_url(self):
         return reverse('woofme', kwargs={'pk': self.pk})

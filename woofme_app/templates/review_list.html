@@ -3,21 +3,38 @@
 
 
 {% block content %}
-<h2>Reviews</h2>
-<ul>
+
+<section id="blog" class="py-3">
+
     {% for review in object_list %}
 
-    <li>{{ review.breed }}</li>
-    <li>{{ review.breed_group }}</li>
-        <li> Adaptability: {{ review.adaptability }} </li>
-        <li> Friendliness: {{ review.friendliness </li> 
-        <li> Trainability: {{ review.trainability </li>
-        <li> Health and Grooming Needs: {{ review.health_and_grooming_needs }} </li>
-        <h3>Breed review: <br/></h3>
-        <li> {{ review.review }} </li>
-        
-        {% endfor %}
-    </ul>
+    <div class="container">
+        <div class="col-lg-3 col-md-6">
+
+            <div class="card">
+                <img src="" class="img-fluid card-img-top" />
+                <div class="card-body">
+                    <h4 class="card-title">{{ review.breed }}</h4>
+                    <small class=""></small>
+                    <hr>
+                    <p class="card-text">
+                        {{ review.review }}
+                    </p>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+</section>
+
+
+{% endfor %}
+
+
+
+
 
 {% endblock content %}
 
