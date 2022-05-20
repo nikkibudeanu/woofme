@@ -38,6 +38,8 @@ body {
 input:focus{
     outline: 0 0 0 0  !important;
     box-shadow: 0 0 0 0 !important;
+    transform: scale(1.5);
+    transition: transform 330ms ease-in-out;
 
     }   
 .remember input {
