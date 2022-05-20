@@ -16,8 +16,7 @@ urlpatterns = [
    #     UpdateReviewView.as_view(), name='review_update'),
     #path('review_list/delete/<int:pk>',
          #DeleteReviewView.as_view(), name='review_delete'),
-    #path('review_list/group/<str:group>',
-        # breed_group_view, name='group'),
+    path('add_review/create_group', BreedGroupCreateView.as_view(), name='create_group'),
     #path('review_list/group',
         # views.breed_group_view, name='breedgroup'),
 

@@ -16,7 +16,7 @@ class HomeView(ListView):
     template_name = 'home.html'
 
 class BreedGroupCreateView(BSModalCreateView):
-    template_name = 'add_review'
+    template_name = 'add_review/create_group'
     form_class = CreateBreedGroupForm
     success_message = 'Success!'
     success_url = reverse_lazy('add_review')
