@@ -1,7 +1,11 @@
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, CreateView
 from .models import BreedReview, Breed
-from .forms import BreedReviewForm
+from .forms import BreedReviewForm, CreateBreedGroupForm
+from .models import BreedGroup
+
+from django.urls import reverse_lazy
+from bootstrap_modal_forms.generic import BSModalCreateView
 
 
 # Create your views here.
@@ -11,6 +15,11 @@ class HomeView(ListView):
     model = BreedReview
     template_name = 'home.html'
 
+class BreedGroupCreateView(BSModalCreateView):
+    template_name = 'add_review'
+    form_class = CreateBreedGroupForm
+    success_message = 'Success!'
+    success_url = reverse_lazy('add_review')
 
 
 class AddReviewView(CreateView):
