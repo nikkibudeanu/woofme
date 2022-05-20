@@ -6,14 +6,28 @@
         <p><strong>{{ error_message }} </strong></p>{% endif %}
         <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    
-    <div class="container container-box-signin">
-        <div class="bg-dark bg-opacity-50 col-lg-6 col-11 m-auto rounded">
+
+<div class="container mt-5">
+
+    <div class="bg-dark bg-opacity-50 col-lg-9 col-11 m-auto rounded">
+        <h1 class="text-light text-center bold p-3"> Add your breed review</h1>
             <div class="text-light">
                 <form method="POST">
                     {% csrf_token %}
-                    {{ form.as_p }}
-                    <input type="submit" value="Save">
+                    Breed Group: {{form.breed_group}} <input value="+" class="btn btn-secondary"><br/>
+                    Breed : {{form.breed}}<br/>
+                    Write your review : {{ form.review }}<br/>
+
+                    Adaptability : {{ form.adaptability }}
+                    Friendliness : {{ form.friendliness }}
+                    Trainability : {{ form.trainability }}
+                    Health and Grooming Needs : {{ form.health_and_grooming_needs }}
+
+                    <div class="text-center p-4">
+                        <input type="submit" value="Save your review"
+                            class="btn btn-secondary btn-success login-button btn-lg ">
+                    </div>
+
                 </form>
             </div>
         </div>

@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!---------------------------- Bootstrap CSS link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <!---------------------------- My CSS link --------->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
@@ -43,14 +44,16 @@
 
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                        <a class="nav-link" href="{% url 'logout' %}">Logout</a></li>
-                        {% else %}
-                        <li class="nav-item">
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'add_review' %}">Rate your Breed</a>
+                    </li>
+                    {% else %}
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'register' %}">Register</a></li>
-                        <li class="nav-item">
+                    <li class="nav-item">
                         <a class="nav-link" href="{% url 'login' %}">Login</a></li>
 
-                        {% endif %}
+                    {% endif %}
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'add_review' %}">Rate a breed</a>
@@ -73,8 +76,8 @@
                 <!--  Search beer button -->
                 <form class="d-flex text-end" action="#" method="POST">
                     {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Search by breed name" 
-                       aria-label="Search your breed" name="search">
+                    <input class="form-control me-2" type="search" placeholder="Search by breed name"
+                        aria-label="Search your breed" name="search">
                     <button class="btn btn-light btn-outline-dark" name="submit" type="submit">Search</button>
                 </form>
             </div>
@@ -124,12 +127,19 @@
 
     <!---------------------------- Bootstrap JS -->
     <script src=" https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/js/bootstrap.min.js "
-    integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
-</script>
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+    </script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"
+        integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-modal/2.2.6/js/bootstrap-modal.min.js"
+        integrity="sha512-0wCoO9w07Mu4MnC918HEsFyXhVJVoxeq+RD4XXYukmLswUHMCRbBomZE+NjxBtv88QTU/fImTY+PclhlMpJ4JA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <!---------------------------- My JS -->
     <script src="{% static 'js/script.js' %}"></script>
 
 </body>
 
-</html> 
+</html>

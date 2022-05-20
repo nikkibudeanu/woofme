@@ -16,8 +16,9 @@ class HomeView(ListView):
 class AddReviewView(CreateView):
     """ Render add review page view """
     model = BreedReview
+    form_class = BreedReviewForm
     template_name = 'add_review.html'
-    fields = '__all__'
+
     def get_absolute_url(self):
         return reverse('home')
 

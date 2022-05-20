@@ -80,7 +80,7 @@ class BreedReview(models.Model):
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     slug = models.CharField(max_length=50, null=True)
     breed_image = CloudinaryField('image', default='placeholder')
-    published_date = models.DateTimeField('date published')
+    published_date = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.CharField(max_length=200)
     adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES)
