@@ -22,9 +22,8 @@ class AddReviewView(CreateView):
         return reverse('home')
 
 
-class BreedRatingView(DetailView):
+class BreedRatingView(ListView):
     model = BreedReview
-    queryset = BreedReview.objects.order_by("-published_date")
     template_name = 'review_list.html'
 
 

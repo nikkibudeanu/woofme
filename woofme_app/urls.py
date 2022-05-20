@@ -8,7 +8,7 @@ from . import views
 urlpatterns = [
     path('', HomeView.as_view(), name='home'),
     path('add_review', AddReviewView.as_view(), name= "add_review"),
-    path('review_list/', BreedRatingView.as_view(), name= "breed_rate"),
+    path('review_list/', BreedRatingView.as_view(), name= "review_list"),
     ##path('review_list/review_page/<int:pk>',
          #ReviewPageView.as_view(), name='review_page'),
    # path('review_list/edit/<int:pk>',

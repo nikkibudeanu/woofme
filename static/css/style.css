@@ -1,6 +1,11 @@
+
 body {
-    background: #9c4848 url("media/home_page.jpg");
-    background-size: 100%;
+    padding-bottom: 100px !important;
+}
+
+.bg {
+    background: url("/media/home_page.jpg");
+    background-size: cover;
     background-repeat: no-repeat;
     height: 100vh;
 }
