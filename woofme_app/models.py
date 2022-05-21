@@ -22,7 +22,7 @@ class BreedGroup(models.Model):
 
 class Breed(models.Model):
     """ Create a breed model form"""
-    breed_name = models.CharField(max_length=200)
+    breed_name = models.CharField(max_length=200, unique=True)
     group = models.ManyToManyField(BreedGroup)
 
     def __str__(self):
