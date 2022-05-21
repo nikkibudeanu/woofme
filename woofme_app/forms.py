@@ -21,7 +21,7 @@ class CreateBreedGroupForm(forms.ModelForm):
         """Get breed model, choose field to display and add widget
         with bootstrap class"""
         model = BreedGroup
-        fields = '__all__'
+        fields = 'breed_group'
         widgets = {
             'breed_group': forms.TextInput(attrs={
                 'class': 'form-control'}),
