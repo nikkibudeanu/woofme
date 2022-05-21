@@ -15,27 +15,36 @@
             <div class="text-light">
                 <form method="POST" actions="/add_review">
                     {% csrf_token %}
+                    <div class="m-3 align-middle p-2">
 
-                    Breed Group: {{ review_form.breed_group}}
-                    <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#breedgroupmodal">
-                        Create Breed Group
-                    </button>
+                        Breed Group: {{ review_form.breed_group}}
+                        <!------------------------------------------------ Button trigger create a beer style modal -->
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#breedgroupmodal">
+                            Create Breed Group
+                        </button>
+                    </div>
 
                     <br />
-                    Breed : {{review_form.breed}}<br /> <button type="button" class="btn btn-primary"
-                        data-bs-toggle="modal" data-bs-target="#breedmodal">
-                        Create Breed
-                    </button><br /><br />
-                    Write your review : {{ review_form.review }}<br />
+                    <div class="m-3 align-middle p-2">
 
-                    Adaptability : {{ review_form.adaptability }}
-                    Friendliness : {{ review_form.friendliness }}
-                    Trainability : {{ review_form.trainability }}
-                    Health and Grooming Needs : {{ review_form.health_and_grooming_needs }}
-                    Add your breed picture: {{ review_form.breed_image }}
-                    {{ review_form.user_name}}
+                        Breed : {{review_form.breed}}<br /> <button type="button" class="btn btn-primary"
+                            data-bs-toggle="modal" data-bs-target="#breedmodal">
+                            Create Breed
+                        </button>
+                    </div>
+                    <br /><br />
+                    Write your review : {{ review_form.review }}<br />
+                    <div class="m-3 align-middle p-2 text-center">
+                        Adaptability : {{ review_form.adaptability }}
+                        Friendliness : {{ review_form.friendliness }}
+                        Trainability : {{ review_form.trainability }}
+                        Health and Grooming Needs : {{ review_form.health_and_grooming_needs }}
+                        Add your breed picture: {{ review_form.breed_image }}
+                    </div>
+                    <div class="m-3 align-middle p-2 text-center">
+                        {{ review_form.user_name}}
+                    </div>
                     <div class="text-center p-4">
                         <input type="submit" value="Save your review"
                             class="btn btn-secondary btn-success login-button btn-lg ">
@@ -43,9 +52,9 @@
                     </div>
 </fieldset>
 <fieldset>
-    <!-- Breed Group Modal -->
+    <!------------------------------------------------------ Breed Group Modal -------------------------------->
     <div class="modal fade" id="breedgroupmodal" tabindex="-1" aria-labelledby="BreedGroupModal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="BreedGroupModalLabel">Create a Breed Group</h5>
@@ -56,16 +65,17 @@
                     <form method="POST" actions="/add_review">
                         {% csrf_token %}
                         {{ group_form }}
-                        <!-- Button trigger modal -->
-                        <input name="comment" type="submit" value="Submit" />
-                        </button>
+                        <!------------------------------------------- Button trigger modal ----------------------------->
+                        <div class="m-2 text-center">
+                            <input name="comment" class="btn btn-success" type="submit" value="Submit" />
+                            </button> </div>
                     </form>
 </fieldset>
 
 <fieldset>
-    <!-- Breed Modal -->
+    <!---------------------------------------------------- Breed Modal --------------------------------------->
     <div class="modal fade" id="breedmodal" tabindex="-1" aria-labelledby="BreedModal" aria-hidden="true">
-        <div class="modal-dialog">
+        <div class="modal-dialog modal-dialog-centered">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="BreedModalLabel">Add your breed</h5>
@@ -76,9 +86,10 @@
                     <form method="POST" actions="">
                         {% csrf_token %}
                         {{ breed_form.breed_name }}
-                        <!-- Button trigger modal -->
-                        <input name="comment" type="submit" value="Submit" />
-                        </button>
+                        <!------------------------------------------- Button trigger modal ----------------------------->
+                        <div class="m-2 text-center">
+                            <input name="comment" class="btn btn-success " type="submit" value="Create" />
+                            </button></div>
                     </form>
 </fieldset>
 
