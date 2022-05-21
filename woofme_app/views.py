@@ -15,45 +15,30 @@ class HomeView(ListView):
     model = BreedReview
     template_name = 'home.html'
 
-class BreedGroupCreateView(BSModalCreateView):
-    template_name = 'add_review/create_group'
-    form_class = CreateBreedGroupForm
-    success_message = 'Success!'
-    success_url = reverse_lazy('add_review')
-
-
 class AddReviewView(CreateView):
     """ Render add review page view """
     model = BreedReview
     form_class = BreedReviewForm
     template_name = 'add_review.html'
 
-    def get_absolute_url(self):
-        return reverse('home')
+
+def get_review(request):
+    if request.method == 'POST':
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/thanks/')
+        else:
+            form=form_class
+
+        return render(request, 'home.html', {'form': form_class})
 
 
 class BreedRatingView(ListView):
     model = BreedReview
-    template_name = 'review_list.html'
+    template_name = 'review_list.html'  
 
+class BreedGroupCreateView(BSModalCreateView):
+    template_name = 'add_review/create_group.html'
+    form_class = CreateBreedGroupForm
+    success_message = 'Success!'
 
-# def review_list(request):
-#     review_list = BreedReview.objects.order_by('-pub_date')[:9]
-#     context = {'review_list':review_list}
-#     return render(request, 'review_list.html', context)
-
-
-# def review_page(request, review_id):
-#     review = get_object_or_404(BreedReview, pk=review_id)
-#     return render(request, 'reviews/review_list.html', {'review': review})
-
-
-# def breed_list(request):
-#     breed_list = Breed.objects.order_by('-name')
-#     context = {'breed_list':breed_list}
-#     return render(request, 'reviews/breed_list.html', context)
-
-
-# def breed_page(request, breed_id):
-#     breed = get_object_or_404(Breed, pk=breed_id)
-#     return render(request, 'reviews/breed_detail.html', {'breed': breed})
