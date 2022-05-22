@@ -48,6 +48,7 @@ INSTALLED_APPS = [
     'bootstrap5',
     'crispy_forms',
     'bootstrap_modal_forms',
+    'active_link',
 
 
     # apps

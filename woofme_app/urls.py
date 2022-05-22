@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import HomeView, BeerRatingView, AddReviewView, ReviewDetailView
+from .views import HomeView, BreedRatingView, AddReviewView, ReviewPageView, BreedGroupCreateView
    ## ReviewPageView, UpdateReviewView, DeleteReviewView, \
    # breed_group_view
 from . import views
