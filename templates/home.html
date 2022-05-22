@@ -7,39 +7,13 @@
 <div class=" container container-box bg-dark bg-opacity-50 rounded text-light text-center p-2 col-lg-4 col-11">
     <div class="row justify-content-start"> 
         <div class= "col ">
-    <h6>Woofme - best place to tell about your dog's breed. </h6>
-    <h1  class ="bold" >Welcome to Woofme</h1>
     <p>Add your review and insights about your most beloved dog breed.</p>
 </div>
 </div>
 </div>
 
 <ul>
-    {% if object_list %}
-
-    <div>
-
-        {% for review in object_list %} 
-
-
-        <div>
-            <h2> Breed name: {{ review.breed }}
-            </h2>
-            <h3> Adaptability: {{ review.adaptability }} </h3>
-            <h3> Friendliness: {{ review.friendliness }} </h3> 
-            <h3> Trainability: {{ review.trainability }}</h3>
-            <h3> Health and Grooming Needs: {{ review.health_and_grooming_needs }} </h3>
-            <h4> Breed review: <br /></h4>
-            <p> {{ review.review }} </p>
-
-        </div>
-    </div>
-    {% endfor %}
-    {% else %}
-
-    <p> No reviews are available. </p>
-
-    {% endif %}
+  
 
     {% endblock content %}
 
