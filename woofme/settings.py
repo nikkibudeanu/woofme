@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'django.template.context_processors.media',
+    #'django.template.context_processors.media',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
