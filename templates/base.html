@@ -40,23 +40,27 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'home' %}">Home</a>
-                    </li>
 
+                    <li class="nav-item ">
+                        <a class="nav-link {% active_link 'home' %}" aria-current="page" href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% active_link 'review_list' %}" aria-current="page" href="{% url 'review_list' %}">Breed Reviews</a>
+                    </li>
                     <li class="nav-item">
                         {% if user.is_authenticated %}
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="{% url 'review_list' %}">Beer Reviews</a>
+                        <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_review' %}">Rate your Breed</a>
+                        <a class="nav-link {% active_link 'add_review' %}" href="{% url 'add_review' %}">Rate your Breed</a>
+
                     </li>
+
                     {% else %}
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'register' %}">Register</a></li>
+                        <a class="nav-link {% active_link 'register' %}" href="{% url 'register' %}">Register</a></li>
                     <li class="nav-item">
-                        <a class="nav-link" href="{% url 'login' %}">Login</a></li>
+                        <a class="nav-link {% active_link 'login' %}" href="{% url 'login' %}">Login</a></li>
 
                     {% endif %}
                     </li>
