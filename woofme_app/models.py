@@ -79,7 +79,7 @@ class BreedReview(models.Model):
     breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     slug = models.CharField(max_length=50, null=True)
-    breed_image = CloudinaryField('image', default='placeholder')
+    breed_image = CloudinaryField('image', blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.CharField(max_length=200)
