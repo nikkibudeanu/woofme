@@ -1,9 +1,11 @@
 from django.http import Http404
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, View
+from django.views.generic import ListView, DetailView, CreateView, View, TemplateView
 from .models import BreedReview, Breed
 from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
 from .models import BreedGroup
+from django.views import generic
+
 
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView
@@ -80,3 +82,7 @@ class BreedGroupCreateView(ListView):
     """ Create a beer style on add review page """
     template_name = 'add_review/create_breed_group.html'
     form_class = CreateBreedGroupForm
+
+class ReviewPageView(DetailView):
+    model = BreedReview
+    template_name = 'review_list/review_page.html'
