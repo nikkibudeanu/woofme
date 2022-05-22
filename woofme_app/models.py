@@ -31,7 +31,7 @@ class Breed(models.Model):
 
     def get_absolute_url(self):
         """ Redirect user to add review """
-        return reverse('home')
+        return reverse('add_review')
 
 
 class BreedReview(models.Model):
