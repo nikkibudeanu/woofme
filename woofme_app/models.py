@@ -93,7 +93,7 @@ class BreedReview(models.Model):
         return str(self.breed) + '|' + str(self.user_name)
 
     def get_absolute_url(self):
-        return reverse('woofme', kwargs={'pk': self.pk})
+        return reverse('review_list', kwargs={'pk': self.pk})
 
 
 breed_review = BreedReview.objects.all()
