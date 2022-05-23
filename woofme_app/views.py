@@ -99,3 +99,7 @@ class EditReviewView(UpdateView):
         self.object = form.save(commit=False)
         self.object.save()
         return redirect ('review_page', self.object.pk)
+
+class DeleteReviewView(DeleteView):
+    model = BreedReview
+    template_name = 'delete_review.html' 
