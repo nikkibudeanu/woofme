@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+
+<fieldset>
+
+  <div class="container mt-5">
+    <div class="bg-dark bg-opacity-50 col-lg-9 col-11 m-auto rounded">
+      <h1 class="text-light text-center bold p-3"> Edit your breed review</h1>
+      <div class="text-light">
+        <form method="POST" actions="/add_review">
+          {% csrf_token %}
+          <div class="m-3 align-middle p-2">
+            Breed Group: {{ form.breed_group}}
+
+            <div class="m-3 align-middle p-2 ">
+              Breed : {{ form.breed}}
+            </div>
+            <div>
+
+              Edit your review: {{ form.review}}
+            </div>
+            <div class="align-middle p-2 text-center">
+              Adaptability: {{ form.adaptability}}
+              Friendliness: {{ form.friendliness}}
+              Trainability: {{ form.trainability}}
+              Health and Grooming Needs: {{ form.health_and_grooming_needs}}
+              <div class="p-3"> Add your breed's picture : {{form.breed_image}}</div>
+            </div>
+            <div class="text-center">
+              <input type="submit" value="Update" name="htmlsubmitbutton1"
+                class="btn btn-secondary btn-success login-button btn-lg ">
+            </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</fieldset>
+
+{% endblock content %} 
