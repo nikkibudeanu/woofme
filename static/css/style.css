@@ -52,3 +52,7 @@ input:focus{
     transform: scale(1.2);
     transition: transform 330ms ease-in-out;
 } 
+
+.detail-container{
+    max-width: 840px;
+}

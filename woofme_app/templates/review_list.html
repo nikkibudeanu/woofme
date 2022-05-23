@@ -15,20 +15,22 @@
         </div>
         <div class="row ">
             {% for review in object_list %}
-            <div class="col-lg-4 mb-3 d-flex align-items-stretch">
-                <div class="card text-light bg-dark bg-opacity-25 rounded">
+            <div class="card text-light bg-dark bg-opacity-75 rounded">
+                <a href="{% url 'review_page' review.pk %}"
+                    class="text-decoration-none text-uppercase fw-bold text-white">
+                    <h4 class="m-3 text-center"> {{ review.breed }} </h3>
+                </a>
                     {% if review.breed_image %}
-                    <a href ="{% url 'review_page' review.pk %}"><h4 class="m-3 text-center"> {{ review.breed }} </h3></a>
 
-                        <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container">
-                        {% else %}
-                        <img src="{{ MEDIA_URL }}"
-                            alt="default error image">
-                        {% endif %}
-                        <div class="card-body d-flex flex-column">
-                            <h5 class="card-title">{{ review.group}</h5>
-                            <p class="card-text mb-4 text-truncate">{{ review.review}}</p>
-</div>
+                    <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container">
+                    {% else %}
+                    <img src="{{ MEDIA_URL }}" alt="default error image">
+                    {% endif %}
+                    <div class="card-body d-flex flex-column">
+                        <h5 class="card-title">{{ review.group}}</h5>
+                        <p class="card-text mb-4 text-truncate">{{ review.review}}</p>
+
+                    </div>
 </div>
 </div>
 {% endfor %}
