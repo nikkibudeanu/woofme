@@ -92,9 +92,9 @@ class ReviewPageView(DetailView):
 
 class EditReviewView(UpdateView):
     model = BreedReview
+    form_class = BreedReviewForm
     template_name = 'edit_review.html'
-    fields= ['breed', 'review', 'breed_group', 'adaptability', 'friendliness', 'trainability', 'health_and_grooming_needs']
-
+    
     def form_valid(self, form):
         self.object = form.save(commit=False)
         self.object.save()
