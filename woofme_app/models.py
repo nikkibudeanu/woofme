@@ -3,6 +3,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
 import numpy as np
+from django.conf import settings 
 
 # Create your models here.
 
@@ -81,7 +82,7 @@ class BreedReview(models.Model):
     slug = models.CharField(max_length=50, null=True)
     breed_image = CloudinaryField('image', blank=True)
     published_date = models.DateTimeField(auto_now_add=True)
-    user_name = models.ForeignKey(User, on_delete=models.CASCADE)
+    user_name = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     review = models.CharField(max_length=200)
     adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES)
     friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)

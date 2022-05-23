@@ -51,7 +51,9 @@ def post(self, request, *args, **kwargs):
         review_form = BreedReviewForm(request.POST)
 
         if review_form.is_valid():
-            review_form.save()
+            review = review_form.save(commit=False)
+            review.user_name = request.user
+            review.save()
         else:
             ctxt['review_form'] = review_form
     
