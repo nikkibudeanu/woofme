@@ -6,8 +6,6 @@ from .models import BreedReview, Breed
 from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
 from .models import BreedGroup
 from django.views import generic
-
-
 from django.urls import reverse_lazy
 from bootstrap_modal_forms.generic import BSModalCreateView
 
@@ -102,4 +100,6 @@ class EditReviewView(UpdateView):
 
 class DeleteReviewView(DeleteView):
     model = BreedReview
-    template_name = 'delete_review.html' 
+    form_class = BreedReviewForm
+    template_name = 'review_list/delete_review.html' 
+    succes_url = reverse_lazy('review_list')
