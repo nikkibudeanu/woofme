@@ -56,3 +56,11 @@ input:focus{
 .detail-container{
     max-width: 840px;
 }
+
+.card img {
+    width : 200px;
+}
+
+.card p {
+    max-width: 150px;
+}
