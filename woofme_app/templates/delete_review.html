@@ -1,22 +1,30 @@
-{% extends 'base.html' %}
 
+{% extends 'base.html' %}
 {% block content %}
 
-<h1>
+{% if user.is_authenticated %}
 
-</h1>
+<fieldset>
 
-<div class=" form-group">
-    <form method="POST">
-        {% csrf_token %}
-        <strong>Are your Sure?</strong>
-        <button class="btn btn-secondary"> Delete Post! </button>
-    </form>
+    <div class="container mt-5">
+        <div class="bg-dark bg-opacity-75 col-lg-9 col-11 m-auto rounded m-2">
+            <h1 class="text-light text-center bold p-3"> Delete review</h1>
+            <div class="text-light text-center">
+                <h5> Breed: {{ object.breed }}</h5>
+                <p>{{ object.review }}</p>
+                <p class= "text-muted">Created by:{{ object.user_name }}</p>
+                <form method="POST" actions="">
+                    {% csrf_token %}
 
-</div>
+                        <button class="btn btn-secondary btn-success login-button btn-lg m-2" >Delete </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</fieldset>
 
 
-
-
+{% endif %}
 
 {% endblock content %} 

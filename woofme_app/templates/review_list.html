@@ -20,40 +20,33 @@
                     class="text-decoration-none text-uppercase fw-bold text-white">
                     <h4 class="m-3 text-center"> {{ review.breed }} </h4>
                 </a>
-                    {% if review.breed_image %}
+                {% if review.breed_image %}
 
-                    <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container">
-                    {% else %}
-                    <img src="{{ MEDIA_URL }}" alt="default error image">
+                <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container">
+                {% else %}
+                <img src="{{ MEDIA_URL }}" alt="default error image">
+                {% endif %}
+                <div class="card-body d-flex flex-column text-center">
+                    <p class="text-truncate"> {{ review.review }} </p>
+                    <h5>{{ review.breed_group}}</h5>
+
+                    {% if user.is_authenticated %}
+                    {% if user.id == review.user_name.id %}
+
+
+                    <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white">
+                        <h4 class="m-3 text-center"> Edit </h3>
+                    </a>
+
+                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white">
+                        <h4 class="m-3 text-center"> Delete </h3>
+                    </a>
+
                     {% endif %}
-                    <div class="card-body d-flex flex-column text-center"> 
-                        <p class="text-truncate"> {{ review.review }} </p>
-                        <h5>{{ review.breed_group}}</h5>
-                        
-                        {% if user.is_authenticated %}
-                        {% if user.id == review.user_name.id %}
-
-
-                        <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white">
-                            <h4 class="m-3 text-center"> Edit </h3>
-                        </a>
-
-                        <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white">
-                            <h4 class="m-3 text-center"> Delete </h3>
-                        </a>
-
-                        {% endif %}
-                        {% endif %}
-                    </div>
-</div>
-</div>
-{% endfor %}
-</div>
-{% endblock %}
-
-
-
-
-
-
-
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endblock %}
