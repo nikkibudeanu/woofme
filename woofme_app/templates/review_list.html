@@ -15,10 +15,12 @@
         </div>
         <div class="row ">
             {% for review in object_list %}
+            <div class="col-lg-4 mb-3 d-flex ">
             <div class="card text-light bg-dark bg-opacity-75 rounded">
                 <a href="{% url 'review_page' review.pk %}"
                     class="text-decoration-none text-uppercase fw-bold text-white">
                     <h4 class="m-3 text-center"> {{ review.breed }} </h4>
+                    <h5> {{ review.breed_group }}</h5>
                 </a>
                 {% if review.breed_image %}
 
@@ -34,13 +36,15 @@
                     {% if user.id == review.user_name.id %}
 
 
-                    <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white">
-                        <h4 class="m-3 text-center"> Edit </h3>
-                    </a>
-
-                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white">
-                        <h4 class="m-3 text-center"> Delete </h3>
-                    </a>
+                    <span class="m-auto">
+                        <h4>
+                            <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white"><i
+                                    class="fas fa-edit px-2"></i>
+                            </a>
+                            <a href="{% url 'delete_review' review.pk %}" class="text-decoration-none text-white">
+                                <i class="fas fa-trash px-2 pb-2"></i>
+                            </a></h4>
+                </span>
 
                     {% endif %}
                     {% endif %}
