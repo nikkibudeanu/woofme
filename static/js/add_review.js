@@ -10,47 +10,47 @@ const form = document.querySelector('.review-form')
 const handleSelect = (selection) => {
     switch (selection) {
         case 'first': {
-            one.classList.add('checked')
-            two.classList.remove('checked')
-            three.classList.remove('checked')
-            four.classList.remove('checked')
-            five.classList.remove('checked')
+            one.classList.add('selected')
+            two.classList.remove('selected')
+            three.classList.remove('selected')
+            four.classList.remove('selected')
+            five.classList.remove('selected')
             return
 
         }
         case 'second': {
-            one.classList.add('checked')
-            two.classList.add('checked')
-            three.classList.remove('checked')
-            four.classList.remove('checked')
-            five.classList.remove('checked')
+            one.classList.add('selected')
+            two.classList.add('selected')
+            three.classList.remove('selected')
+            four.classList.remove('selected')
+            five.classList.remove('selected')
             return
 
         }
         case 'third': {
-            one.classList.add('checked')
-            two.classList.add('checked')
-            three.classList.add('checked')
-            four.classList.remove('checked')
-            five.classList.remove('checked')
+            one.classList.add('selected')
+            two.classList.add('selected')
+            three.classList.add('selected')
+            four.classList.remove('selected')
+            five.classList.remove('selected')
             return
 
         }
         case 'fourth': {
-            one.classList.add('checked')
-            two.classList.add('checked')
-            three.classList.add('checked')
-            four.classList.add('checked')
-            five.classList.remove('checked')
+            one.classList.add('selected')
+            two.classList.add('selected')
+            three.classList.add('selected')
+            four.classList.add('selected')
+            five.classList.remove('selected')
             return
 
         }
         case 'fifth': {
-            one.classList.add('checked')
-            two.classList.add('checked')
-            three.classList.add('checked')
-            four.classList.add('checked')
-            five.classList.add('checked')
+            one.classList.add('selected')
+            two.classList.add('selected')
+            three.classList.add('selected')
+            four.classList.add('selected')
+            five.classList.add('selected')
             return
 
         }
@@ -90,6 +90,6 @@ arr.forEach(item => item.addEventListener('click', (event) => {
 
     const val_num = getNumericValue(val)
     console.log(val_num)
-    form.score.value = val_num
-    console.log(form.score.value)
+    form.rating.value = val_num
+    console.log(form.rating.value)
 })) 

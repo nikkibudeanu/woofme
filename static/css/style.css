@@ -80,6 +80,15 @@ input:focus{
     margin: 0 auto;
 }
 
-.checked{
+.selected{
     color: blue;
+}
+
+.stars{
+    margin: 0 auto;
+    width: fit-content;
+}
+
+#id_score{
+    display:none;
 }
