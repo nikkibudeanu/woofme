@@ -84,10 +84,10 @@ class BreedReview(models.Model):
     published_date = models.DateTimeField(auto_now_add=True)
     user_name = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField(max_length=200)
-    adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES)
-    friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)
-    trainability = models.IntegerField(choices=TRAINABILITY_CHOICES)
-    health_and_grooming_needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
+    adaptability = models.IntegerField(choices=ADAPTABILITY_CHOICES, default=0)
+    friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES, default=0)
+    trainability = models.IntegerField(choices=TRAINABILITY_CHOICES, default=0)
+    health_and_grooming_needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES, default=0)
     rating = models.IntegerField(default=0)
 
     def __str__(self):
