@@ -85,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-crispy_template_pack ='uni_form'
+crispy_template_pack = 'uni_form'
 
 
 WSGI_APPLICATION = 'woofme.wsgi.application'

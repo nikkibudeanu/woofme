@@ -14,7 +14,7 @@
         <div class="bg-dark bg-opacity-50 col-lg-9 col-11 m-auto rounded">
             <h1 class="text-light text-center bold p-3"> Add a breed review</h1>
             <div class="text-light">
-                <form method="POST" actions="/add_review">
+                <form method="POST" actions="/add_review" enctype="multipart/form-data">
                     {% csrf_token %}
                     <div class="m-3 align-middle p-2">
 
@@ -42,6 +42,7 @@
                         Trainability : {{ review_form.trainability }}
                         Health and Grooming Needs : {{ review_form.health_and_grooming_needs }}
                         Add your breed picture: {{ review_form.breed_image }}
+                        {{ review_form.rating}}
                     </div>
                     <div class="m-3 align-middle p-2 text-center">
                         {{ review_form.user_name}}

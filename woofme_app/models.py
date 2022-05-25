@@ -88,7 +88,7 @@ class BreedReview(models.Model):
     friendliness = models.IntegerField(choices=FRIENDLINESS_CHOICES)
     trainability = models.IntegerField(choices=TRAINABILITY_CHOICES)
     health_and_grooming_needs = models.IntegerField(choices=HEALTH_GROOMING_NEEDS_CHOICES)
-    # rating = models.IntegerField(choices=RATING_CHOICES)
+    rating = models.IntegerField()
 
     def __str__(self):
         return str(self.breed) + '|' + str(self.user_name)

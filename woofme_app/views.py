@@ -1,7 +1,7 @@
 from django.http import Http404
 from django.shortcuts import redirect
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, View, UpdateView
+from django.views.generic import ListView, DetailView, CreateView, View, UpdateView, DeleteView
 from .models import BreedReview, Breed
 from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
 from .models import BreedGroup
@@ -91,7 +91,7 @@ class ReviewPageView(DetailView):
 class EditReviewView(UpdateView):
     model = BreedReview
     form_class = BreedReviewForm
-    template_name = 'edit_review.html'
+    template_name = 'review_list/edit_review.html'
     
     def form_valid(self, form):
         self.object = form.save(commit=False)

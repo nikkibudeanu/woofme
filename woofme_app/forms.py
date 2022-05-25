@@ -5,7 +5,7 @@ from bootstrap_modal_forms.forms import BSModalModelForm
 class BreedReviewForm(forms.ModelForm):
     class Meta:
         model = BreedReview
-        fields =['breed', 'user_name', 'review', 'adaptability', 'friendliness', 'trainability','health_and_grooming_needs', 'breed_image' ]
+        fields = ['breed_group', 'breed', 'review','adaptability',  'trainability', 'friendliness', 'health_and_grooming_needs', 'breed_image', 'rating']
 
         widgets = {
             'review': forms.Textarea(attrs={'class' : 'form-control'})
