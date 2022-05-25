@@ -9,16 +9,16 @@
 </div>
 <fieldset>
 
-    <div class="container mt-5">
+    <div class="container mt-2">
 
-        <div class="bg-dark bg-opacity-50 col-lg-9 col-11 m-auto rounded">
+        <div class="bg-dark bg-opacity-75 col-lg-9 col-11 m-auto rounded">
             <h1 class="text-light text-center bold p-3"> Add a breed review</h1>
             <div class="text-light">
                 <form method="POST" actions="/add_review" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="m-3 align-middle p-2">
+                    <div class="m-2 align-middle field_container">
 
-                        Breed Group: {{ review_form.breed_group}}
+                        Breed Group:  &nbsp;{{ review_form.breed_group}}
                         <!------------------------------------------------ Button trigger create a beer style modal -->
                         <button type="button" class="btn btn-primary" data-bs-toggle="modal"
                             data-bs-target="#breedgroupmodal">
@@ -27,7 +27,7 @@
                     </div>
 
                     <br />
-                    <div class="m-3 align-middle p-2">
+                    <div class="m-2 align-middle p-2">
 
                         Breed : {{review_form.breed}}<br /> <button type="button" class="btn btn-primary"
                             data-bs-toggle="modal" data-bs-target="#breedmodal">
@@ -35,19 +35,31 @@
                         </button>
                     </div>
                     <br /><br />
-                    Write your review : {{ review_form.review }}<br />
-                    <div class="m-3 align-middle p-2 text-center">
-                        Adaptability : {{ review_form.adaptability }}
-                        Friendliness : {{ review_form.friendliness }}
-                        Trainability : {{ review_form.trainability }}
-                        Health and Grooming Needs : {{ review_form.health_and_grooming_needs }}
-                        Add your breed picture: {{ review_form.breed_image }}
-                        {{ review_form.rating}}
+                    <div class="text-center">
+                    Write your review : {{ review_form.review }}<br /> </div>
+                    <div class="mt-2 field_container">
+                        
+                        Adaptability : {{ review_form.adaptability }} </div>
+                        <div class="mt-2 field_container">
+
+                        Friendliness : {{ review_form.friendliness }} </div>
+
+                        <div class="mt-2 field_container">
+
+                        Trainability : {{ review_form.trainability }} </div>
+
+                        <div class="mt-2 field_container">
+
+                        Health and Grooming Needs : {{ review_form.health_and_grooming_needs }} </div>
+
+                        <div class="mt-2">
+                        Add your breed picture: {{ review_form.breed_image }} </div>
+                        
+                        <div class="mt-2">
+                        {{ review_form.rating}} </div>
+
                     </div>
-                    <div class="m-3 align-middle p-2 text-center">
-                        {{ review_form.user_name}}
-                    </div>
-                    <div class="text-center p-4">
+                    <div class="text-center p-2">
                         <input type="submit" value="Save your review"
                             class="btn btn-secondary btn-success login-button btn-lg ">
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

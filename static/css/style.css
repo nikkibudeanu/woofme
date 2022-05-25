@@ -64,3 +64,18 @@ input:focus{
 .card p {
     max-width: 150px;
 }
+
+
+#id_breed_group,
+#id_breed,
+#id_adaptabilty,
+#id_trainability,
+#id_friendliness,
+#id_health_and_grooming_needs{
+    width: 200px;
+}
+
+#id_review{
+    width:500px;
+    margin: 0 auto;
+}
