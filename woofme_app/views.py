@@ -7,6 +7,7 @@ from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
 from .models import BreedGroup
 from django.views import generic
 from django.urls import reverse_lazy
+import logging
 from bootstrap_modal_forms.generic import BSModalCreateView
 
 
@@ -31,6 +32,7 @@ def get_object(self):
 
 def get_context_data(self, **kwargs):
     kwargs['review'] = self.get_object()
+
     if 'review_form' not in kwargs:
         kwargs['review_form'] = BreedReviewForm()
     if 'group_form' not in kwargs:
@@ -53,8 +55,11 @@ def post(self, request, *args, **kwargs):
             review = review_form.save(commit=False)
             review.user_name = request.user
             review.save()
+            logging.debug('debug message1')
+            return redirect('review_page', review_pk)
         else:
             ctxt['review_form'] = review_form
+            logging.debug('debug message2')
     
     elif 'breed_group' in request.POST:
         group_form = CreateBreedGroupForm(request.POST)
@@ -71,12 +76,14 @@ def post(self, request, *args, **kwargs):
             breed_form.save()
         else:
             ctxt['breed_form'] = breed_form
-
+    logging.debug('debug message3')
+    
     return render(request, self.template_name, self.get_context_data(**ctxt))
 
 class BreedRatingView(ListView):
     model = BreedReview
-    template_name = 'review_list.html'  
+    template_name = 'review_list.html'
+    paginate_by = 3
 
 
 class BreedGroupCreateView(ListView):
