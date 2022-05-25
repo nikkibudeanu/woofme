@@ -1,7 +1,7 @@
 from django.http import Http404
-from django.shortcuts import redirect
+from django.shortcuts import redirect, render
 from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, CreateView, View, UpdateView, DeleteView
+from django.views.generic import ListView, DetailView, View, UpdateView, DeleteView
 from .models import BreedReview, Breed
 from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
 from .models import BreedGroup
@@ -84,9 +84,11 @@ class BreedGroupCreateView(ListView):
     template_name = 'add_review/create_breed_group.html'
     form_class = CreateBreedGroupForm
 
+
 class ReviewPageView(DetailView):
     model = BreedReview
     template_name = 'review_list/review_page.html'
+
 
 class EditReviewView(UpdateView):
     model = BreedReview
@@ -97,6 +99,7 @@ class EditReviewView(UpdateView):
         self.object = form.save(commit=False)
         self.object.save()
         return redirect ('review_page', self.object.pk)
+
 
 class DeleteReviewView(DeleteView):
     model = BreedReview
