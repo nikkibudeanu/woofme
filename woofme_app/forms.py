@@ -8,7 +8,7 @@ class BreedReviewForm(forms.ModelForm):
         fields = ['breed_group', 'breed', 'review','adaptability',  'trainability', 'friendliness', 'health_and_grooming_needs', 'breed_image', 'rating']
 
         widgets = {
-            'review': forms.Textarea(attrs={'class' : 'form-control'})
+            'review': forms.Textarea(attrs={'class' : 'form-control', 'placeholder': 'Go on! Write your review here!'})
         }
 
 # form = BreedReview()
