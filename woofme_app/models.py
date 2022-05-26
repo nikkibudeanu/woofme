@@ -2,9 +2,6 @@ from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from django.conf import settings
-
-# Create your models here.
 
 
 class BreedGroup(models.Model):
@@ -24,7 +21,8 @@ class BreedGroup(models.Model):
 class Breed(models.Model):
     """ Create a breed model form"""
     name = models.CharField(max_length=200, unique=True)
-    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
+    breed_group = models.ForeignKey(
+        BreedGroup, on_delete=models.CASCADE, null=True)
     slug = models.CharField(max_length=50, null=True)
     breed_image = CloudinaryField('image', blank=True)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
@@ -56,7 +54,8 @@ class BreedReview(models.Model):
     adaptability = models.IntegerField(choices=RATING_CHOICES, default=0)
     friendliness = models.IntegerField(choices=RATING_CHOICES, default=0)
     trainability = models.IntegerField(choices=RATING_CHOICES, default=0)
-    health_and_grooming_needs = models.IntegerField(choices=RATING_CHOICES, default=0)
+    health_and_grooming_needs = models.IntegerField(
+        choices=RATING_CHOICES, default=0)
     rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def __str__(self):
