@@ -3,7 +3,7 @@ from django.shortcuts import redirect, render
 from django.shortcuts import render, get_object_or_404
 from django.views.generic import ListView, DetailView, View, UpdateView, DeleteView
 from .models import BreedReview, Breed
-from .forms import BreedReviewForm, CreateBreedGroupForm, CreateBreedForm
+from .forms import BreedReviewForm, CreateBreedForm
 from .models import BreedGroup
 from django.views import generic
 from django.urls import reverse_lazy
@@ -35,8 +35,6 @@ def get_context_data(self, **kwargs):
 
     if 'review_form' not in kwargs:
         kwargs['review_form'] = BreedReviewForm()
-    if 'group_form' not in kwargs:
-        kwargs['group_form'] = CreateBreedGroupForm()
     if 'breed_form' not in kwargs:
         kwargs['breed_form'] = CreateBreedForm()
 
@@ -61,15 +59,9 @@ def post(self, request, *args, **kwargs):
             ctxt['review_form'] = review_form
             logging.debug('debug message2')
     
-    elif 'breed_group' in request.POST:
-        group_form = CreateBreedGroupForm(request.POST)
 
-        if group_form.is_valid():
-            group_form.save()
-        else:
-            ctxt['group_form'] = group_form
     
-    elif 'breed_name' in request.POST:
+    elif 'name' in request.POST:
         breed_form = CreateBreedForm(request.POST)
 
         if breed_form.is_valid():
@@ -89,7 +81,6 @@ class BreedRatingView(ListView):
 class BreedGroupCreateView(ListView):
     """ Create a beer style on add review page """
     template_name = 'add_review/create_breed_group.html'
-    form_class = CreateBreedGroupForm
 
 
 class ReviewPageView(DetailView):

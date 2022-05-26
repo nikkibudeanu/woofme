@@ -9,10 +9,8 @@ from django.conf import settings
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
-    name = models.CharField(max_length=200)
-    description = models.CharField(max_length=200)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         """ Return breed group name string """
@@ -29,8 +27,8 @@ class Breed(models.Model):
     breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
     slug = models.CharField(max_length=50, null=True)
     breed_image = CloudinaryField('image', blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         """ Return breed name string """
@@ -51,8 +49,8 @@ class BreedReview(models.Model):
         (5, '5'),
     )
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True, null=True)
+    updated_at = models.DateTimeField(auto_now_add=True, null=True)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField(max_length=200)
     adaptability = models.IntegerField(choices=RATING_CHOICES, default=0)
