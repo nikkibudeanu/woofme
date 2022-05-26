@@ -1,19 +1,26 @@
+""" Imports """
 from django.contrib.auth.models import User
-from django import forms 
+from django import forms
+from django.core.exceptions import ValidationError
 
 
 class SignupForm(forms.Form):
-    username = forms.CharField(label='Enter Username', min_length=4, max_length=150)
+    """ Create the form to signup"""
+    username = forms.CharField(
+        label='Enter Username', min_length=4, max_length=150)
     email = forms.EmailField(label='Enter Email')
-    password1 = forms.CharField(label='Enter your password', widget=forms.PasswordInput)
-    password2 = forms.CharField(label='Confirm your password', widget=forms.PasswordInput)
-    
+    password1 = forms.CharField(
+        label='Enter your password', widget=forms.PasswordInput)
+    password2 = forms.CharField(
+        label='Confirm your password', widget=forms.PasswordInput)
+
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
         for field in self.fields:
             self.fields[field].widget.attrs.update({'class': 'form-control'})
 
     def unique_username(self):
+        """ unique username field after form is created"""
         username = self.cleaned_data['username'].lower()
         r = User.objects.filter(username=username)
         if r.count():

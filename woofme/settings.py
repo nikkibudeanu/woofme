@@ -31,23 +31,21 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# For debugging 
+# For debugging
 if DEBUG:
     # will output to your console
     logging.basicConfig(
-        level = logging.DEBUG,
-        format = '%(asctime)s %(levelname)s %(message)s',
+        level=logging.DEBUG,
+        format='%(asctime)s %(levelname)s %(message)s',
     )
 else:
     # will output to logging file
     logging.basicConfig(
-        level = logging.DEBUG,
-        format = '%(asctime)s %(levelname)s %(message)s',
-        filename = '/my_log_file.log',
-        filemode = 'a'
+        level=logging.DEBUG,
+        format='%(asctime)s %(levelname)s %(message)s',
+        filename='/my_log_file.log',
+        filemode='a'
     )
-
-
 
 ALLOWED_HOSTS = ['woofmeapp.herokuapp.com', 'localhost']
 
@@ -60,7 +58,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    #'django.template.context_processors.media',
+    # 'django.template.context_processors.media',
     'cloudinary_storage',
     'django.contrib.staticfiles',
     'cloudinary',
@@ -120,11 +118,12 @@ if DEBUG:
          'ENGINE': 'django.db.backends.sqlite3',
          'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
      }
-}
+     }
+
 else:
     DATABASES = {
-    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 
 # Password validation
