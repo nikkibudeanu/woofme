@@ -9,9 +9,9 @@ from django.conf import settings
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
-    created_at = models.DateTimeField(auto_now_add=True, null=True)
-    updated_at = models.DateTimeField(auto_now_add=True, null=True)
-
+    name = models.CharField(max_length=128, unique=True, null=True)
+    description = models.TextField(max_length=2000, null=True)
+    
     def __str__(self):
         """ Return breed group name string """
         return str(self.name).lower()
