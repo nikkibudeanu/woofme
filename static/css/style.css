@@ -75,8 +75,17 @@ input:focus{
     width: 200px;
 }
 
+
+#id_username,
+#id_email,
+#id_password1,
+#id_password2{
+    width : 300px;
+    margin: 0 auto;
+}
+
 #id_review{
-    width:500px;
+    width:400px;
     margin: 0 auto;
 }
 
