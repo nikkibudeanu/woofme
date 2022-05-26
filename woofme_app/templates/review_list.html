@@ -12,7 +12,6 @@
 
 {% block content %}
 
-<div class = "container-reviews">
 
 
 <section class="pt-5 pb-5 shadow-sm m-auto ">
@@ -42,6 +41,9 @@
 
                     <p class="card-text text-truncate"> {{ review.review }} </p>
                     <h5>{{ review.breed_group}}</h5>
+                    <p class="card-text text-truncate"> {{ review.rating }} </p>
+                    <p class="card-text text-truncate text-muted text-sm"> {{ review.user_name }} -{{ review.published_date }} </p>
+
 
                     {% if user.is_authenticated %}
                     {% if user.id == review.user_name.id %}
@@ -62,10 +64,9 @@
                     {% endif %}
                 </div>
             </div>
-        </div>
+ 
         {% endfor %}
     </div>
-
     <nav aria-label="Page navigation example ">
         <ul class="pagination justify-content-center ">
             

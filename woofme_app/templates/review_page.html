@@ -2,9 +2,9 @@
 
 {% block content %}
 
-<div class="card mb-3 mt-5 m-auto detail-container bg-light bg-opacity-75">
+<div class="card mb-3 mt-5 m-auto detail-container bg-dark text-light">
     <div class="card-header">
-        {{ object.breed}}
+        <h1 class="text-center"> {{ object.breed}} </h1>
     </div>
     <div class="row g-0">
         <div class="col-md-5">
@@ -16,6 +16,7 @@
         </div>
         <div class="col-md-7">
             <div class="card-body">
+                <p class="text-right"> Breed Group :</p>
                 <p class="card-text">{{ object.review }}</p>
                 <p class="card-text">Adaptability: {{ object.adaptability }}</p>
                 <p class="card-text">Friendliness: {{ object.friendliness }}</p>
@@ -26,8 +27,8 @@
 
         </div>
     </div>
-    <div class="card-footer text-center"><small>Written by: {{ object.user_name }} </small></div>
-</div>
+    <div class="card-footer text-center text-muted"><small>Written by: {{ object.user_name }} 
+    </div>
 
 {% endblock %}
 
