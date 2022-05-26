@@ -28,6 +28,7 @@ class SignupForm(forms.Form):
         return username
 
     def unique_email(self):
+        """ correct email field after form creation"""
         email = self.cleaned_data['email'].lower()
         r = User.objects.filet(email=email)
         if r.count():
@@ -35,6 +36,7 @@ class SignupForm(forms.Form):
         return email
 
     def same_password2(self):
+        """ correct confirm password field """
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
@@ -44,6 +46,7 @@ class SignupForm(forms.Form):
         return password2
 
     def save(self, commit=True):
+        """ save form if all information is valid """
         user = User.objects.create_user(
             self.cleaned_data['username'],
             self.cleaned_data['email'],
