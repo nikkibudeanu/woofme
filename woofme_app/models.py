@@ -1,3 +1,4 @@
+""" Imports """
 from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
@@ -8,7 +9,7 @@ class BreedGroup(models.Model):
     """ Create a breed group model form """
     name = models.CharField(max_length=128, unique=True, null=True)
     description = models.TextField(max_length=2000, null=True)
-    
+
     def __str__(self):
         """ Return breed group name string """
         return str(self.name).lower()
@@ -62,4 +63,5 @@ class BreedReview(models.Model):
         return str(self.breed) + '|' + str(self.author)
 
     def get_absolute_url(self):
+        """ set absolute url """
         return reverse('review_list', kwargs={'pk': self.pk})

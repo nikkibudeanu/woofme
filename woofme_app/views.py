@@ -1,14 +1,14 @@
+"""Sysyrm module"""
 from django.http import Http404
 from django.shortcuts import redirect, render
-from django.shortcuts import render, get_object_or_404
-from django.views.generic import ListView, DetailView, View, UpdateView, DeleteView
-from .models import BreedReview, Breed
+from django.views.generic import ListView, DetailView, View, UpdateView, \
+    DeleteView
+from .models import BreedReview
 from .forms import BreedReviewForm, CreateBreedForm
-from .models import BreedGroup
-from django.views import generic
+# from django.views import generic
 from django.urls import reverse_lazy
 import logging
-from bootstrap_modal_forms.generic import BSModalCreateView
+# from bootstrap_modal_forms.generic import BSModalCreateView
 
 
 # Create your views here.
@@ -17,6 +17,7 @@ class HomeView(ListView):
 
     model = BreedReview
     template_name = 'home.html'
+
 
 class AddReviewView(View):
     """ Render add review page view """
@@ -29,6 +30,7 @@ def get_object(self):
     except BreedReview.DoesNotExist:
         raise Http404('Breed Review not found!')
     return obj
+
 
 def get_context_data(self, **kwargs):
     kwargs['review'] = self.get_object()
