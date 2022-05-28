@@ -1,6 +1,7 @@
 """ Imports """
 from django.urls import path, include
-from .views import HomeView, BreedRatingView, AddReviewView, ReviewPageView, BreedGroupCreateView, EditReviewView, DeleteReviewView
+from .views import HomeView, BreedRatingView, AddReviewView, ReviewPageView, \
+    BreedGroupCreateView, EditReviewView, DeleteReviewView
    ## ReviewPageView,
    # breed_group_view
 from . import views

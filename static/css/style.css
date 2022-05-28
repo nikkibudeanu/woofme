@@ -15,7 +15,8 @@ body {
 
 .container-box {
     margin-top: 15%;
-    margin-left: 5%;
+    margin-right: 25%;
+
 } 
 
 .container-box-signin{
@@ -100,4 +101,9 @@ input:focus{
 
 #id_score{
     display:none;
+}
+
+.bg-dark,
+.bg-light{
+    opacity: 0.9;
 }
