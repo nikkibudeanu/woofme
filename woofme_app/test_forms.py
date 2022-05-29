@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .forms import CreateBreedForm, CreateBreedGroupForm
+from .forms import CreateBreedForm
 
 
 class CreateBreedFormTest(TestCase):
@@ -17,5 +17,12 @@ class CreateBreedFormTest(TestCase):
             "breed_name": ""
         })
         self.assertFalse(form.is_valid())
+
+    def test_create_breed_form_length(self):
+
+        form = CreateBreedForm(data={
+            "breed_name" : str('a'*300)
+        })
+        self.assertFalse(form.is_valid)
 
 
