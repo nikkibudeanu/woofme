@@ -25,14 +25,14 @@
                 <div class="card w-100 text-light bg-dark bg-opacity-75 rounded">
                 <a href="{% url 'review_page' review.pk %}"
                     class="text-decoration-none text-uppercase fw-bold text-white">
-                    <h4 class="card-title m-3 text-center text-truncate"> {{ review.breed}} </h3>
+                    <h4 class="card-title m-3 text-center text-truncate "> {{ review.breed }} </h3>
                         <h5> {{ review.breed_group }}</h5>
                 </a>
                 {% if review.breed_image %}
 
                 <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container">
                 {% else %}
-                <img src="{{ MEDIA_URL }} class="card-img-top rounded-2" alt="default error image">
+                <img src="{{ MEDIA_URL }}" class="card-img-top rounded-2" alt="default error image">
                 {% endif %}
 
                 <div class="card-body">

@@ -14,13 +14,19 @@ body {
 }
 
 .container-box {
-    margin-top: 15%;
+    margin-top: 15vh;
     margin-right: 25%;
 
 } 
 
 .container-box-signin{
-    margin-top: 6%;
+    margin-top: 15vh;
+    margin-right: 10vh;
+}
+
+.container-box-home{
+    margin-top: 25vh;
+    margin-left: 5%;
 }
 
 .img-container {
@@ -106,4 +112,13 @@ input:focus{
 .bg-dark,
 .bg-light{
     opacity: 0.9;
+}
+
+
+@media only screen and (max-width: 600px) {
+
+
+    body {
+        background-position-x: 20%;
+    }
 }

@@ -1,5 +1,12 @@
 {% extends "base.html" %}
 
+{% block additional_styles %}
+<style>
+   body {
+    background-image: url("{{MEDIA_URL}}")!important;
+   }
+</style>
+{% endblock %}
 {% load crispy_forms_tags %}
 
 
@@ -18,8 +25,8 @@
 
 {% endif %}
 
-<div class="container container-box-signin text-center">
-  <div class="bg-dark  col-lg-6 col-11 m-auto rounded">
+<div class="container-box-signin text-center">
+  <div class="bg-dark  col-lg-4 col-md-6 col-11 rounded float-end">
     <div class="text-light">
       <h3>Sign In</h3>
       <form action="{% url 'register' %}" method="POST">
