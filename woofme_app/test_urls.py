@@ -1,7 +1,20 @@
 from django.test import TestCase
+from .models import BreedReview
 
 
 class TestUrls(TestCase):
+
+    def setup(TestCase):
+        self.review = BreedReview.objects.create(
+            name= 'nametest1',
+            breed_group="breed_group",
+            review="test_review",
+            adaptability="1",
+            trainability="5",
+            friendliness="3",
+            health_and_grooming_needs="2",
+            rating="5",
+            user_name="Nikoleta")
     
     def test_home_page_working(self):
         response = self.client.get('')
