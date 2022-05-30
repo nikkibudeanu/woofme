@@ -50,16 +50,16 @@ def post(self, request, *args, **kwargs):
 
     if 'review' in request.POST:
         review_form = BreedReviewForm(request.POST)
+        logging.debug('post - review')
 
         if review_form.is_valid():
             review = review_form.save(commit=False)
             review.user_name = request.user
             review.save()
-            logging.debug('debug message1')
+            logging.debug('post - review - save')
             return redirect('review_page', review_pk)
         else:
             ctxt['review_form'] = review_form
-            logging.debug('debug message2')
     
 
     
@@ -70,7 +70,6 @@ def post(self, request, *args, **kwargs):
             breed_form.save()
         else:
             ctxt['breed_form'] = breed_form
-    logging.debug('debug message3')
     
     return render(request, self.template_name, self.get_context_data(**ctxt))
 
