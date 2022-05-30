@@ -26,3 +26,10 @@ class TestUrls(TestCase):
         response = self.client.get('/add_review')
         self.assertEqual(response.status_code, 301)
 
+    def test_breed_rating_view_working(self):
+        response = self.client.get('/review_list')
+        self.assertEqual(response.status_code, 301)
+
+    def test_review_page_view_working(self):
+        response = self.client.get('/review_page')
+        self.assertEqual(response.status_code, 301)
