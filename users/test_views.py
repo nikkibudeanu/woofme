@@ -56,3 +56,15 @@ class TestRegister(TestCase):
                 status_code=302,
                 target_status_code=200,
                 fetch_redirect_response=True)
+
+
+    class TestLogout(TestCase):
+        def setUp(self):
+            self.user = User.objects.create_user(
+                username='aiokdn',
+                email='aiokdn@gmail.com',
+                password='12345'
+            )
+        def test_logout(self):
+            response = self.client.get(reverse('logout'))
+            self.assertRedirects(response, '/', status_code=302)
