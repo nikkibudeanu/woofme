@@ -109,10 +109,21 @@ input:focus{
     display:none;
 }
 
+.section-container{
+    max-width: 1000px;
+}
+
 .bg-dark,
 .bg-light{
     opacity: 0.9;
 }
+
+
+@media (min-width: 1200px) {
+    .pull-right-lg {
+        float: right;
+
+    }
 
 
 @media only screen and (max-width: 600px) {

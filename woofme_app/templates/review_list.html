@@ -14,7 +14,7 @@
 
 
 
-<section class="pt-5 pb-5 shadow-sm m-auto ">
+<section class="pt-5 pb-5 shadow-sm m-auto section-container ">
 
     <div class="container text-light text-center ">
         <h3> Breed reviews </h3>
@@ -90,6 +90,12 @@
     
     
     
-        <!---------------------------- My JS -->
-        <script src="{% static 'js/script.js' %}"></script> 
+ <!---------------------------- My JS -->
+ <script src="{% static 'js/script.js' %}"></script>
+ <script src="{% static 'js/review_list.js' %}"></script>
+ <script>
+     var score = "{{ object_list }}"
+     console.log(rating)
+ </script>
+ <script src="{% static 'js/star_rating.js' %}"></script>
     {% endblock %}
