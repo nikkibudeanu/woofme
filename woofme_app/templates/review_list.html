@@ -62,11 +62,20 @@
 
                     <p class="card-text">
                         Trainability:
-                        <span class="fa-solid fa-dog {% if review.trainability > 0 %} selected {% endif %}"></span>
-                        <span class="fa-solid fa-dog  {% if review.trainability> 1 %} selected {% endif %}"></span>
-                        <span class="fa-solid fa-dog  {% if review.trainability > 2 %} selected {% endif %}"></span>
-                        <span class="fa-solid fa-dog {% if review.trainability > 3 %} selected {% endif %}"></span>
-                        <span class="fa-solid fa-dog {% if review.trainability> 4 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star {% if review.trainability > 0 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.trainability> 1 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.trainability > 2 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star {% if review.trainability > 3 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.trainability> 4 %} selected {% endif %}"></span>
+                    </p>
+
+                    <p class="card-text">
+                        Health and Grooming needs:
+                        <span class="fa-solid fa-star {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.health_and_grooming_needs> 1 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                        <span class="fa-solid fa-star  {% if review.health_and_grooming_needs> 4 %} selected {% endif %}"></span>
                     </p>
                     <h5>{{ review.breed_group}}</h5>
                     <p class="card-text text-truncate"> {{ review.rating }} </p>

@@ -49,8 +49,9 @@
                         <a class="nav-link {% active_link 'review_list' %}" aria-current="page"
                             href="{% url 'review_list' %}">Breed Reviews</a>
                     </li>
+                    {% if user.is_authenticated %}
+
                     <li class="nav-item">
-                        {% if user.is_authenticated %}
                         <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
                     </li>
                     <li class="nav-item">
