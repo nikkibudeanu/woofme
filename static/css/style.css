@@ -2,7 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;900&display=swap');
 
 
-h1, h2, h3, h4 {
+h1, 
+h2, 
+h3, 
+h4 {
     font-family: 'Libre Franklin', sans-serif;}
 
 p, a {
@@ -90,6 +93,8 @@ input:focus{
 #id_friendliness,
 #id_health_and_grooming_needs{
     width: 200px;
+    font-size: 1rem !important;
+
 }
 
 
