@@ -1,190 +1,177 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
+{% block title %} 
+Add Review
+{% endblock %}
+
+{% block additional_styles %}
+
+<!-- Customizable CSS -->
+<style>
+    body {
+        background-image: url("")!important;
+    }
+</style>
+{% endblock %}
+
 {% block content %}
-<h1>Add review</h1>
-{% if user.is_authenticated %}
-{% if error_message %}
-<div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
-    <p><strong>{{ error_message }} </strong></p>{% endif %}
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-<fieldset>
+	<!-- Add review container available if user is authenticated -->
+	{% if user.is_authenticated %}
+		<section>
+			{% if error_message %}
+			<!-- Alert message -->
+			<div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
+				<p><strong>{{ error_message }} </strong></p>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+			</div>
+			{% endif %}
 
-    <div class="container mt-2">
+			<!-- Review container -->
+			<div>
+				<div class="container p-3 mt-3">
+					<div class="bg-dark  col-lg-9 col-11 m-auto rounded">
+						<h1 class="text-light text-center bold yellow p-3"> Add yourbreed review </h1><hr> 
+						<div class="text-light">
 
-        <div class="bg-dark  col-lg-9 col-11 m-auto rounded">
-            <h1 class="text-light text-center bold p-3"> Add a breed review</h1>
-            <div class="text-light">
-                <form method="POST" actions="/add_review" enctype="multipart/form-data" class=" review-form">
-                    {% csrf_token %}
-                    <div class="m-2 align-middle field_container">
+							<!-- Review form -->
+							<form method="POST" enctype="multipart/form-data" class=" review-form">
+								{% csrf_token %}
 
-                        Breed Group:  &nbsp;{{ review_form.breed_group}}
-                        <!------------------------------------------------ Button trigger create a beer style modal -->
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#breedgroupmodal">
-                            Create Breed Group
-                        </button>
-                    </div>
+								<!-- Add Breed Group -->
+								<div class="align-middle field_container text-center">
+									<h4>{{ review_form.breed_group.label_tag }} {{ review_form.breed_group }} 
 
-                    <br />
-                    <div class="m-2 align-middle p-2">
+										<!-- Button trigger create a breed group modal -->
+										<button type="button" class="btn btn-sm btn-warning mx-2 shadow-none" data-bs-toggle="modal"
+											data-bs-target="#breedgroupmodal">
+											Create Breed Group
+										</button>
+									</h4>
+								</div>
 
-                        Breed : {{review_form.breed}}<br /> <button type="button" class="btn btn-primary"
-                            data-bs-toggle="modal" data-bs-target="#breedmodal">
-                            Create Breed
-                        </button>
-                    </div>
-                    <br /><br />
-                    <div class="text-center">
-                    Write your review : {{ review_form.review }}<br /> </div>
-                    <div class="mt-2 field_container">
-                        
-                        Adaptability : {{ review_form.adaptability }} </div>
-                        <div class="mt-2 field_container">
+								<!-- Add Breed Group -->
+								<div class="align-middle label text-center">
+									<h4> {{ review_form.breed.label_tag }} {{ review_form.breed }}
 
-                        Friendliness : {{ review_form.friendliness }} </div>
+										<!-- Button trigger create a breed modal -->
+										<button type="button" class="btn btn-sm btn-warning ms-2 shadow-none" data-bs-toggle="modal"
+											data-bs-target="#breedmodal">
+											Create Breed 
+										</button>
+									</h4>
+								</div>
 
-                        <div class="mt-2 field_container">
+								<!-- Add Breed Review -->
+								<div class="text-center label">
+									<h2 class="m-2 p-2"> {{ review_form.review.label_tag }}</h2>
+								</div> 
+								<div class="text-center">
+									 {{ review_form.review}}
+								</div>
 
-                        Trainability : {{ review_form.trainability }} </div>
+								<!-- Choose level of each criteria -->
+								<div class="field_container label text-center">
+									<h4>{{ review_form.trainability.label_tag }} {{ review_form.trainability}}
+										{{review_form.adaptability.label_tag }}  {{review_form.adaptability}} 
+                                        {{review_form.friendliness.label_tag }}  {{review_form.friendliness}} 
+                                        {{review_form.health_and_grooming_needs.label_tag }}  {{review_form.health_and_grooming_needs}} 
 
-                        <div class="mt-2 field_container">
+									</h4>
+								</div>
 
-                        Health and Grooming Needs : {{ review_form.health_and_grooming_needs }} </div>
+								<!-- Add breed image on review -->
+								<div class=" text-center">
+									<h3>{{ review_form.breed_image.label_tag }} {{review_form.breed_image}}</h3>
+								</div>
 
-                        <div class="mt-2">
-                        Add your breed picture: {{ review_form.breed_image }} </div>
-                        
-                        <div class="mt-2">
-                        {{ review_form.rating}} 
-                        <h3 class="text-center">Rate a breed!</h3>
-                        <span class="fa fa-star fa-3x my-btn" id="first"></span>
-                        <span class="fa fa-star fa-3x my-btn" id="second"></span>
-                        <span class="fa fa-star fa-3x my-btn" id="third"></span>
-                        <span class="fa fa-star fa-3x my-btn" id="fourth"></span>
-                        <span class="fa fa-star fa-3x my-btn" id="fifth"></span>
-                    </div>
-                    <div class="text-center p-2">
-                        <input type="submit" value="Save your review"
-                            class="btn btn-secondary btn-success login-button btn-lg ">
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-</fieldset>
-<fieldset>
-    <!------------------------------------------------------ Breed Group Modal -------------------------------->
-    <div class="modal fade" id="breedgroupmodal" tabindex="-1" aria-labelledby="BreedGroupModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="BreedGroupModalLabel">Create a Breed Group</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+								<!-- Add breed rating with stars -->
+								<div class="stars p-2"> {{review_form.rating}}
+									<h3 class="text-center">{{review_form.rating.label_tag }}</h3>
+									<span class="fa fa-star fa-2x my-btn" id="first"></span>
+									<span class="fa fa-star fa-2x my-btn" id="second"></span>
+									<span class="fa fa-star fa-2x my-btn" id="third"></span>
+									<span class="fa fa-star fa-2x my-btn" id="fourth"></span>
+									<span class="fa fa-star fa-2x my-btn" id="fifth"></span>
+								</div>
 
-                    <form method="POST" actions="/add_review">
-                        {% csrf_token %}
-                        {{ group_form }}
-                        <!------------------------------------------- Button trigger modal ----------------------------->
-                        <div class="m-2 text-center">
-                            <input name="comment" class="btn btn-success" type="submit" value="Submit" />
-                            </button> </div>
-                    </form>
-</fieldset>
+								<!-- Submit button -->
+								<div class="text-center p-2">
+									<input type="submit" value="Save your review" name="htmlsubmitbutton1"
+										class="btn btn-submit btn-lg m-3 shadow-none">
+								</div>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
 
-<fieldset>
-    <!---------------------------------------------------- Breed Modal --------------------------------------->
-    <div class="modal fade" id="breedmodal" tabindex="-1" aria-labelledby="BreedModal" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="BreedModalLabel">Add your breed</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
+			<!-- Breed Group Modal -->
+			<div>
+				<div class="modal fade" id="breedgroupmodal" tabindex="-1" aria-label="Breed Group Modal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
 
-                    <form method="POST" actions="">
-                        {% csrf_token %}
-                        {{ breed_form.breed_name }}
-                        <!------------------------------------------- Button trigger modal ----------------------------->
-                        <div class="m-2 text-center">
-                            <input name="comment" class="btn btn-success " type="submit" value="Create" />
-                            </button></div>
-                    </form>
-</fieldset>
+							<!-- Create a breed group title -->
+							<div class="modal-header">
+								<h5 class="modal-title" id="BreedGroupModalLabel">Create a breed group</h5>
+								<button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
 
-{% endif %}
+							<!-- Create a breed group form-->
+							<div class="modal-body">
+								<form method="POST">
+									{% csrf_token %}
+									{{ style_form.as_p }}
 
-<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
-<script src="{% static 'js/add_review.js' %}"></script>
+									<!-- Create a submit button -->
+									<div class="m-2 text-center">
+										<input name="comment" class="btn btn-submit shadow-none" type="submit" value="Create Breed Group"/>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 
+			<!-- Breed -->
+			<div>
+				<div class="modal fade" id="breedmodal" tabindex="-1" aria-label="BreedModal" aria-hidden="true">
+					<div class="modal-dialog modal-dialog-centered">
+						<div class="modal-content">
 
+							<!-- Create abreed title -->
+							<div class="modal-header">
+								<h5 class="modal-title" id="BreedModalLabel">Create abreed </h5>
+								<button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+							</div>
 
-<script type="text/javascript">
-    $(function () {
+							<!-- Create abreed form-->
+							<div class="modal-body">
+								<form method="POST">
+									{% csrf_token %}
+									{{breed_form.as_p }}
 
-        // Create book synchronous
-        function createBeerStyleSyncModalForm() {
-            $("#create-style-sync").modalForm({
-                formURL: "{% url 'create_style' %}",
-                modalID: "#create-modal"
-            });
-        }
-        createBeerstyleSyncModalForm();
+									<!-- Createbreed submit button -->
+									<div class="m-2 text-center">
+										<input name="comment" class="btn btn-submit shadow-none" type="submit" value="Createbreed"/>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        // Create book asynchronous button
-        // message
-        var asyncSuccessMessageCreate = [
-            "<div ",
-            "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
-            "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
-            "Success: Beer Style was created.",
-            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
-            "<span aria-hidden='true'>&times;</span>",
-            "</button>",
-            "</div>",
-            "<script>",
-            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
-            "<\/script>"
-        ].join("");
+	{% endif %}
+	
+	{% block extra_js %}
+		<!-- Customizible JS -->
+		<script src="{% static 'js/add_review.js' %}"></script>
+		<script src="{% static 'js/script.js' %}"></script>
+	{% endblock extra_js %}
 
-        // modal form
-        function createBreedGroupAsyncModalForm() {
-            $("#create-breed-group-async").modalForm({
-                formURL: "{% url 'create_breed-group' %}",
-                modalID: "#create-modal",
-                asyncUpdate: true,
-                asyncSettings: {
-                    closeOnSubmit: true,
-                    successMessage: asyncSuccessMessageCreate,
-                    dataUrl: "add_review/",
-                    dataElementId: "#group-table",
-                    dataKey: "table",
-                    addModalFormFunction: reinstantiateModalForms
-                }
-            });
-        }
-        createBookAsyncModalForm();
-
-
-
-        function reinstantiateModalForms() {
-            createBookAsyncModalForm();
-
-        }
-
-        // Filter books button
-        $("#filter-book").each(function () {
-            $(this).modalForm({
-                formURL: $(this).data("form-url")
-            });
-        });
-
-        // Hide message
-        $(".alert").fadeTo(2000, 500).slideUp(500, function () {
-            $(".alert").slideUp(500);
-        });
-    });
-</script>
-{% endblock  %}
+{% endblock %}
