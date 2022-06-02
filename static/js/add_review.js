@@ -7,10 +7,6 @@ const five = document.getElementById('fifth')
 const form = document.querySelector('.review-form')
 
 
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
-var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-}) 
 
 const handleSelect = (selection) => {
     switch (selection) {
