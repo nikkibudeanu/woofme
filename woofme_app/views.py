@@ -1,4 +1,4 @@
-"""Sysyrm module"""
+"""System module"""
 from django.http import Http404
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, View, UpdateView, \
@@ -49,7 +49,7 @@ def post(self, request, *args, **kwargs):
     ctxt = {}
 
     if 'review' in request.POST:
-        review_form = BreedReviewForm(request.POST)
+        review_form = BreedReviewForm(request.POST, request.FILES)
         logging.debug('post - review')
 
         if review_form.is_valid():

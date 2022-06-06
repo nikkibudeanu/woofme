@@ -65,3 +65,5 @@ class BreedReview(models.Model):
     def get_absolute_url(self):
         """ set absolute url """
         return reverse('review_list', kwargs={'pk': self.pk})
+
+breed_review = BreedReview.objects.all()
