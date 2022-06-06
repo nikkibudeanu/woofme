@@ -1,34 +1,133 @@
 {% extends "base.html" %}
 
-{% block content %}
-
-<div class="card mb-3 mt-5 m-auto detail-container bg-dark text-light">
-    <div class="card-header">
-        <h1 class="text-center"> {{ object.breed}} </h1>
-    </div>
-    <div class="row g-0">
-        <div class="col-md-5">
-            {% if object.breed_image %}
-            <img src="{{ object.breed_image.url }}" class="img-fluid rounded-start" alt="breed image">
-            {% else %}
-            <img src="{{ MEDIA_URL }}vintage-retro-beer-illustration_5586-351.webp" alt="default error image">
-            {% endif %}
-        </div>
-        <div class="col-md-7">
-            <div class="card-body">
-                <p class="text-right"> Breed Group :</p>
-                <p class="card-text">{{ object.review }}</p>
-                <p class="card-text">Adaptability: {{ object.adaptability }}</p>
-                <p class="card-text">Friendliness: {{ object.friendliness }}</p>
-                <p class="card-text">Trainability: {{ object.trainability}}</p>
-                <p class="card-text">Health and Grooming Needs: {{ object.health_and_grooming_needs }}</p>
-
-            </div>
-
-        </div>
-    </div>
-    <div class="card-footer text-center text-muted"><small>Written by: {{ object.user_name }} 
-    </div>
-
+{% block title %} 
+Review Details 
 {% endblock %}
 
+{% block additional_styles %}
+<!-- Customizible CSS -->
+    <style>
+        body {
+            background-image: url("")!important;
+        }
+    </style>
+{% endblock %}
+
+{% block content %}
+    <section>
+
+        <!-- Reviews card -->
+        <div class="card mb-3 mt-5 detail-container margin-screen-md bg-dark text-light">
+
+            <!-- Reviews card header-->
+            <div class="card-header">
+                <h1 class="text-center text-capitalize ">{{ object.breed }} <hr></h1>
+            </div>
+
+            <!-- Reviews card subheader-->
+            <div class="row g-0">
+
+                <!-- Reviews breed image-->
+                <div class="col-md-5">
+                    <img src="{{ object.breed_image.url }}" class="img-fluid rounded-start"
+                        alt="review {{review.breed}} uploaded image">
+                </div>
+
+                <!-- Reviews breed body -->
+                <div class="col-md-7">
+                    <div class="card-body">
+
+                        <!-- Reviews breed name-->
+                        <h4 class="text-right mb-4 mx-2 ">Breed Group : {{ object.breed_group|title }}</h4>
+                        
+                        <!-- Reviews beer adaptability level-->
+                        <p class="card-text m-2"> Adaptability:
+                            <span class="fas fa-beer {% if object.adaptability > 0 %} selected {% endif %}"></span>
+                            <span class="fas fa-beer {% if object.adaptability > 1 %} selected {% endif %}"></span>
+                            <span class="fas fa-beer {% if object.adaptability > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-beer {% if object.adaptability > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-beer {% if object.adaptability > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Reviews breed friendliness level -->
+                        <p class="card-text m-2"> Friendliness:
+                            <span class="fas fas fa-euro-sign {% if object.friendliness > 0 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.friendliness > 1 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.friendliness > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.friendliness > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.friendliness > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                          <!-- Reviews breed trainability level -->
+                          <p class="card-text m-2"> Trainability:
+                            <span class="fas fas fa-euro-sign {% if object.trainability > 0 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.trainability > 1 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.trainability > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.trainability > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.trainability > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                          <!-- Reviews breed health and grooming needs  -->
+                          <p class="card-text m-2"> Health and Grooming Needs:
+                            <span class="fas fas fa-euro-sign {% if object.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
+                            <span class="fas fas fa-euro-sign {% if object.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if object.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Reviews breed rating-->
+                        <p class="card-text m-2"> Rating:
+                            <span class="fa fa-star {% if object.rating > 0 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if object.rating > 1 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if object.rating > 2 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if object.rating > 3 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if object.rating > 4 %} selected {% endif %}"></span></p>
+                    </div>
+                
+                    <!-- Reviews text -->
+                    <div class= "review-detail-box p-3 d-flex align-items-center justify-content-center overflow-auto ">
+                        <p>{{ object.review|title }}</p>
+                    </div>
+
+                </div>
+            </div>
+
+         <!-- Reviews author and pub date -->   
+        <div class="card-footer text-center text-muted">
+            <small>Reviewed by: {{ object.user_name }} | Created at:
+                {{ object.published_date }}
+            </small>
+        </div>
+
+        <!-- Edit and delete options if user is logged in -->
+        {% if user.is_authenticated %}
+            {% if user.id == object.user_name.id %}
+                <span>
+
+                    <!-- Edit button -->
+                    <h4 class="m-3 text-center">
+                        <a href="{% url 'review_update' object.pk %}" class="text-decoration-none text-white"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review"><i
+                                class="fas fa-edit px-2"></i>
+                        </a>
+
+                        <!-- Delete button -->
+                        <a href="{% url 'review_delete' object.pk %}" class="text-decoration-none text-white"
+                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review">
+                            <i class="fas fa-trash px-2 pb-2 "></i>
+                        </a></h4>
+                </span>
+            {% endif %}
+        {% endif %}
+    </div>
+
+    <!-- Back button -->
+    <div class="m-2 text-center">
+        <a href="{% url 'review_list'%}">
+            <button type="button" class="btn btn-submit btn-lg fw-bold shadow-none">Go back to reviews</button>
+        </a>
+    </div>
+</section>
+
+{% endblock %}
