@@ -4,7 +4,7 @@ from .forms import CreateBreedForm
 
 
 class SetupClass(TestCase):
-    
+
     def set_up(self):
         self.breed = Breed.objects.create(breed_name='nametest')
         self.breed_group = BreedGroup.objects.create(breed_group='grouptest')
@@ -22,7 +22,7 @@ class SetupClass(TestCase):
 
 class CreateBreedFormTest(TestCase):
     """ Test create breed form """
-   
+
     def test_create_breed_form_valid(self):
         """Test if breed form is valid"""
         form = CreateBreedForm(data={
@@ -43,5 +43,4 @@ class CreateBreedFormTest(TestCase):
             "name": str('a'*300)
         })
         self.assertFalse(form.is_valid())
-
 

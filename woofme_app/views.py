@@ -42,8 +42,10 @@ def get_context_data(self, **kwargs):
 
     return kwargs
 
+
 def get(self, request, *args, **kwargs):
     return render(request, self.template_name, self.get_context_data())
+
 
 def post(self, request, *args, **kwargs):
     ctxt = {}
@@ -72,6 +74,7 @@ def post(self, request, *args, **kwargs):
             ctxt['breed_form'] = breed_form
     
     return render(request, self.template_name, self.get_context_data(**ctxt))
+
 
 class BreedRatingView(ListView):
     model = BreedReview

@@ -17,7 +17,7 @@ Add Review
 {% endblock %}
 
 {% block content %}
-	<!-- Add review container available if user is authenticated -->
+	<!-- Add review container if user is authenticated -->
 	{% if user.is_authenticated %}
 		<section>
 			{% if error_message %}
@@ -51,14 +51,14 @@ Add Review
 									</h4>
 								</div>
 
-								<!-- Add Breed Group -->
+								<!-- Add Breed Name -->
 								<div class="align-middle label text-center">
 									<h4> {{ review_form.breed.label_tag }} {{ review_form.breed }}
 
 										<!-- Button trigger create a breed modal -->
 										<button type="button" class="btn btn-sm btn-warning ms-2 shadow-none" data-bs-toggle="modal"
 											data-bs-target="#breedmodal">
-											Create Breed 
+											Create Breed
 										</button>
 									</h4>
 								</div>
@@ -73,17 +73,16 @@ Add Review
 
 								<!-- Choose level of each criteria -->
 								<div class="field_container label text-center">
-									<h4>{{ review_form.trainability.label_tag }} {{ review_form.trainability}}
-										{{review_form.adaptability.label_tag }}  {{review_form.adaptability}} 
-                                        {{review_form.friendliness.label_tag }}  {{review_form.friendliness}} 
-                                        {{review_form.health_and_grooming_needs.label_tag }}  {{review_form.health_and_grooming_needs}} 
-
+									<h4>{{ review_form.adaptability.label_tag }} {{ review_form.adaptability}}
+										{{review_form.friendliness.label_tag }}  {{review_form.friendliness}} 
+										{{review_form.trainability.label_tag }}  {{review_form.trainability} 
+										{{review_form.health_and_grooming_needs.label_tag }}  {{review_form.health_and_grooming_needs}} 
 									</h4>
 								</div>
 
 								<!-- Add breed image on review -->
 								<div class=" text-center">
-									<div class="m-2"><h3>Image: {{review_form.breed_image}}</h3></div>
+									<h3>{{ review_form.breed_image.label_tag }} {{review_form.breed_image}}</h3>
 								</div>
 
 								<!-- Add breed rating with stars -->
@@ -96,7 +95,7 @@ Add Review
 									<span class="fa fa-star fa-2x my-btn" id="fifth"></span>
 								</div>
 
-								<!-- Submit button -->
+								<!-- Submit review button -->
 								<div class="text-center p-2">
 									<input type="submit" value="Save your review" name="htmlsubmitbutton1"
 										class="btn btn-submit btn-lg m-3 shadow-none">
@@ -107,7 +106,7 @@ Add Review
 				</div>
 			</div>
 
-			<!-- Breed Group Modal -->
+			<!-- breed Group Modal -->
 			<div>
 				<div class="modal fade" id="breedgroupmodal" tabindex="-1" aria-label="Breed Group Modal" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
@@ -115,48 +114,36 @@ Add Review
 
 							<!-- Create a breed group title -->
 							<div class="modal-header">
-								<h5 class="modal-title" id="BreedGroupModalLabel">Create a breed group</h5>
+								<h5 class="modal-title" id="BreedGroupModalLabel">Create a breed Group</h5>
 								<button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 
-							<!-- Create a breed group form-->
-							<div class="modal-body">
-								<form method="POST">
-									{% csrf_token %}
-									{{ style_form.as_p }}
-
-									<!-- Create a submit button -->
-									<div class="m-2 text-center">
-										<input name="comment" class="btn btn-submit shadow-none" type="submit" value="Create Breed Group"/>
-									</div>
-								</form>
-							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 
-			<!-- Breed -->
+			<!-- Breed Modal -->
 			<div>
 				<div class="modal fade" id="breedmodal" tabindex="-1" aria-label="BreedModal" aria-hidden="true">
 					<div class="modal-dialog modal-dialog-centered">
 						<div class="modal-content">
 
-							<!-- Create abreed title -->
+							<!-- Create a breed title -->
 							<div class="modal-header">
-								<h5 class="modal-title" id="BreedModalLabel">Create abreed </h5>
+								<h5 class="modal-title" id="BreedModalLabel">Create a breed </h5>
 								<button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
 							</div>
 
-							<!-- Create abreed form-->
+							<!-- Create a breed form-->
 							<div class="modal-body">
 								<form method="POST">
 									{% csrf_token %}
-									{{breed_form.as_p }}
+									{{ breed_form.as_p }}
 
-									<!-- Createbreed submit button -->
+									<!-- Create breed submit button -->
 									<div class="m-2 text-center">
-										<input name="comment" class="btn btn-submit shadow-none" type="submit" value="Createbreed"/>
+										<input name="comment" class="btn btn-submit shadow-none" type="submit" value="Create Breed"/>
 									</div>
 								</form>
 							</div>
