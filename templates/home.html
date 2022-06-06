@@ -1,26 +1,34 @@
-{% extends "base.html" %}
+{% extends 'base.html' %}
 
-<style>
+{% load static %}
+
+{% block title %} 
+Home 
+{% endblock %}
+
+{% block additional_styles %}
+    <style>
     body {
-     background-image: url("{{MEDIA_URL}}")!important;
-     background-position-x: 55%;
+        background-image: url(''')!important;
+        background-position: center;
     }
- </style>
-
+    </style>
+{% endblock %}
 
 {% block content %}
 
-<div class=" container container-box-home bg-dark bg-opacity-75 rounded text-light text-center p-2 col-lg-4 col-11">
-    <div class="row justify-content-start"> 
-        <div class= "col ">
-    <p>Add your review and insights about your most beloved dog breed.</p>
-</div>
-</div>
-</div>
+    <!--Welcome jumbotron -->
+    <div class=" container container-box-home bg-dark rounded text-light text-center p-2 col-lg-4 col-11 float-start">
+        <div class="row justify-content-start">
+            <div class="col ">
+                    <p>Review your pet</p>
+            </div>
+        </div>
+    </div>
 
-<ul>
-  
+    {% block extra_js %}
+            <!-- Customizible JS -->
+        <script src="{% static 'js/script.js' %}"></script>
+    {% endblock extra_js %}
 
-    {% endblock content %}
-
-
+{% endblock content %}
