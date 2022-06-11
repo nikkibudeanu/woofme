@@ -3,7 +3,7 @@ from django.http import Http404
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, View, UpdateView, \
     DeleteView
-from .models import BreedReview
+from .models import BreedReview, BreedGroup
 from .forms import BreedReviewForm, CreateBreedForm
 # from django.views import generic
 from django.urls import reverse_lazy
@@ -115,3 +115,11 @@ def group_view(request, group):
     return render(request, 'review_list/breed_groups.html', {
         'group': group, 'group_reviews': group_reviews
     })
+
+
+def breed_group_list(request):
+    cat_style_menu=BreedGroup.objects.all
+    return render(request, 'base.html', {'cat_style_menu': cat_style_menu})
+
+def cat_style_menu_on_all_pages(request):
+    return{'cat_style_menu'= BreedGroup.objects.all()}
