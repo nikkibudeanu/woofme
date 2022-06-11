@@ -15,9 +15,6 @@ hr {
     color: var(--space);
 }
 
-.yellow {
-    color: var(--blue) !important;
-}
 
 html {
     height: 100%;
@@ -234,4 +231,116 @@ img {
 .author-box {
     display: ruby-base-container;
     width: 70%;
+}
+
+/*------------------------ Form fields ---------------------- */
+
+
+#id_username,
+#id_email,
+#id_password1,
+#id_password2 {
+    width: 400px;
+    margin: 0 auto;
+}
+
+#id_review {
+    width: 600px;
+    margin: 0 auto;
+}
+
+#id_breed_group,
+#id_breed,
+#id_adaptability,
+#id_trainability,
+#id_friendliness,
+#id_health_and_grooming_needs,
+#id_breed_image {
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+
+#id_rating {
+    display: none;
+}
+
+/*------------------------ Star rating  ---------------------- */
+
+.selected {
+    color: var(--space);
+}
+
+.stars {
+    margin: 0 auto;
+    width: fit-content;
+}
+
+/*------------------------ Footer  ---------------------- */
+
+.footer-button {
+    color: #06283D !important;
+}
+
+.footer-button:hover {
+    color: var(--winter) !important;
+}
+
+
+
+/*------------------------ Media Query  ---------------------- */
+
+@media (min-width: 1200px) {
+    .pull-right-lg {
+        float: right;
+    }
+
+}
+
+@media only screen and (max-width: 900px) {
+    .margin-screen-md {
+        margin: 5%;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+
+
+    body {
+        background-position-x: 20%;
+    }
+
+    .section-container {
+        max-width: 80%;
+    }
+
+    .container-box {
+        margin-top: 10vh;
+    }
+
+    .margin-screen-md {
+        margin: 10%;
+    }
+
+    #id_username,
+    #id_email,
+    #id_password1,
+    #id_password2 {
+        width: 250px;
+    }
+
+ 
+#id_breed_group,
+#id_breed,
+#id_adaptability,
+#id_trainability,
+#id_friendliness,
+#id_health_and_grooming_needs,
+#id_breed_image  {
+        width: 90%
+    }
+
+    .margin-bottom {
+        margin-bottom: 30%;
+    }
 }
