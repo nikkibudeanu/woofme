@@ -122,4 +122,4 @@ def breed_group_list(request):
     return render(request, 'base.html', {'cat_style_menu': cat_style_menu})
 
 def cat_style_menu_on_all_pages(request):
-    return{'cat_style_menu'= BreedGroup.objects.all()}
+    return{'cat_style_menu': BreedGroup.objects.all()}
