@@ -83,7 +83,7 @@ class BreedRatingView(ListView):
 
 
 class BreedGroupCreateView(ListView):
-    """ Create a beer style on add review page """
+    """ Create a breed group on add review page """
     template_name = 'add_review/create_breed_group.html'
 
 
@@ -108,3 +108,10 @@ class DeleteReviewView(DeleteView):
     form_class = BreedReviewForm
     template_name = 'review_list/delete_review.html' 
     succes_url = reverse_lazy('review_list')
+
+def group_view(request, group):
+    """ Define a breed group view on search """
+    group_reviews = BreedReview.objects.filter(slug=group).order_by('-published_date')
+    return render(request, 'review_list/breed_groups.html', {
+        'group': group, 'group_reviews': group_reviews
+    })
