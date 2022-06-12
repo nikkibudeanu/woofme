@@ -15,6 +15,9 @@ hr {
     color: var(--space);
 }
 
+.blue {
+    color: var(--blue) !important;
+}
 
 html {
     height: 100%;
