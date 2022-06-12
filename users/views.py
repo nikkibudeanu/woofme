@@ -42,6 +42,9 @@ def register_user(request):
             user = authenticate(username=username, password=password)
             login(request,user)
             return redirect('home')
+        else:
+            messages.success(request,('There was an error with your registration. Try again!'))
+            return redirect('register')
     else:
         form = SignupForm()
     return render(request, 'authenticate/register_user.html', {

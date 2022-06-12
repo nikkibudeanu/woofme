@@ -88,11 +88,11 @@
                         </ul>
                     </li>
                 </ul>
-                <!--  Search beer button -->
-                <form class="d-flex text-end" action="" method="get">
+                <!--  Search breed button -->
+                <form class="d-flex text-end" action="{% url 'search_breed' %}" method="get">
                     {% csrf_token %}
                     <input class="form-control me-2" type="search" placeholder="Search by breed name"
-                        aria-label="Search your breed" name="search">
+                        aria-label="Search your breed" name="searched">
                     <button class="btn btn-light btn-outline-dark" name="submit" type="submit">Search</button>
                 </form>
             </div>
