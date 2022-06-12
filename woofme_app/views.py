@@ -109,10 +109,10 @@ class DeleteReviewView(DeleteView):
     template_name = 'review_list/delete_review.html' 
     succes_url = reverse_lazy('review_list')
 
-def group_view(request, group):
+def search_group_view(request, group):
     """ Define a breed group view on search """
     group_reviews = BreedReview.objects.filter(slug=group).order_by('-published_date')
-    return render(request, 'review_list/breed_groups.html', {
+    return render(request, 'review_list/search_breed_groups.html', {
         'group': group, 'group_reviews': group_reviews
     })
 

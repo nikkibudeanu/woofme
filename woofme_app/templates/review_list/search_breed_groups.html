@@ -118,13 +118,13 @@ Reviews by Style
                             <span class="m-auto">
                                 
                                     <!-- Edit button -->
-                                    <a href="{% url 'review_update' review.pk %}" class="text-decoration-none text-white shadow-none"
+                                    <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white shadow-none"
                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review" aria-label="Edit">
                                         <i class="fas fa-lg fa-edit px-2"></i>
                                     </a>
 
                                     <!-- Delete button -->
-                                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white shadow-none" id="edit"
+                                    <a href="{% url 'delete_review' review.pk %}" class="text-decoration-none text-white shadow-none" id="edit"
                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review" aria-label="Delete">
                                         <i class="fas fa-lg fa-trash px-2 pb-2 "></i>
                                     </a>

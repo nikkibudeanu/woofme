@@ -1,0 +1,204 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% load cloudinary %}
+
+{% block title %}
+Breed Search
+{% endblock %}
+
+{% block additional_styles %}
+<!-- Customizible CSS -->
+<style>
+    body {
+        background-image: url("")!important;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    <!-- Reviews by breed group -->
+    <section class="shadow-sm m-auto section-container text-center">
+        {% if breed_review %}
+
+            <!-- Reviews title -->
+            <div class="container text-light text-center ">
+                <h1 class="title p-5"> You seached for: {{ searched|title }}</h1>
+            </div>
+
+            <!-- Reviews card -->
+            <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
+                {% for breed in breed_review %}
+                    <div class="col col-md-6 col-lg-4 col-xl-3">
+                        <div class="card w-100 text-light bg-dark rounded text-center">
+
+                            <!-- Card hyperlink to breed page -->
+                            <a href="{% url 'review_page' breed.pk %}"
+                                class="text-decoration-none text-capitalize fw-bold text-white">
+
+                                <!-- Review's breed name -->
+                                <h2 class="card-title m-3 text-truncate "> {{ breed.breed }} </h2>
+                                <hr>
+
+                                <!-- Review's breed group  -->
+                                <h3 class="text-truncate mx-2">{{ breed.breed_group }}</h3>
+
+                                <!-- Review's breed image -->
+                                <img src="{{ breed.breed_image.url }}" class="card-img-top rounded-2 img-container" alt="Breed image ">
+
+                                <!-- Review's card body -->
+                                <div class="card-body">
+
+                                    <!-- Review's text -->
+                                    <p class="card-text text-truncate">{{ breed.review }}</p>
+
+                                       <!-- Review's adaptability level -->
+                                <p class="card-text"> :
+                                    <span class="fas fa-breed {% if review.adaptability > 0 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.adaptability > 1 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.adaptability > 2 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.adaptability > 3 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.adaptability > 4 %} selected {% endif %}"></span>
+                                </p>
+
+                                <!-- Review's trainability level -->
+                                <p class="card-text"> :
+                                <span
+                                    class="fas fas fa-euro-sign {% if review.trainability > 0 %} selected {% endif %}"></span>
+                                <span
+                                    class="fas fas fa-euro-sign {% if review.trainability > 1 %} selected {% endif %}"></span>
+                                <span
+                                    class="fas fas fa-euro-sign {% if review.trainability > 2 %} selected {% endif %}"></span>
+                                <span class="fas fa-euro-sign {% if review.trainability > 3 %} selected {% endif %}"></span>
+                                <span class="fas fa-euro-sign {% if review.trainability > 4 %} selected {% endif %}"></span>
+                                </p>
+
+                                  <!-- Review's friendliness level -->
+                                  <p class="card-text"> :
+                                    <span
+                                        class="fas fas fa-euro-sign {% if review.friendliness > 0 %} selected {% endif %}"></span>
+                                    <span
+                                        class="fas fas fa-euro-sign {% if review.friendliness > 1 %} selected {% endif %}"></span>
+                                    <span
+                                        class="fas fas fa-euro-sign {% if review.friendliness > 2 %} selected {% endif %}"></span>
+                                    <span class="fas fa-euro-sign {% if review.friendliness > 3 %} selected {% endif %}"></span>
+                                    <span class="fas fa-euro-sign {% if review.friendliness > 4 %} selected {% endif %}"></span>
+                                    </p>
+
+                                     <!-- Review's health and grooming needs level -->
+                                <p class="card-text"> :
+                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
+                                </p>
+
+                                <!-- Review's rating -->
+                                <p class="card-text"> Rating:
+                                <span class="fa fa-star {% if review.rating > 0 %} selected {% endif %}"></span>
+                                <span class="fa fa-star {% if review.rating > 1 %} selected {% endif %}"></span>
+                                <span class="fa fa-star {% if review.rating > 2 %} selected {% endif %}"></span>
+                                <span class="fa fa-star {% if review.rating > 3 %} selected {% endif %}"></span>
+                                <span class="fa fa-star {% if review.rating > 4 %} selected {% endif %}"></span></p>
+                            
+                                    <!-- Review's breed author and published date -->
+                                    <p class="card-text text-truncate text-muted text-sm"> {{ breed.user_name }} - {{ breed.published_date }} 
+                                    </p>
+                                </div>
+                            </a>
+
+                            <!-- Delete and Edit Options -->
+                            {% if user.is_authenticated %}
+                                {% if user.id == breed.user_name.id %}
+                                <span class="m-auto">
+                                        <a href="{% url 'edit_review' breed.pk %}" class="text-decoration-none text-white"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your breed" aria-label="edit"><i
+                                                class="fas fa-lg fa-edit px-2"></i>
+                                        </a>
+                                        <a href="{% url 'delete_review' breed.pk %}" class="text-decoration-none text-white shadow-none" id="edit"
+                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review" aria-label="delete">
+                                            <i class="fas fa-lg fa-trash px-2 pb-2 "></i>
+                                        </a>
+                                    </h4>
+                                </span>
+                                {% endif %}
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+               <!-- Cards pagination  -->
+            <nav aria-label="Page navigation example ">      
+                <ul class="pagination justify-content-center mt-2 mx-auto">
+                                        
+                    {% if page_obj.has_previous %}
+
+                        <!-- First button -->
+                        <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none" href="?page=1">First</a></li>
+                    
+                        <!-- Previous button -->
+                        <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none" 
+                            href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+                    {% endif %}
+                                            
+                    {% if page_obj.has_next %}
+
+                        <!-- Next button -->
+                        <li class="page-item">
+                            <a class="page-link bg-dark border-1 rounded-3 mt-3 mx-1 p-3 shadow-none" 
+                            href="?page={{ page_obj.next_page_number }}">Next
+                            </a>
+                        </li>
+
+                        <!-- Last button -->
+                        <li class="page-item">
+                            <a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none"
+                                href="?page={{ page_obj.paginator.num_pages }}">Last
+                            </a>
+                        </li>
+                        
+                    {% endif %}
+                </ul>
+            </nav>
+            
+        {% else %}
+            <!-- No reviews container -->
+            <div class="container no-review text-center ">
+                <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3 text-light">
+                    <h1> There's no review for {{ searched | title}}</h1> <hr>
+                    <p class="lead"> Would you like to be the first? </p>
+                    {% if user.is_authenticated %}
+
+                    <!-- Review your breed container-->
+                    <a href="{% url 'add_review' %}" class="btn btn-warning btn-lg m-2 fw-bold shadow-none">Review your favorite
+                            Breed Now!
+                    </a>
+                    {% else %}
+
+                    <!-- Go to login page button -->
+                    <a href="{% url 'login' %}" class="btn btn-warning btn-lg m-2 fw-bold shadow-none">Login and
+                            Review!
+                    </a>
+                    {% endif %}
+                </div>
+            
+        {% endif %}
+
+
+      <!-- Back to reviews page button -->
+        <div class="m-2 text-center">
+            <a href="{% url 'review_list'%}" class="btn btn-submit btn-lg fw-bold mt-3 shadow-none">Back to Reviews</a>
+        </div>
+    </div>
+    </section>
+
+
+    {% block extra_js %}
+        <!-- Customizible JS -->
+        <script src="{% static 'js/toollip.js' %}"></script>
+    {% endblock extra_js %}
+
+{% endblock %}
