@@ -1,52 +1,44 @@
 {% extends "base.html" %}
 
+{% load static %}
+
 {% block additional_styles %}
 <style>
-   body {
-    background-image: url("{{MEDIA_URL}}")!important;
-   }
+  body {
+    background-image: url('')!important;
+  }
 </style>
 {% endblock %}
-{% load crispy_forms_tags %}
 
-
-{%block title %} Register {% endblock %}
+{% block title %} 
+Register
+{% endblock %}
 
 {% block content %}
-
-{% if form.errors %}
-
-<div class="alert alert-warning alert-dismissible fade show" role="alert" id="alert">
-    There was an error with your form. 
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-  </div>
-
-
-
-{% endif %}
-
-<!-----------------------------------Login container ----------------------->
+<!-- Register container -->
 <div class="container container-box">
-  <div class="d-flex justify-content-center col-lg-6 col-12 float-end">
-    <div class="card bg-dark">
-      <div class="card-header text-light">
-        <h3 class="text-end">Register &nbsp<i class="fas fa-user-plus"></i></h3>
-      </div>
-      <!-----------------------------------Login form ----------------------->
-      <div class="card-body m-auto text-light">
-        <form action="" method="POST">
+	<div class="d-flex justify-content-center col-lg-6 col-12 float-end margin-bottom">
+		<div class=" bg-dark">
+			<div class="card-header text-light">
+				<h1 class="text-end yellow">Register &nbsp;<i class="fas fa-user-plus"></i></h1>
+			</div>
 
-          {% csrf_token %}
-          {{form.as_p}}
+			<!--Register form section -->
+			<div class="card-body m-auto text-light">
+				<form method="POST">
+					{% csrf_token %}
+					{{form.as_p}}
+					<!--Submit button section -->
+					<div class="p-3 d-flex justify-content-center">
+						<input type="submit" value="Sign In" class="btn btn-secondary btn-warning fw-bold">
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
 
-
-          <div class="p-3 d-flex justify-content-center">
-            <input type="submit" value="Sign In" class="btn btn-secondary btn-warning login-button">
-          </div>
-        </form>
-      </div>
-
-    </div>
-  </div>
+<!-- Customizable JS -->
+<script src="{% static 'js/script.js' %}"></script>
 
 {% endblock content %}
