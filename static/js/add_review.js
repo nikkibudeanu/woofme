@@ -1,14 +1,15 @@
-const one = document.getElementById('first')
-const two = document.getElementById('second')
-const three = document.getElementById('third')
-const four = document.getElementById('fourth')
-const five = document.getElementById('fifth')
+// all stars
+var one = document.getElementById('first')
+var two = document.getElementById('second')
+var three = document.getElementById('third')
+var four = document.getElementById('fourth')
+var five = document.getElementById('fifth')
 
-const form = document.querySelector('.review-form')
+var form = document.querySelector('.review-form')
 
 
-
-const handleSelect = (selection) => {
+// get the stars to hover and add or delete selected class
+var handleSelect = (selection) => {
     switch (selection) {
         case 'first': {
             one.classList.add('selected')
@@ -58,7 +59,8 @@ const handleSelect = (selection) => {
     }
 }
 
-const getNumericValue = (stringValue) => {
+// convert string value to numeric value 
+var getNumericValue = (stringValue) => {
     let numericValue;
     if (stringValue === 'first') {
         numericValue = 1
@@ -77,21 +79,22 @@ const getNumericValue = (stringValue) => {
 }
 
 
-const arr = [one, two, three, four, five]
+var arr = [one, two, three, four, five]
 
-arr.forEach(item => item.addEventListener('mouseover', (event) => {
-    handleSelect(event.target.id)
 
-}))
-
+// event listener when hover on rating stars
 
 arr.forEach(item => item.addEventListener('click', (event) => {
-    const val = event.target.id
-    console.log(val)
+    handleSelect(event.target.id)
 
-    const val_num = getNumericValue(val)
-    console.log(val_num)
-    form.rating.value = val_num
-    console.log(form.rating.value)
-})) 
+
+}));
+
+// convert string value to numeric value
+
+arr.forEach(item => item.addEventListener('click', (event) => {
+    var val = event.target.id;
+    var num_value = getNumericValue(val);
+    form.rating.value = num_value;
+}));
 

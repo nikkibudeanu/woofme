@@ -122,7 +122,7 @@ def cat_style_menu_on_all_pages(request):
     return{'cat_style_menu': BreedGroup.objects.all().order_by('breed_group')}
 
 
-def search_breed(request):
+def search_breed_view(request):
     """Define a breed view search in all pages"""
     if request.method == "POST":
         searched = request.POST['searched']

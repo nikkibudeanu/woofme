@@ -10,7 +10,7 @@
     <div class="bg-dark col-lg-9 col-11 m-auto rounded">
       <h1 class="text-light text-center bold p-3"> Edit your breed review</h1>
       <div class="text-light">
-        <form method="POST" actions="/add_review" class="review-form"  enctype="multipart/form-data">
+        <form method="POST" actions="/add_review" class="review-form" enctype="multipart/form-data">
           {% csrf_token %}
           <div class="m-3 align-middle p-2">
             Breed Group: {{ form.breed_group}}
@@ -32,15 +32,15 @@
 
             <div class="mt-2 stars"> {{form.score}}
               <h3 class="text-center">Rate a breed!</h3>
-                <span class="fa fa-star fa-3x my-btn" id="first"></span>
-                <span class="fa fa-star fa-3x my-btn" id="second"></span>
-                <span class="fa fa-star fa-3x my-btn" id="third"></span>
-                <span class="fa fa-star fa-3x my-btn" id="fourth"></span>
-                <span class="fa fa-star fa-3x my-btn" id="fifth"></span>
+              <span class="fa fa-star fa-3x my-btn" id="first"></span>
+              <span class="fa fa-star fa-3x my-btn" id="second"></span>
+              <span class="fa fa-star fa-3x my-btn" id="third"></span>
+              <span class="fa fa-star fa-3x my-btn" id="fourth"></span>
+              <span class="fa fa-star fa-3x my-btn" id="fifth"></span>
             </div>
             <div class="text-center">
               <input type="submit" value="Update" name="htmlsubmitbutton1"
-              class="btn btn-secondary btn-success login-button btn-lg m-3">
+                class="btn btn-secondary btn-success login-button btn-lg m-3">
             </div>
         </form>
       </div>
@@ -51,4 +51,4 @@
 <script src="{% static 'js/add_review.js' %}"></script>
 
 
-{% endblock content %} 
+{% endblock content %}

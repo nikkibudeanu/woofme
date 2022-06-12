@@ -15,14 +15,15 @@ def login_user(request):
 
         if user is not None:
             login(request, user)
-            messages.success(request,("You're logged in"))
+            messages.success(request, ("You're logged in"))
             return redirect('home')
         else:
-            messages.success(request,('There was an error loggging in. Please, try again!'))
+            messages.success(request, (
+                'There was an error loggging in. Please, try again!'))
             return redirect('login')
 
     else:
-        return render(request, 'authenticate/login.html',{})
+        return render(request, 'authenticate/login.html', {})
 
 
 def logout_user(request):

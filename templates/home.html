@@ -2,33 +2,33 @@
 
 {% load static %}
 
-{% block title %} 
-Home 
+{% block title %}
+Home
 {% endblock %}
 
 {% block additional_styles %}
-    <style>
+<style>
     body {
-        background-image: url(''')!important;
+        background-image: url('')!important;
         background-position: center;
-    }
-    </style>
+        }
+</style>
 {% endblock %}
 
 {% block content %}
 
-    <!--Welcome jumbotron -->
-    <div class=" container container-box-home bg-dark rounded text-light text-center p-2 col-lg-4 col-11 float-start">
-        <div class="row justify-content-start">
-            <div class="col ">
-                    <p>Review your pet</p>
-            </div>
+<!--Welcome jumbotron -->
+<div class=" container container-box-home bg-dark rounded text-light text-center p-2 col-lg-4 col-11 float-start">
+    <div class="row justify-content-start">
+        <div class="col ">
+            <p>Review your pet</p>
         </div>
     </div>
+</div>
 
-    {% block extra_js %}
-            <!-- Customizible JS -->
-        <script src="{% static 'js/script.js' %}"></script>
-    {% endblock extra_js %}
+{% block extra_js %}
+<!-- Customizible JS -->
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock extra_js %}
 
 {% endblock content %}
