@@ -3,11 +3,13 @@ from django.http import Http404
 from django.shortcuts import redirect, render
 from django.views.generic import ListView, DetailView, View, UpdateView, \
     DeleteView
-from .models import BreedReview, BreedGroup
+from .models import BreedReview, BreedGroup, Breed
 from .forms import BreedReviewForm, CreateBreedForm
 # from django.views import generic
 from django.urls import reverse_lazy
 import logging
+from django.core.paginator import Paginator
+
 # from bootstrap_modal_forms.generic import BSModalCreateView
 
 
@@ -113,13 +115,28 @@ def search_group_view(request, group):
     """ Define a breed group view on search """
     group_reviews = BreedReview.objects.filter(slug=group).order_by('-published_date')
     return render(request, 'review_list/search_breed_groups.html', {
-        'group': group, 'group_reviews': group_reviews
-    })
+        'group': group, 'group_reviews': group_reviews})
 
-
-def breed_group_list(request):
-    cat_style_menu=BreedGroup.objects.all
-    return render(request, 'base.html', {'cat_style_menu': cat_style_menu})
 
 def cat_style_menu_on_all_pages(request):
-    return{'cat_style_menu': BreedGroup.objects.all()}
+    return{'cat_style_menu': BreedGroup.objects.all().order_by('breed_group')}
+
+
+def search_breed(request):
+    """Define a breed view search in all pages"""
+    if request.method == "POST":
+        searched = request.POST['searched']
+    elif request.method == "GET":
+        searched = request.GET['searched']
+
+
+    breeds = BreedReview.objects.filter(
+        breed__breed_name__icontains=searched).order_by('-published_date')
+
+
+    paginator = Paginator(breeds, 3)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'review_list/search_breed.html', {
+        'searched': searched, 'breed_review': page_obj})
