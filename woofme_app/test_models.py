@@ -37,3 +37,18 @@ class BreedGroupTestCase(SetupModelTestCase):
     def test_abdolute_url(self):
         logging.debug(self.breed_group)
         self.assertEqual(self.breed_group.get_absolute_url(), reverse('add_review'))
+
+class BreedTestCase(SetupModelTestCase):
+    """ Test breed model"""
+    def test_abdolute_url(self):
+        self.assertEqual(self.breed.get_absolute_url(), reverse('add_review')
+
+class BreedReviewTestCase(SetupModelTestCase):
+    """ Test breedreview model"""
+    def test__str__(self):
+        self.assertEqual(str(self.breed_review), self.breed_breed_name.lower())
+    
+    def test_abdolute_url(self):
+        self.assertEqual(self.breed_review.get_absolute_url(), reverse(
+            'review_page', kwargs={'pk': self.breed_review.id}
+        ))
