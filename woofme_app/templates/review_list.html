@@ -8,168 +8,176 @@
 <!-- Customizible CSS -->
 <style>
     body {
-        background-image: url("")!important;
-       
+        background-image: url("") !important;
+
     }
 </style>
 {% endblock %}
 
-{% block title %} 
+{% block title %}
 Review
 {% endblock title %}
 
 {% block content %}
-    <!-- Reviews section -->
-    <section class=" shadow-sm m-auto section-container text-center">
+<!-- Reviews section -->
+<section class=" shadow-sm m-auto section-container text-center">
 
     <!-- Reviews title  -->
-        <div class="container text-light text-center ">
-            <h1 class="title p-4"> Latest breed Reviews </h1>
-        </div>
+    <div class="container text-light text-center ">
+        <h1 class="title p-4"> Latest breed Reviews </h1>
+    </div>
 
-        <!-- Reviews card -->
-        <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
-            
-            <!-- Reviews for loop -->
-            {% for review in object_list %}
-                <div class="col col-md-6 col-lg-4 col-xl-3">
-                    <div class="card w-100 text-light bg-dark rounded ">
-                        
-                        <!-- Card hyperlink to breed detail page -->
-                        <a href="{% url 'review_detail' review.pk %}"
-                            class="text-decoration-none text-capitalize fw-bold text-white">     
-                            
-                            <!-- Review's breed name -->
-                            <h2 class="card-title m-3 text-center text-truncate"> {{ review.breed }} </h2> <hr>
+    <!-- Reviews card -->
+    <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
 
-                            <!-- Review's breed group -->
-                            <h3 class="text-truncate mx-2">{{ review.breed_group}}</h3>
-                            
-                            <!-- Review's breed image -->
-                            <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container" alt="{{ review.breed }}" >
+        <!-- Reviews for loop -->
+        {% for review in object_list %}
+        <div class="col col-md-6 col-lg-4 col-xl-3">
+            <div class="card w-100 text-light bg-dark rounded ">
 
-                            
-                            <div class="card-body">
-                                <!-- Review's text -->
-                                <p class="card-text text-truncate"> {{ review.review }} </p>
+                <!-- Card hyperlink to breed detail page -->
+                <a href="{% url 'review_detail' review.pk %}"
+                    class="text-decoration-none text-capitalize fw-bold text-white">
 
-                                <!-- Review's adaptability level -->
-                                <p class="card-text"> :
-                                    <span class="fas fa-breed {% if review.adaptability > 0 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.adaptability > 1 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.adaptability > 2 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.adaptability > 3 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.adaptability > 4 %} selected {% endif %}"></span>
-                                </p>
+                    <!-- Review's breed name -->
+                    <h2 class="card-title m-3 text-center text-truncate"> {{ review.breed }} </h2>
+                    <hr>
 
-                                <!-- Review's trainability level -->
-                                <p class="card-text"> :
-                                <span
-                                    class="fas fas fa-euro-sign {% if review.trainability > 0 %} selected {% endif %}"></span>
-                                <span
-                                    class="fas fas fa-euro-sign {% if review.trainability > 1 %} selected {% endif %}"></span>
-                                <span
-                                    class="fas fas fa-euro-sign {% if review.trainability > 2 %} selected {% endif %}"></span>
-                                <span class="fas fa-euro-sign {% if review.trainability > 3 %} selected {% endif %}"></span>
-                                <span class="fas fa-euro-sign {% if review.trainability > 4 %} selected {% endif %}"></span>
-                                </p>
+                    <!-- Review's breed group -->
+                    <h3 class="text-truncate mx-2">{{ review.breed_group}}</h3>
 
-                                  <!-- Review's friendliness level -->
-                                  <p class="card-text"> :
-                                    <span
-                                        class="fas fas fa-euro-sign {% if review.friendliness > 0 %} selected {% endif %}"></span>
-                                    <span
-                                        class="fas fas fa-euro-sign {% if review.friendliness > 1 %} selected {% endif %}"></span>
-                                    <span
-                                        class="fas fas fa-euro-sign {% if review.friendliness > 2 %} selected {% endif %}"></span>
-                                    <span class="fas fa-euro-sign {% if review.friendliness > 3 %} selected {% endif %}"></span>
-                                    <span class="fas fa-euro-sign {% if review.friendliness > 4 %} selected {% endif %}"></span>
-                                    </p>
+                    <!-- Review's breed image -->
+                    <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container"
+                        alt="{{ review.breed }}">
 
-                                     <!-- Review's health and grooming needs level -->
-                                <p class="card-text"> :
-                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
-                                    <span class="fas fa-breed {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
-                                </p>
 
-                                <!-- Review's rating -->
-                                <p class="card-text"> Rating:
-                                <span class="fa fa-star {% if review.rating > 0 %} selected {% endif %}"></span>
-                                <span class="fa fa-star {% if review.rating > 1 %} selected {% endif %}"></span>
-                                <span class="fa fa-star {% if review.rating > 2 %} selected {% endif %}"></span>
-                                <span class="fa fa-star {% if review.rating > 3 %} selected {% endif %}"></span>
-                                <span class="fa fa-star {% if review.rating > 4 %} selected {% endif %}"></span></p>
-                            
-                                <!-- Review's author and publication date -->
-                                <p class="card-text text-truncate text-muted text-sm"> {{ review.user_name }}
-                                | &nbsp;{{ review.published_date }} </p>
-                            </div>
-                        </a>
+                    <div class="card-body">
+                        <!-- Review's text -->
+                        <p class="card-text text-truncate"> {{ review.review }} </p>
 
-                        <!-- Delete and Edit Options -->
-                        {% if user.is_authenticated %}
-                            {% if user.id == review.user_name.id %}
-                                <span class="m-auto">
-                                        <a href="{% url 'review_update' review.pk %}" class="text-decoration-none text-white shadow-none" aria-label="Edit"
-                                            data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review">
-                                            <i class="fas fa-lg fa-edit px-2"></i>
-                                        </a>
-                                        <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white shadow-none" aria-label="Delete"
-                                            id="edit" data-bs-toggle="tooltip" data-bs-placement="bottom"
-                                            title="Delete your review">
-                                            <i class="fas fa-lg fa-trash px-2 pb-2 "></i>
-                                        </a>
-                                </span>
-                            {% endif %}
-                        {% endif %}
-                        
+                        <!-- Review's adaptability level -->
+                        <p class="card-text"> :
+                            <span class="fas fa-breed {% if review.adaptability > 0 %} selected {% endif %}"></span>
+                            <span class="fas fa-breed {% if review.adaptability > 1 %} selected {% endif %}"></span>
+                            <span class="fas fa-breed {% if review.adaptability > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-breed {% if review.adaptability > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-breed {% if review.adaptability > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Review's trainability level -->
+                        <p class="card-text"> :
+                            <span
+                                class="fas fas fa-euro-sign {% if review.trainability > 0 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fas fa-euro-sign {% if review.trainability > 1 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fas fa-euro-sign {% if review.trainability > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if review.trainability > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if review.trainability > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Review's friendliness level -->
+                        <p class="card-text"> :
+                            <span
+                                class="fas fas fa-euro-sign {% if review.friendliness > 0 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fas fa-euro-sign {% if review.friendliness > 1 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fas fa-euro-sign {% if review.friendliness > 2 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if review.friendliness > 3 %} selected {% endif %}"></span>
+                            <span class="fas fa-euro-sign {% if review.friendliness > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Review's health and grooming needs level -->
+                        <p class="card-text"> :
+                            <span
+                                class="fas fa-breed {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fa-breed {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fa-breed {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fa-breed {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                            <span
+                                class="fas fa-breed {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
+                        </p>
+
+                        <!-- Review's rating -->
+                        <p class="card-text"> Rating:
+                            <span class="fa fa-star {% if review.rating > 0 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating > 1 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating > 2 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating > 3 %} selected {% endif %}"></span>
+                            <span class="fa fa-star {% if review.rating > 4 %} selected {% endif %}"></span></p>
+
+                        <!-- Review's author and publication date -->
+                        <p class="card-text text-truncate text-muted text-sm"> {{ review.user_name }}
+                            | &nbsp;{{ review.published_date }} </p>
                     </div>
-                </div> 
-            
-            {% endfor %}
+                </a>
+
+                <!-- Delete and Edit Options -->
+                {% if user.is_authenticated %}
+                {% if user.id == review.user_name.id %}
+                <span class="m-auto">
+                    <a href="{% url 'review_update' review.pk %}" class="text-decoration-none text-white shadow-none"
+                        aria-label="Edit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review">
+                        <i class="fas fa-lg fa-edit px-2"></i>
+                    </a>
+                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white shadow-none"
+                        aria-label="Delete" id="edit" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                        title="Delete your review">
+                        <i class="fas fa-lg fa-trash px-2 pb-2 "></i>
+                    </a>
+                </span>
+                {% endif %}
+                {% endif %}
+
+            </div>
         </div>
-            <!-- Cards pagination  -->
-            <nav aria-label="Page navigation example ">      
-                <ul class="pagination justify-content-center mt-2 mx-auto">
-                                        
-                    {% if page_obj.has_previous %}
 
-                        <!-- First button -->
-                        <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none" href="?page=1">First</a></li>
-                    
-                        <!-- Previous button -->
-                        <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none" 
-                            href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
-                    {% endif %}
-                                            
-                    {% if page_obj.has_next %}
+        {% endfor %}
+    </div>
+    <!-- Cards pagination  -->
+    <nav aria-label="Page navigation example ">
+        <ul class="pagination justify-content-center mt-2 mx-auto">
 
-                        <!-- Next button -->
-                        <li class="page-item">
-                            <a class="page-link bg-dark border-1 rounded-3 mt-3 mx-1 p-3 shadow-none" 
-                            href="?page={{ page_obj.next_page_number }}">Next
-                            </a>
-                        </li>
+            {% if page_obj.has_previous %}
 
-                        <!-- Last button -->
-                        <li class="page-item">
-                            <a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none"
-                                href="?page={{ page_obj.paginator.num_pages }}">Last
-                            </a>
-                        </li>
-                        
-                    {% endif %}
-                </ul>
-            </nav>
-        
-    </section>
+            <!-- First button -->
+            <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none"
+                    href="?page=1">First</a></li>
 
-        {% block extra_js %}
-            <!-- Customizible JS -->
-            <script src="{% static 'js/.review_list.js' %}"></script>
-        {% endblock %}
+            <!-- Previous button -->
+            <li class="page-item"><a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none"
+                    href="?page={{ page_obj.previous_page_number }}">Previous</a></li>
+            {% endif %}
+
+            {% if page_obj.has_next %}
+
+            <!-- Next button -->
+            <li class="page-item">
+                <a class="page-link bg-dark border-1 rounded-3 mt-3 mx-1 p-3 shadow-none"
+                    href="?page={{ page_obj.next_page_number }}">Next
+                </a>
+            </li>
+
+            <!-- Last button -->
+            <li class="page-item">
+                <a class="page-link bg-dark border-1 rounded-3 m-3 p-3 shadow-none"
+                    href="?page={{ page_obj.paginator.num_pages }}">Last
+                </a>
+            </li>
+
+            {% endif %}
+        </ul>
+    </nav>
+
+</section>
+
+{% block extra_js %}
+<!-- Customizible JS -->
+<script src="{% static 'js/.review_list.js' %}"></script>
+{% endblock %}
 
 {% endblock %}
