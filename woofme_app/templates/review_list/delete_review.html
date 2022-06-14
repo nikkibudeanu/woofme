@@ -1,29 +1,60 @@
 {% extends 'base.html' %}
+
+{% block title %} 
+Delete review 
+{% endblock %}
+
+{% block additional_styles %}
+<!-- Customizible CSS -->
+    <style>
+        body {
+            background-image: url("")!important;
+        }
+    </style>
+{% endblock %}
+
 {% block content %}
 
-{% if user.is_authenticated %}
+    <!-- If user is authenticated --> delete container -->
+    {% if user.is_authenticated %}
+        <fieldset>
 
-<fieldset>
+            <!-- Delete review container -->
+            <div class="container mt-5 ">
+                <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3">
 
-    <div class="container mt-5">
-        <div class="bg-dark bg-opacity-75 col-lg-9 col-11 m-auto rounded m-2">
-            <h1 class="text-light text-center bold p-3"> Delete review</h1>
-            <div class="text-light text-center">
-                <h5> Breed: {{ object.breed }}</h5>
-                <p>{{ object.review }}</p>
-                <p class="text-muted">Created by:{{ object.user_name }}</p>
-                <form method="POST" actions="">
-                    {% csrf_token %}
+                    <!-- Delete review container title -->
+                    <h1 class="text-light text-center bold p-3 yellow"> Delete review <hr></h1>
+                    <div class="text-light text-center">
 
-                    <button class="btn btn-secondary btn-success login-button btn-lg m-2">Delete </button>
+                        <!-- Review title -->
+                        <h5 class = "mb-2"> Breed: {{ object.breed|title }}</h5>
+
+                        <!-- Review breed group -->
+                        <h5 class = "mb-3"> Breed Group: {{ object.breed_group|title }}</h5>
+                        
+                        <!-- Review text -->
+                        <div class= "review-detail-box p-3 d-flex align-items-center justify-content-center overflow-auto mb-3">
+                            <p>{{ object.review|title }}</p>
+                        </div>
+                        
+                        <!-- Review author and publication date -->
+                        <p class= "text-muted">Author:{{ object.user_name }} <br/>Created at: {{ object.published_date }}</p>
+
+                        <!-- Delete form -->
+                        <form method="POST" actions="">
+                            {% csrf_token %}
+
+                            <!-- Delete button -->
+                            <button class="btn btn-secondary btn-danger btn-lg m-2 fw-bold" >Delete</button>
+
+                            <!-- Back button -->
+                            <input type="button" value="Cancel" onclick="history.back()" class="btn btn-cancel btn-lg m-3">
+                        </form>
+                    </div>
+                </div>
             </div>
-            </form>
-        </div>
-    </div>
-    </div>
-</fieldset>
-
-
-{% endif %}
-
-{% endblock content %}
+        </fieldset>
+    {% endif %}
+ 
+{% endblock %}
