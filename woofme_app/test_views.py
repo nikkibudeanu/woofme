@@ -38,4 +38,20 @@ class BreedRatingView(SetupViewTestCase):
         response = self.client.get(reverse('review_list'))
         self.assertEqual(response.status_code, 200)
 
+    def test_breed_rating_view_if_correct_template(self):
+        """ Test if review list is rendering correct template """
+        response = self.client.get(reverse('review_list'))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list.html')
+
+    def test_breed_rating_view_incorrect_html(self):
+        """ Test if the review list is rendering the wrong html and display message if it is"""
+        response = self.client.get(reverse('review_list'))
+        self.assertNotContains(response, 'Hello friend! I am on the wrong page!')
+
+    def test_breed_rating_view_valid_html(self):
+        """ Test if the review list is showing the correct html"""
+        response = self.client.get(reverse('review_list'))
+        self.assertContains(response, 'Latest Reviews of your favorite breeds!')
+
 
