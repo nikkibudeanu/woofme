@@ -30,7 +30,7 @@ class Breed(models.Model):
     breed_group = models.ForeignKey(
         BreedGroup, on_delete=models.CASCADE, null=True)
     slug = models.CharField(max_length=50, null=True)
-    breed_image = CloudinaryField('image', blank=True, transformation={'width': '600', 'height': '600', 'crop':'fill', 'gravity':"auto")
+    breed_image = CloudinaryField('image', blank=True, transformation={'width': '600', 'height': '600', 'crop':'fill', 'gravity':"auto"})
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
 
