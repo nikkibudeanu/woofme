@@ -55,3 +55,19 @@ class BreedRatingView(SetupViewTestCase):
         self.assertContains(response, 'Latest Reviews of your favorite breeds!')
 
 
+class ReviewPageViewTests(SetupViewTestCase):
+    """ Test review detail view """
+    
+    def test_review_page_view_url_exists(self):
+        """ Test if the review page view exists"""
+        response = self.client.get(
+            '/review_list/review_page/' + str(self.breed_review.id))
+            self.assertEqual(response.status_code, 200)
+
+    def test_review_page_success_status_code(self):
+        """ Test if review page is rendering correctly"""
+        url = reverse('review_page', kwargs={
+            'pk':self.breed_review.id
+        })
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
