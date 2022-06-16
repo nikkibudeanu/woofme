@@ -71,3 +71,16 @@ class ReviewPageViewTests(SetupViewTestCase):
         })
         response = self.client.get(url)
         self.assertEqual(response.status_code, 200)
+    
+    def test_review_page_url_by_name(self):
+        """ Test if review page is rendering correctly by name"""
+        response = self.client.get(reverse('review_page', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_review_page_if_uses_correct_template(self):
+        """ Test review page if it is using the correct template"""
+        response = self.client.get(reverse('review_page', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list/review_page.html')
