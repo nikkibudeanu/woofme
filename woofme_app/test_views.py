@@ -62,7 +62,7 @@ class ReviewPageViewTests(SetupViewTestCase):
         """ Test if the review page view exists"""
         response = self.client.get(
             '/review_list/review_page/' + str(self.breed_review.id))
-            self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
 
     def test_review_page_success_status_code(self):
         """ Test if review page is rendering correctly"""
@@ -84,3 +84,16 @@ class ReviewPageViewTests(SetupViewTestCase):
             'pk': self.breed_review.id}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'review_list/review_page.html')
+
+    def test_review_page_contains_wrong_html(self):
+        """ Test if review page contains the wrong html and display a message if it is"""
+        response = self.client.get(reverse('review_page', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertNotContains(
+            response, 'Hello friend! I am on the wrong page!')
+
+    def test_review_page_view_contains_valid_html(self):
+        """ Test of review page has the correct html displayed"""
+        response = self.client.get(reverse('review_page', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertContains(response, 'Rating')
