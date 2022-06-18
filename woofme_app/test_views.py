@@ -154,7 +154,7 @@ class EditViewTests(SetupViewTestCase):
     def setUp(self):
         """ Setup user and review """
         super().setUp()
-        self.client.login(user_name=self.user_name, password=self.password)
+        self.client.login(user_name=self.username, password=self.password)
         self.response = self.client.get(self.url)
 
         def test_status_code(self):
@@ -167,7 +167,7 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
     def setUp(self):
         """ Setup user and review"""
         super().setUp()
-        self.client.login(username=self.user_name, password=self.password)
+        self.client.login(username=self.username, password=self.password)
 
 
     def test_if_review_changed(self):
@@ -176,3 +176,23 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
         self.breed_review.save()
         self.breed_review.refresh_from_db()
         self.assertEqual(self.breed_review.review, 'review test edited')
+
+
+    def test_if_edited_review_url_created(self):
+        """ Test if edit review page is rendering correctly"""
+        response = self.client.get(
+            '/review_list/edit/' + str(self.breed_review.id))
+        self.assertEqual(response.status_code, 200)
+
+    def test_if_edit_review_view_succes_status_code(self):
+        """ Test status code for edit review page"""
+        url = reverse('edit_review', kwargs={
+            'pk': self.breed_review.id})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_edit_review_url_by_name(self):
+        """ Test if edit review is rendering the correct url"""
+        response = self.client.get(reverse('edit_review', kwargs={
+            'pk': self.breed_review.id}))
+            self.assertEqual(response.status_code, 200)
