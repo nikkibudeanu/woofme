@@ -203,3 +203,17 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
             'pk': self.breed_review.id}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'review_list/edit_review.html')
+
+
+    def test_edit_review_correct_html(self):
+        """ Test if edit review view is rendering the correct html"""
+        response = self.client.get(reverse('edit_review', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertContains(response, 'Adaptability')
+
+    def test_edit_review_incorrect_html(self):
+        """ Test if edit review view is rendering the invalid html and display message"""
+        response = self.client.get(reverse('edit_review', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertNotContains(response, 'Hello friend! I am on the wrong page!')
+
