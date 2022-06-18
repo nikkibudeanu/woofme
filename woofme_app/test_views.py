@@ -195,4 +195,11 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
         """ Test if edit review is rendering the correct url"""
         response = self.client.get(reverse('edit_review', kwargs={
             'pk': self.breed_review.id}))
-            self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
+
+    def test_edit_review_correct_template(self):
+        """ Test if edit review page is using the correct template"""
+        response = self.client.get(reverse('edit_review', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list/edit_review.html')
