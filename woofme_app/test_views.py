@@ -147,3 +147,32 @@ class AddReviewViewTest(SetupViewTestCase):
         response = self.client.post(reverse('add_review'), payload)
         self.assertEqual(response.status_code, 200)
         self.assertIn('review_form', response.context)
+
+
+class EditViewTests(SetupViewTestCase):
+    """ Test edit review view render response"""
+    def setUp(self):
+        """ Setup user and review """
+        super().setUp()
+        self.client.login(user_name=self.user_name, password=self.password)
+        self.response = self.client.get(self.url)
+
+        def test_status_code(self):
+            """ Test if edit review is rendering correctly"""
+            self.assertEqual(self.response.status_code, 200)
+
+class SuccesfulEditReviewViewTest(SetupViewTestCase):
+    """ Test edit review successful response"""
+
+    def setUp(self):
+        """ Setup user and review"""
+        super().setUp()
+        self.client.login(username=self.user_name, password=self.password)
+
+
+    def test_if_review_changed(self):
+        """ Test if edit review is done correctly and database is refreshed"""
+        self.breed_review.review='review'
+        self.breed_review.save()
+        self.breed_review.refresh_from_db()
+        self.assertEqual(self.breed_review.review, 'review test edited')
