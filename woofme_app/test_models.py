@@ -1,13 +1,14 @@
+""" System module"""
 from django.test import TestCase
 from django.contrib.auth.models import User
 from django.urls import reverse
 from .models import BreedGroup, Breed, BreedReview
 
-import logging
 
 class SetupModelTestCase(TestCase):
     """ Test case for all view tests"""
     def setUp(self):
+        """ create user for testing models"""
         self.username = 'anna'
         self.password = '23456'
         user = User.objects.create_user(
@@ -34,21 +35,29 @@ class SetupModelTestCase(TestCase):
 
 class BreedGroupTestCase(SetupModelTestCase):
     """ Test breed group model"""
-    def test_abdolute_url(self):
-        logging.debug(self.breed_group)
-        self.assertEqual(self.breed_group.get_absolute_url(), reverse('add_review'))
+    def test_absolute_url(self):
+        """ Test if redirection to add review page is correct """
+        self.assertEqual(
+            self.breed_group.get_absolute_url(), reverse('add_review'))
+
 
 class BreedTestCase(SetupModelTestCase):
     """ Test breed model"""
-    def test_abdolute_url(self):
-        self.assertEqual(self.breed.get_absolute_url(), reverse('add_review')
+    def test_absolute_url(self):
+        """ Test if redirection to add review page is correct """
+        self.assertEqual(self.breed.get_absolute_url(), reverse('add_review'))
+
 
 class BreedReviewTestCase(SetupModelTestCase):
     """ Test breedreview model"""
     def test__str__(self):
+        """ Test if review is returning all model criterias"""
         self.assertEqual(str(self.breed_review), self.breed_breed_name.lower())
     
-    def test_abdolute_url(self):
+    def test_absolute_url(self):
+        """ Test if breed review page is redirectinh correctly"""
         self.assertEqual(self.breed_review.get_absolute_url(), reverse(
             'review_page', kwargs={'pk': self.breed_review.id}
         ))
+
+    
