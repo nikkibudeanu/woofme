@@ -97,3 +97,53 @@ class ReviewPageViewTests(SetupViewTestCase):
         response = self.client.get(reverse('review_page', kwargs={
             'pk': self.breed_review.id}))
         self.assertContains(response, 'Rating')
+
+
+class AddReviewViewTest(SetupViewTestCase):
+    """ Test add review page response, url and template"""
+    def setUp(self):
+        """ Setup user and review """
+        super().setUp()
+        self.client.login(user_name=self.username, password=self.password)
+        self.response = self.client.get(self.url)
+
+    def test_add_review_breed_name_post(self):
+        """ Login a mock user and test if add vreed name is using the valid form and posts it correctly"""
+        payload = {'breed_name': ''}
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual('breed_form', response.context)
+
+    def test_if_add_review_breed_can_post(self):
+        """ Create a user and a review and check if review is correct"""
+
+        payload = {
+            'breed_group': self.breed_group.id,
+            'breed': self.breed.id,
+            'review': 'Review',
+            'adaptability': '4',
+            'trainability': '5',
+            'friendliness': '4',
+            'health_and_grooming_needs': '5',
+            'rating': '3'
+        }
+        response = self.client.post(reverse('add_review'), data=payload)
+        self.assertEqual(response.status_code, 302)
+
+
+    def test_if_add_review_form_is_not_valid(self):
+        """ create user and add review to check if the review is not correct"""
+        self.client.login(username='fernanda', password='123456')
+        payload = {
+            'breed_group': self.breed_group.id,
+            'breed': self.breed.id,
+            'review': 'Review',
+            'adaptability': '4',
+            'trainability': '5',
+            'friendliness': '4',
+            'health_and_grooming_needs': '5',
+            'rating': '3'
+        }
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('review_form', response.context)
