@@ -217,3 +217,4 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
             'pk': self.breed_review.id}))
         self.assertNotContains(response, 'Hello friend! I am on the wrong page!')
 
+
