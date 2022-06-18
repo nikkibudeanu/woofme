@@ -38,4 +38,25 @@ class SignupFormTest(TestCase):
         })
         self.assertFalse(form.is_valid())
 
-    
+    def test_form_empty_username(self):
+        """ form has empty username"""
+        form = SignUpForm(data={
+            "username": "",
+            "password1": "123456",
+            "password2": "123456",
+            "email": "andrea@gmail.com"
+        })
+        self.assertFalse(form.is_valid())
+
+    def test_form_lower_username(self):
+        """ test if form's username is lower"""
+        form = SignUpForm(data={
+            "username": "ANDREA",
+            "password1": "123456",
+            "password2": "123456",
+            "email": "andrea@gmail.com"
+        })
+        self.assertTrue(form.is_valid())
+        form.save()
+        username = User.objects.get(username='andrea')
+        self.assertEqual(str(username.username), "andrea")
