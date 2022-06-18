@@ -26,3 +26,16 @@ class SignupFormTest(TestCase):
             "email": "andrea@gmail.com"
         })
         self.assertFalse(form.is_valid())
+
+
+    def test_form_email_invalid(self):
+        """ signup form has invalid email"""
+        form = SignUpForm(data={
+            "username": "andrea",
+            "password1": "123456",
+            "password2": "123456",
+            "email": "andrea;gmail.com"
+        })
+        self.assertFalse(form.is_valid())
+
+    
