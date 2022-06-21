@@ -75,7 +75,7 @@ class SignupFormTestInvalid(SetupRegisterForm):
     def test_form_username_duplicated(self):
         """ test if username is duplicated """ 
         form = SignUpForm(data={
-            "username": "andrea",
+            "username": "andrea"
         })
         self.assertFalse(form.is_valid())
         self.assertEqual(str(self.user.username), "andrea")
@@ -88,3 +88,14 @@ class SignupFormTestInvalid(SetupRegisterForm):
         })
         self.assertFalse(form.is_valid())
         self.assertRaises(ValidationError)
+
+    def test_form_incorrect_password2(self):
+        """ test if passwords do not match"""
+        form = SignUpForm(data={
+            "password1": "12345678",
+            "password2": "1234"
+        })
+        self.assertFalse(form.is_valid())
+        self.assertRaises(ValidationError)
+
+    
