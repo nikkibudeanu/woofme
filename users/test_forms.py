@@ -60,3 +60,23 @@ class SignupFormTest(TestCase):
         form.save()
         username = User.objects.get(username='andrea')
         self.assertEqual(str(username.username), "andrea")
+
+class SetupRegisterForm(TestCase):
+    """ Setup register """
+    def setUp(self):
+        self.user = User.objects.create(
+            username="andrea",
+            password="123456",
+            email="andrea@gmail.com"
+        )
+
+class SignupFormTestInvalid(SetupRegisterForm):
+    """ Test if form fields are not valid"""
+    def test_form_username_duplicated(self):
+        """ test if username is duplicated """ 
+        form = SignUpForm(data={
+            "username": "andrea",
+        })
+        self.assertFalse(form.is_valid())
+        self.assertEqual(str(self.user.username), "andrea")
+        self.assertRaises(ValidationError)
