@@ -80,3 +80,11 @@ class SignupFormTestInvalid(SetupRegisterForm):
         self.assertFalse(form.is_valid())
         self.assertEqual(str(self.user.username), "andrea")
         self.assertRaises(ValidationError)
+
+    def test_form_email_duplicated(self):
+        """ test if email is duplicated """
+        form = SignUpForm(data={
+            "email": "andrea@gmail.com"
+        })
+        self.assertFalse(form.is_valid())
+        self.assertRaises(ValidationError)
