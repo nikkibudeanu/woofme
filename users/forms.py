@@ -10,9 +10,11 @@ class SignupForm(forms.Form):
         label='Enter Username', min_length=4, max_length=150)
     email = forms.EmailField(label='Enter Email')
     password1 = forms.CharField(
-        label='Enter your password', widget=forms.PasswordInput)
+        label='Enter Password',
+        widget=forms.PasswordInput,)
     password2 = forms.CharField(
-        label='Confirm your password', widget=forms.PasswordInput)
+        label='Confirm Password',
+        widget=forms.PasswordInput)
 
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
@@ -22,17 +24,17 @@ class SignupForm(forms.Form):
     def unique_username(self):
         """ unique username field after form is created"""
         username = self.cleaned_data['username'].lower()
-        r = User.objects.filter(username=username)
-        if r.count():
-            raise ValidationError("Username already exists!")
+        filterusername = User.objects.filter(username=username)
+        if filterusername.count():
+            raise ValidationError("Username already exists")
         return username
 
     def unique_email(self):
         """ correct email field after form creation"""
         email = self.cleaned_data['email'].lower()
-        r = User.objects.filet(email=email)
-        if r.count():
-            raise ValidationError("Email already exists!")
+        filteremail = User.objects.filter(email=email)
+        if filteremail.count():
+            raise ValidationError("Email already exists")
         return email
 
     def same_password2(self):
@@ -42,10 +44,9 @@ class SignupForm(forms.Form):
 
         if password1 and password2 and password1 != password2:
             raise ValidationError("Passwords don't match!")
-
         return password2
 
-    def save(self, commit=True):
+    def save(self):
         """ save form if all information is valid """
         user = User.objects.create_user(
             self.cleaned_data['username'],

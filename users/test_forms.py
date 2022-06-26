@@ -17,16 +17,15 @@ class SignupFormTest(TestCase):
         })
         self.assertTrue(form.is_valid())
 
-    def test_if_form_is_invalid(self):
-        """ signup form is not valid"""
+    def test_if_form_password_is_invalid(self):
+        """ signup form passsword is not valid"""
         form = SignupForm(data={
             "username": "andrea",
-            "password1": "123456",
-            "password2": "4367575",
+            "password1": "12345",
+            "password2": "54321",
             "email": "andrea@gmail.com"
         })
         self.assertFalse(form.is_valid())
-
 
     def test_form_email_invalid(self):
         """ signup form has invalid email"""
@@ -69,6 +68,7 @@ class SetupRegisterForm(TestCase):
             password="123456",
             email="andrea@gmail.com"
         )
+
 
 class SignupFormTestInvalid(SetupRegisterForm):
     """ Test if form fields are not valid"""
