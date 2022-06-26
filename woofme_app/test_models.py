@@ -45,7 +45,8 @@ class BreedTestCase(SetupModelTestCase):
     """ Test breed model"""
     def test_absolute_url(self):
         """ Test if redirection to add review page is correct """
-        self.assertEqual(self.breed.get_absolute_url(), reverse('add_review'))
+        self.assertEqual(
+            self.breed.get_absolute_url(), reverse('add_review'))
 
 
 class BreedReviewTestCase(SetupModelTestCase):

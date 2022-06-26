@@ -1,16 +1,13 @@
 """System module"""
-from django.http import Http404
 from django.shortcuts import redirect, render
+from django.contrib import messages
 from django.views.generic import ListView, DetailView, View, UpdateView, \
     DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from .models import BreedReview, BreedGroup, Breed
 from .forms import BreedReviewForm, CreateBreedForm
-# from django.views import generic
 from django.urls import reverse_lazy
-import logging
 from django.core.paginator import Paginator
-
-# from bootstrap_modal_forms.generic import BSModalCreateView
 
 
 # Create your views here.
@@ -21,61 +18,56 @@ class HomeView(ListView):
     template_name = 'home.html'
 
 
-class AddReviewView(View):
+class AddReviewView( LoginRequiredMixin, View):
     """ Render add review page view """
     template_name = 'add_review.html'
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
+    
 
-
-def get_object(self):
-    try:
+    def get_object(self):
+        """ Get objects from breed review model"""
         obj = BreedReview.objects.all()
-    except BreedReview.DoesNotExist:
-        raise Http404('Breed Review not found!')
-    return obj
+        return obj
 
 
-def get_context_data(self, **kwargs):
-    kwargs['review'] = self.get_object()
-
-    if 'review_form' not in kwargs:
-        kwargs['review_form'] = BreedReviewForm()
-    if 'breed_form' not in kwargs:
-        kwargs['breed_form'] = CreateBreedForm()
-
-    return kwargs
-
-
-def get(self, request, *args, **kwargs):
-    return render(request, self.template_name, self.get_context_data())
-
-
-def post(self, request, *args, **kwargs):
-    ctxt = {}
-
-    if 'review' in request.POST:
-        review_form = BreedReviewForm(request.POST, request.FILES)
-        logging.debug('post - review')
-
-        if review_form.is_valid():
-            review = review_form.save(commit=False)
-            review.user_name = request.user
-            review.save()
-            logging.debug('post - review - save')
-            return redirect('review_page', review_pk)
-        else:
-            ctxt['review_form'] = review_form
+    def get_context_data(self, **kwargs):
+        """ Get the right form """
+        kwargs['review'] = self.get_object()
+        if 'review_form' not in kwargs:
+            kwargs['review_form'] = BreedReviewForm()
+        if 'breed_form' not in kwargs:
+            kwargs['breed_form'] = CreateBreedForm()
+        return kwargs
     
-
     
-    elif 'name' in request.POST:
-        breed_form = CreateBreedForm(request.POST)
-
-        if breed_form.is_valid():
-            breed_form.save()
-        else:
-            ctxt['breed_form'] = breed_form
+    def get(self, request):
+        """ return to add breed form page after creating a breed"""
+        return render(request, self.template_name, self.get_context_data())
+        
+    def post(self, request):
+        """ validate data in the add review forms"""
+        ctxt = {}
+        if 'review' in request.POST:
+            review_form = BreedReviewForm(request.POST, request.FILES)
+            
+            if review_form.is_valid():
+                review = review_form.save(commit=False)
+                review.user_name = request.user
+                review.save()
+                return redirect('review_page', review.pk)
+            else:
+                ctxt['review_form'] = review_form
+        
+        elif 'name' in request.POST:
+            breed_form = CreateBreedForm(request.POST)
+            if breed_form.is_valid():
+                messages.success(request, 'Breed has been added.')
+                breed_form.save()
+            else:
+                ctxt['breed_form'] = breed_form
     
-    return render(request, self.template_name, self.get_context_data(**ctxt))
+        return render(request, self.template_name, self.get_context_data(**ctxt))
 
 
 class BreedRatingView(ListView):

@@ -10,7 +10,7 @@ from slugger import AutoSlugField
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
-    name = models.CharField(max_length=128, unique=True, null=True)
+    breed_group = models.CharField(max_length=128, unique=True, null=True)
     description = models.TextField(max_length=2000, null=True)
     slug = AutoSlugField(populate_from='breed_group', default='group')
 

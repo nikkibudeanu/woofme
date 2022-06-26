@@ -8,12 +8,20 @@ from .models import BreedReview, Breed, BreedGroup
 class SetupViewTestCase(TestCase):
     """ Test case for all view tests"""
     def setUp(self):
-        self.breed = Breed.objects.create(name='Breed')
+        self.username = 'andrea'
+        self.password = '123456'
+        user = User.objects.create_user(
+            username=self.username,
+            email='andrea@gmail.com',
+            password=self.password
+        )
+        self.client.login(username='andrea', password='123456' )
+        self.breed = Breed.objects.create(breed_name='Breed')
         self.breed_group = BreedGroup.objects.create(breed_group= 'group')
         self.breed_review = BreedReview.objects.create(
             breed_group=self.breed_group,
             breed=self.breed,
-            user_name=user,
+            username=user,
             published_date='Oct. 25, 2021, 9:45 p.m.',
             review='Review test',
             adaptability='5',
