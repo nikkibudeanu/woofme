@@ -3,17 +3,15 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.views.generic import ListView, DetailView, View, UpdateView, \
     DeleteView
-from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
-from .models import BreedReview, BreedGroup, Breed
-from .forms import BreedReviewForm, CreateBreedForm
 from django.urls import reverse_lazy
 from django.core.paginator import Paginator
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from .models import BreedReview, BreedGroup
+from .forms import BreedReviewForm, CreateBreedForm
 
 
-# Create your views here.
 class HomeView(ListView):
     """Render homepage view"""
-
     model = BreedReview
     template_name = 'home.html'
 

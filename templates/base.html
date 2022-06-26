@@ -54,13 +54,13 @@
                     </li>
                     {% if user.is_authenticated %}
 
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
-                    </li>
+                    
                     <li class="nav-item">
                         <a class="nav-link {% active_link 'add_review' %}" href="{% url 'add_review' %}">Rate your
                             Breed</a>
-
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
                     </li>
 
                     {% else %}
