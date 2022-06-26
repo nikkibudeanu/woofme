@@ -16,7 +16,7 @@ class TestUrls(TestCase):
     def test_add_review_page_working(self):
         """ test if add review page is loading without errors """
         response = self.client.get('/add_review')
-        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 302)
 
     def test_breed_rating_view_working(self):
         """ test if breed rating view is loading correctly"""
