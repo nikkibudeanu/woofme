@@ -10,30 +10,30 @@ class SignupFormTest(TestCase):
     def test_if_form_is_valid(self):
         """ is signup form valid?"""
         form = SignupForm(data={
-            "username": "andrea",
+            "username": "nikki",
             "password1": "123456",
             "password2": "123456",
-            "email": "andrea@gmail.com"
+            "email": "nikki@gmail.com"
         })
         self.assertTrue(form.is_valid())
 
     def test_if_form_password_is_invalid(self):
         """ signup form passsword is not valid"""
         form = SignupForm(data={
-            "username": "andrea",
-            "password1": "12345",
-            "password2": "54321",
-            "email": "andrea@gmail.com"
+            'username': "nikki",
+            'password1': "kdakd",
+            'password2': "fskdjfs",
+            'email': "nikki@gmail.com"
         })
         self.assertFalse(form.is_valid())
 
     def test_form_email_invalid(self):
         """ signup form has invalid email"""
         form = SignupForm(data={
-            "username": "andrea",
+            "username": "nikki",
             "password1": "123456",
             "password2": "123456",
-            "email": "andrea;gmail.com"
+            "email": "nikki;gmail.com"
         })
         self.assertFalse(form.is_valid())
 
@@ -43,30 +43,30 @@ class SignupFormTest(TestCase):
             "username": "",
             "password1": "123456",
             "password2": "123456",
-            "email": "andrea@gmail.com"
+            "email": "nikki@gmail.com"
         })
         self.assertFalse(form.is_valid())
 
     def test_form_lower_username(self):
         """ test if form's username is lower"""
         form = SignupForm(data={
-            "username": "ANDREA",
+            "username": "NIKKI",
             "password1": "123456",
             "password2": "123456",
-            "email": "andrea@gmail.com"
+            "email": "nikki@gmail.com"
         })
         self.assertTrue(form.is_valid())
         form.save()
-        username = User.objects.get(username='andrea')
-        self.assertEqual(str(username.username), "andrea")
+        username = User.objects.get(username="nikki")
+        self.assertEqual(str(username.username), "nikki")
 
 class SetupRegisterForm(TestCase):
     """ Setup register """
     def setUp(self):
         self.user = User.objects.create(
-            username="andrea",
+            username="nikki",
             password="123456",
-            email="andrea@gmail.com"
+            email="nikki@gmail.com"
         )
 
 
@@ -75,16 +75,16 @@ class SignupFormTestInvalid(SetupRegisterForm):
     def test_form_username_duplicated(self):
         """ test if username is duplicated """ 
         form = SignupForm(data={
-            "username": "andrea"
+            "username": "nikki"
         })
         self.assertFalse(form.is_valid())
-        self.assertEqual(str(self.user.username), "andrea")
+        self.assertEqual(str(self.user.username), "nikki")
         self.assertRaises(ValidationError)
 
     def test_form_email_duplicated(self):
         """ test if email is duplicated """
         form = SignupForm(data={
-            "email": "andrea@gmail.com"
+            "email": "nikki@gmail.com"
         })
         self.assertFalse(form.is_valid())
         self.assertRaises(ValidationError)

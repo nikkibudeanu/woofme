@@ -16,7 +16,7 @@ class SetupViewTestCase(TestCase):
             password=self.password
         )
         self.client.login(username='andrea', password='123456' )
-        self.breed = Breed.objects.create(breed_name='Breed')
+        self.breed = Breed.objects.create(name='Breed')
         self.breed_group = BreedGroup.objects.create(breed_group= 'group')
         self.breed_review = BreedReview.objects.create(
             breed_group=self.breed_group,
@@ -117,7 +117,7 @@ class AddReviewViewTest(SetupViewTestCase):
 
     def test_add_review_breed_name_post(self):
         """ Login a mock user and test if add vreed name is using the valid form and posts it correctly"""
-        payload = {'breed_name': ''}
+        payload = {'name': ''}
         response = self.client.post(reverse('add_review'), payload)
         self.assertEqual(response.status_code, 200)
         self.assertEqual('breed_form', response.context)
@@ -180,7 +180,7 @@ class SuccesfulEditReviewViewTest(SetupViewTestCase):
 
     def test_if_review_changed(self):
         """ Test if edit review is done correctly and database is refreshed"""
-        self.breed_review.review='review'
+        self.breed_review.review = 'review edited'
         self.breed_review.save()
         self.breed_review.refresh_from_db()
         self.assertEqual(self.breed_review.review, 'review test edited')

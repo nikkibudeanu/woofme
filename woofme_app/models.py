@@ -52,6 +52,7 @@ class BreedReview(models.Model):
         (4, '4'),
         (5, '5'),
     )
+
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)

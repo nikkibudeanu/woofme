@@ -1,14 +1,17 @@
-""" Imports """
+"""System module"""
 from django.contrib.auth.models import User
-from django import forms
 from django.core.exceptions import ValidationError
+from django import forms
 
 
 class SignupForm(forms.Form):
-    """ Create the form to signup"""
+    """Create a signup form"""
     username = forms.CharField(
-        label='Enter Username', min_length=4, max_length=150)
-    email = forms.EmailField(label='Enter Email')
+        label='Enter Username',
+        min_length=4,
+        max_length=150)
+    email = forms.EmailField(
+        label='Enter Email')
     password1 = forms.CharField(
         label='Enter Password',
         widget=forms.PasswordInput,)
@@ -19,35 +22,36 @@ class SignupForm(forms.Form):
     def __init__(self, *args, **kwargs):
         super(SignupForm, self).__init__(*args, **kwargs)
         for field in self.fields:
-            self.fields[field].widget.attrs.update({'class': 'form-control'})
+            self.fields[field].widget.attrs.update({
+                'class': 'form-control'})
 
-    def unique_username(self):
-        """ unique username field after form is created"""
+    def clean_username(self):
+        """valid username field after form creation"""
         username = self.cleaned_data['username'].lower()
         filterusername = User.objects.filter(username=username)
         if filterusername.count():
             raise ValidationError("Username already exists")
         return username
 
-    def unique_email(self):
-        """ correct email field after form creation"""
+    def clean_email(self):
+        """valid email field after form creation"""
         email = self.cleaned_data['email'].lower()
         filteremail = User.objects.filter(email=email)
         if filteremail.count():
             raise ValidationError("Email already exists")
         return email
 
-    def same_password2(self):
-        """ correct confirm password field """
+    def clean_password2(self):
+        """valid confirm password field after form creation"""
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
         if password1 and password2 and password1 != password2:
-            raise ValidationError("Passwords don't match!")
+            raise ValidationError("Password don't match")
         return password2
 
     def save(self):
-        """ save form if all information is valid """
+        """Save register form """
         user = User.objects.create_user(
             self.cleaned_data['username'],
             self.cleaned_data['email'],
