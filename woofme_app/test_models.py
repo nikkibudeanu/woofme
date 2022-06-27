@@ -17,8 +17,8 @@ class SetupModelTestCase(TestCase):
             password=self.password
         )
         self.client.login(username='anna', password='23456')
-        self.breed = Breed.objects.create(breed_name='Breed')
-        self.breed_group = BreedGroup.objects.create(breed_group='Group')
+        self.breed = Breed.objects.create(name='Breed')
+        self.breed_group = BreedGroup.objects.create(name='Group')
         self.breed_review = BreedReview.objects.create(
             breed_group=self.breed_group,
             breed=self.breed,
@@ -53,7 +53,7 @@ class BreedReviewTestCase(SetupModelTestCase):
     """ Test breedreview model"""
     def test__str__(self):
         """ Test if review is returning all model criterias"""
-        self.assertEqual(str(self.breed_review), self.breed_breed_name.lower())
+        self.assertEqual(str(self.breed_review), self.breed.name.lower())
     
     def test_absolute_url(self):
         """ Test if breed review page is redirectinh correctly"""
