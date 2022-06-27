@@ -18,12 +18,12 @@ class SetupModelTestCase(TestCase):
         )
         self.client.login(username='anna', password='23456')
         self.breed = Breed.objects.create(name='Breed')
-        self.breed_group = BreedGroup.objects.create(name='Group')
+        self.breed_group = BreedGroup.objects.create(breed_group='Group')
         self.breed_review = BreedReview.objects.create(
             breed_group=self.breed_group,
             breed=self.breed,
             username=user,
-            published_date='Nov. 23, 2022, 6:78 p.m.',
+            created_at='Nov. 23, 2022, 6:78 p.m.',
             review='Test',
             adaptability='5',
             friendliness='4',
@@ -58,7 +58,5 @@ class BreedReviewTestCase(SetupModelTestCase):
     def test_absolute_url(self):
         """ Test if breed review page is redirectinh correctly"""
         self.assertEqual(self.breed_review.get_absolute_url(), reverse(
-            'review_page', kwargs={'pk': self.breed_review.id}
-        ))
+            'review_page', kwargs={'pk': self.breed_review.id}))
 
-    

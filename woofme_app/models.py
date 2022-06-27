@@ -10,14 +10,14 @@ from slugger import AutoSlugField
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
-    name = models.CharField(max_length=128, unique=True, null=True)
+    breed_group = models.CharField(max_length=128, unique=True, null=True)
     description = models.TextField(max_length=2000, null=True)
     slug = AutoSlugField(populate_from='breed_group', default='group')
 
 
     def __str__(self):
         """ Return breed group name string """
-        return str(self.name).lower()
+        return str(self.breed_group).lower()
 
     def get_absolute_url(self):
         """ Redirect user to add review page"""
@@ -53,10 +53,11 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
+    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
-    author = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE)
     review = models.TextField(max_length=200)
     adaptability = models.IntegerField(choices=RATING_CHOICES, default=0)
     friendliness = models.IntegerField(choices=RATING_CHOICES, default=0)
@@ -66,10 +67,11 @@ class BreedReview(models.Model):
     rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def __str__(self):
-        return str(self.breed) + '|' + str(self.author)
+        return str(self.breed) + '|' + str(self.username)
 
     def get_absolute_url(self):
         """ set absolute url """
         return reverse('review_list', kwargs={'pk': self.pk})
+
 
 breed_review = BreedReview.objects.all()

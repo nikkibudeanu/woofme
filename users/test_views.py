@@ -37,7 +37,7 @@ class TestRegister(TestCase):
         def test_if_user_can_login(self):
             response = self.client.post(reverse(
                 'login'),{
-                    "usename": "aiokdn",
+                    "usename": "nikki",
                     "password":"12345"
                 })
             self.assertRedirects(response, '/',
@@ -61,8 +61,8 @@ class TestRegister(TestCase):
     class TestLogout(TestCase):
         def setUp(self):
             self.user = User.objects.create_user(
-                username='aiokdn',
-                email='aiokdn@gmail.com',
+                username='nikki',
+                email='nikki@gmail.com',
                 password='12345'
             )
         def test_logout(self):

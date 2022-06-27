@@ -16,24 +16,24 @@ class SetupViewTestCase(TestCase):
             password=self.password)
         self.client.login(username='nikki', password='123456')
         self.breed = Breed.objects.create(name='Breed')
-        self.breed_group = BreedGroup.objects.create(name='group')
+        self.breed_group = BreedGroup.objects.create(breed_group='group')
         self.breed_review = BreedReview.objects.create(
             breed_group=self.breed_group,
             breed=self.breed,
             username=user,
-            pub_date='Nov. 24, 2021, 5:52 p.m.',
+            created_at='Nov. 24, 2021, 5:52 p.m.',
             review='Review Test',
             adaptability='5',
             trainability='3',
             friendliness='4',
             health_and_grooming_needs='5',
             rating='1')
-        self.url = reverse('edit_review', kwargs={
+        self.url = reverse('review_edit', kwargs={
             'pk': self.breed_review.id
         })
 
 
-class BereedRatingView(SetupViewTestCase):
+class BreedRatingView(SetupViewTestCase):
     """ Test Breed rating view response, correct url and template """
     def test_breed_rating_success_status_code(self):
         """ Test response on review list page by url """
@@ -55,7 +55,7 @@ class BereedRatingView(SetupViewTestCase):
     def test_breed_rating_contains_correct_html(self):
         """ Test if review list is rendering correct html """
         response = self.client.get(reverse('review_list'))
-        self.assertContains(response, ' Latest Breed Reviews')
+        self.assertContains(response, ' Latest breed Reviews')
 
     def test_breed_rating_does_not_contain_incorrect_html(self):
         """ Test- review list is rendering incorrect html and
