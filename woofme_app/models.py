@@ -57,7 +57,7 @@ class BreedReview(models.Model):
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
-    username = models.ForeignKey(User, on_delete=models.CASCADE)
+    username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     review = models.TextField(max_length=200)
     adaptability = models.IntegerField(choices=RATING_CHOICES, default=0)
     friendliness = models.IntegerField(choices=RATING_CHOICES, default=0)
