@@ -181,3 +181,19 @@ class EditReviewViewTest(SetupViewTestCase):
         self.assertEqual(self.response.status_code, 200)
 
 
+class SuccessfulEditReviewViewTests(SetupViewTestCase):
+    """ Test edit review sucessfull view response """
+
+    def setUp(self):
+        """ Setup user and review """
+        super().setUp()
+        self.client.login(username=self.username, password=self.password)
+
+    def test_review_is_updated(self):
+        """ Test if update review is done correctlly and refresh db """
+        self.breed_review.review = 'Test edited'
+        self.breed_review.save()
+        self.breed_review.refresh_from_db()
+        self.assertEqual(self.breed_review.review, 'Test edited')
+
+
