@@ -166,3 +166,18 @@ class AddReviewViewTest(SetupViewTestCase):
         response = self.client.post(reverse('add_review'), payload)
         self.assertEqual(response.status_code, 200)
         self.assertIn('review_form', response.context)
+
+
+class EditReviewViewTest(SetupViewTestCase):
+    """ Test edit review view render response """
+    def setUp(self):
+        """ Setup user and review from SetupViewTestCase """
+        super().setUp()
+        self.client.login(user_name=self.username, password=self.password)
+        self.response = self.client.get(self.url)
+        
+    def test_status_code(self):
+        """ Test if edit view is rendering right """
+        self.assertEqual(self.response.status_code, 200)
+
+
