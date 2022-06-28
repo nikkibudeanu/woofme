@@ -100,10 +100,51 @@ class ReviewPageViewTests(SetupViewTestCase):
             'pk': self.breed_review.id}))
         self.assertContains(response, 'Rating')
 
-    def test_review_page_does_not_contain_incorrect_html(self):
+    def test_review_page_invalid_html(self):
         """ Test if review page has wrong html and displays a message """
         response = self.client.get(reverse('review_page', kwargs={
             'pk': self.breed_review.id}))
         self.assertNotContains(
                 response, 'Hi there! I got lost! I should be on a different page!.')
 
+class AddReviewViewTest(SetupViewTestCase):
+    """ Test Add review view's rendering correct url and template """
+    def setUp(self):
+        """Setup user SetupViewTestCase"""
+        super().setUp()
+        self.client.login(user_name=self.username, password=self.password)
+        self.response = self.client.get(self.url)
+
+    def test_add_review_breed_name(self):
+        """ Login a user and test if add breed name is using
+        correct form and post it correct """
+        payload = {'breed.name': 'Breed_post'}
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('breed_form', response.context)
+
+    def test_add_review_breed_form_is_invalid(self):
+        """ Login a user and test if add breed name is using
+        correct form and refresh page when breed name is empty """
+        self.client.login(username='nikki', password='12345')
+        payload = {'breed.name': ''}
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+        self.assertIn('breed_form', response.context)
+
+    def test_if_add_review_breed_can_post(self):
+        """ Create a  user and a review, check if review is correct post
+        and redirect user """
+        
+        payload = {
+            'breed_group': self.breed_group.id,
+            'breed': self.breed.id,
+            'review': 'Review from post method',
+            'adaptability': '4',
+            'friendliness': '4',
+            'trainability': '4',
+            'health_and_grooming_needs': '3',
+            'rating': '1'
+                    }
+        response = self.client.post(reverse('add_review'), data=payload)
+        self.assertEqual(response.status_code, 302)
