@@ -196,4 +196,41 @@ class SuccessfulEditReviewViewTests(SetupViewTestCase):
         self.breed_review.refresh_from_db()
         self.assertEqual(self.breed_review.review, 'Test edited')
 
+    def test_if_edited_review_url_renders(self):
+        """ Test if edit review page renders correctly"""
+        response = self.client.get(
+            '/review_list/edit/' + str(self.breed_review.id))
+        self.assertEqual(response.status_code, 200)
 
+    def test_edit_review_view_success_status_code(self):
+        """ Test status code of edit review page"""
+        url = reverse('review_edit', kwargs={
+            'pk': self.breed_review.id})
+        response = self.client.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_edit_review_url_by_name(self):
+        """ Test if edit review is getting the right url by name"""
+        response = self.client.get(reverse('review_edit', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertEqual(response.status_code, 200)
+
+    def test_edit_review_correct_template(self):
+        """ Test if edit review view uses the valid template"""
+        response = self.client.get(reverse('review_edit', kwargs={
+            'pk' : self.breed_review.id}))
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list/edit_review.html')
+
+    def test_edit_review_contains_incorrect_html(self):
+        """ Test if edit review view renders the invalid template"""
+        response = self.client.get(reverse('review_edit', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertNotContains(
+            response, 'Hi there! I got lost! I should be on a different page!.')
+    
+    def test_edit_review_contains_correct_html(self):
+        """ Test if edit review view uses the valid html"""
+        response = self.client.get(reverse('review_edit', kwargs={
+            'pk': self.breed_review.id}))
+        self.assertContains(response, 'Adaptability')
