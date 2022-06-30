@@ -121,7 +121,7 @@ def search_breed_view(request):
 
 
     breeds = BreedReview.objects.filter(
-        breed__name__icontains=searched).order_by('-published_date')
+        breed__name__icontains=searched).order_by('-created_at')
 
 
     paginator = Paginator(breeds, 3)
