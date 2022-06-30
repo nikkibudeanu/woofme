@@ -1,152 +1,169 @@
-{% load static %} {% load bootstrap5 %} {% load active_link_tags %}
+{% load static %}
+
+{% load bootstrap5 %} 
+
+{% load active_link_tags %}
 
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!---------------------------- Favicon link ------->
-    <link rel="shortcut icon" href="../{{ MEDIA_URL }}/favicon.ico" />
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A place where breeds come together!">
+        <meta name="keywords" content="breed, rating, reviews">
 
+        <!-- Favicon link -->
+        <link rel="shortcut icon" href="https://res.cloudinary.com/nikkibudeanu/image/upload/v1656620230/istockphoto-1142468738-612x612_fmripe.jpg" />
 
-    <!---------------------------- Google Fonts link -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@1,300&display=swap"
-        rel="stylesheet">
+        <!-- Google Fonts link -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Open+Sans:ital,wght@1,300&display=swap"
+            rel="stylesheet">
 
-    <!---------------------------- Fontawesome link --->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+        <!-- Fontawesome link -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
-    <!---------------------------- Bootstrap CSS link -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+        <!-- Bootstrap CSS link -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!---------------------------- My CSS link --------->
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    <title>Woofme</title>
+        <!-- Bootstrap JS -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+            integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous">
+        </script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
+            integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous">
+        </script>
 
-</head>
+        <!-- My CSS link -->
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-<body class="bg">
+        {% block additional_styles %}
+        {% endblock  %}
 
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light bg-opacity-75 mt-2">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><img src="logo.png"></a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <title> Woofme |
+            {% block title %}
+            {% endblock title %}
+        </title>
+    </head>
 
-                    <li class="nav-item ">
-                        <a class="nav-link {% active_link 'home' %}" aria-current="page"
-                            href="{% url 'home' %}">Home</a>
-                    </li>
-                    <li class="nav-item ">
-                        <a class="nav-link {% active_link 'review_list' %}" aria-current="page"
-                            href="{% url 'review_list' %}">Breed Reviews</a>
-                    </li>
-                    {% if user.is_authenticated %}
+    <body class="bg">
 
-                    
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'add_review' %}" href="{% url 'add_review' %}">Rate your
-                            Breed</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
-                    </li>
+        <!-- Navigation -->
+        <nav class="navbar navbar-expand-lg navbar-light bg-light  mt-2">
+            <div class="container-fluid">
+                <a class="navbar-brand {% active_link '/' %}" href="{% url 'home' %}">Woofme</a>
+                
+                <!-- Collapse Navigation -->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                    aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                    {% else %}
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'register' %}" href="{% url 'register' %}">Register</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link {% active_link 'login' %}" href="{% url 'login' %}">Login</a></li>
+                        <!--  Navigation Items -->
+                        <li class="nav-item">
+                            <a class="nav-link {% active_link 'review_list' %}" aria-current="page"
+                                href="{% url 'review_list' %}">Breed Reviews
+                            </a>
+                        </li>
 
-                    {% endif %}
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'add_review' %}">Rate a breed</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" data-bd-auto-close="True" aria-expanded="false">
-                            Breed Groups
-                        </a>
-                        <ul class="dropdown-menu" aria-label="Dropdown Breed Groups">
-                            {% for item in cat_style_menu %}
-                            <li>
-                                <a class="dropdown-item" href="{% url 'group' item %}">{{ item|title}}
+                        <!--  Authentication Navigation Items -->
+                        {% if user.is_authenticated %}
+                            <li class="nav-item">
+                                <a class="nav-link {% active_link 'add_review' %}" href="{% url 'add_review' %}">Rate your
+                                    Breed
                                 </a>
                             </li>
-                            {% endfor %}
-                        </ul>
-                    </li>
-                </ul>
-                <!--  Search breed button -->
-                <form class="d-flex text-end" action="{% url 'search_breed' %}" method="get">
-                    {% csrf_token %}
-                    <input class="form-control me-2" type="search" placeholder="Search by breed name"
-                        aria-label="Search your breed" name="searched">
-                    <button class="btn btn-light btn-outline-dark" name="submit" type="submit">Search</button>
-                </form>
+                            <li class="nav-item">
+                                <a class="nav-link {% active_link 'logout' %}" href="{% url 'logout' %}">Logout</a></li>
+
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link {% active_link 'register' %}" href="{% url 'register' %}">Register
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link {% active_link 'login' %}" href="{% url 'login' %}">Login
+                                </a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                    <ul class="navbar-nav me-4 mb-2 mb-lg-0">
+                        
+                        <!--  Search breed group button -->
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" data-bd-auto-close="True" aria-expanded="false">
+                                Breed groups
+                            </a>                       
+                            <ul class="dropdown-menu" aria-label="DropdownBreedGroup">
+                                {% for item in cat_style_menu %}
+                                <li>
+                                    <a class="dropdown-item" href="{% url 'group' item %}">{{ item|title}}
+                                    </a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <!--  Search breed button -->
+                    <form class="d-flex text-end" action="{% url 'search_breed' %}" method="post">
+                        {% csrf_token %}
+                        <input class="form-control me-2" type="search" placeholder="Search by breed name"
+                            aria-label="Search your breed" name="searched">
+                        <button class="btn btn-light btn-outline-dark" name="submit" type="submit">Search</button>
+                    </form>
+                </div>
             </div>
-        </div>
-    </nav>
+        </nav>
 
-    <!-- Alert messages -->
-    {% if messages %}
-    {% for message in messages %}
-    <div class="alert alert-warning alert-dismissible fade show" id="alert" role="alert">
-        <strong>{{ message }}</strong>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-    </div>
-    {% endfor %}
-    {% endif %}
+        <!-- Alert messages -->
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-warning alert-dismissible fade show" id="alert" role="alert">
+                    <strong> {{ message }} </strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            {% endfor %}
+        {% endif %}
 
+        {% block content %}
+        {% endblock %}
 
+        <!-- Footer -->
+        <footer class="bg-light text-center text-dark fixed-bottom">
+            <div class="container p-1">
 
-    {% block content %}
-    {% endblock %}
+                <!-- Section: Social media -->
+                <div class="m-0">
 
-    <!-- Footer -->
-    <footer class="bg-light text-center text-dark bg-opacity-75 fixed-bottom">
+                    <!-- Linkedin -->
+                    <a class="m-3 footer-button" href="https://www.linkedin.com/in/" role="button" target="_blank" aria-label="linkedin link"><i class="fab fa-lg fa-linkedin-in"></i></a>
 
-        <div class="container p-1">
-            <!-- Section: Social media -->
-            <section class="mb-0">
-                <!-- Facebook -->
-                <a class="m-2" style="color: #4b5252c9;" href="#!" role="button"><i
-                        class="fab fa-facebook-f fa-lg"></i></a>
+                    <!-- Github -->
+                    <a class="m-3 footer-button" href="https://github.com/nikkibudeanu" role="button" target="_blank" aria-label="github link"><i class="fab fa-lg fa-github"></i></a>
+                </div>
+            </div>
 
-                <!-- Twitter -->
-                <a class="m-3" style="color: #4b5252c9;" role="button"><i class="fab fa-twitter"></i></a>
+            <!-- Copyright -->
+            <div class="text-center p-1 small">
+                © 2021 Copyright: Woofme
+            </div>
+        </footer>
 
-                <!-- Instagram -->
-                <a class="m-3" style="color: #4b5252c9;" href="#!" role="button"><i class="fab fa-instagram"></i></a>
-
-            </section>
-        </div>
-
-        <!-- Copyright -->
-        <div class="text-center p-1 blue small">
-            © 2021 Copyright: Woofme
-        </div>
-
-    </footer>
- 
         <!-- Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 
         {% block extra_js %}
         {% endblock extra_js %}
-</body>
 
+    </body>
 </html>

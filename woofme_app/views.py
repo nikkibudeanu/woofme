@@ -123,7 +123,6 @@ def search_breed_view(request):
     breeds = BreedReview.objects.filter(
         breed__name__icontains=searched).order_by('-created_at')
 
-
     paginator = Paginator(breeds, 3)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
