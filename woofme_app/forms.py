@@ -18,6 +18,7 @@ class BreedReviewForm(forms.ModelForm):
             'trainability',
             'friendliness',
             'health_and_grooming_needs',
+            'breed_image',
             'rating']
 
         widgets = {

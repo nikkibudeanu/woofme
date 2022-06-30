@@ -40,10 +40,6 @@ Add Review
 					<form method="POST" enctype="multipart/form-data" class=" review-form">
 						{% csrf_token %}
 
-						<!-- Add Breed Group -->
-						<div class="align-middle field_container text-center">
-							<h4>{{ review_form.breed_group.label_tag }} {{ review_form.breed_group }}
-
 								<!-- Button trigger create a breed group modal -->
 								<button type="button" class="btn btn-sm btn-warning mx-2 shadow-none"
 									data-bs-toggle="modal" data-bs-target="#breedgroupmodal">
@@ -71,19 +67,20 @@ Add Review
 						<div class="text-center">
 							{{ review_form.review}}
 						</div>
+						
+						<!-- Add breed image on review -->
+						<div class=" text-center">
+							<h3>{{ review_form.breed_image.label_tag }} {{review_form.breed_image}}</h3>
+						</div>
+
 
 						<!-- Choose level of each criteria -->
 						<div class="field_container label text-center">
 							<h4>{{ review_form.adaptability.label_tag }} {{ review_form.adaptability}}
 								{{review_form.friendliness.label_tag }} {{review_form.friendliness}}
 								{{review_form.trainability.label_tag }} {{review_form.trainability}}
-										{{review_form.health_and_grooming_needs.label_tag }} {{review_form.health_and_grooming_needs}}
+								{{review_form.health_and_grooming_needs.label_tag }} {{review_form.health_and_grooming_needs}}
 							</h4>
-						</div>
-
-						<!-- Add breed image on review -->
-						<div class=" text-center">
-							<h3>{{ review_form.breed_image.label_tag }} {{review_form.breed_image}}</h3>
 						</div>
 
 						<!-- Add breed rating with stars -->
