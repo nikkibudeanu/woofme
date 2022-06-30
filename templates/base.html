@@ -75,14 +75,14 @@
                         <a class="nav-link" href="{% url 'add_review' %}">Rate a breed</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
-                            data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle"  id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" data-bd-auto-close="True" aria-expanded="false">
                             Breed Groups
                         </a>
-                        <ul class="dropdown-menu" aria-label="Dropdown Breed Group">
+                        <ul class="dropdown-menu" aria-label="Dropdown Breed Groups">
                             {% for item in cat_style_menu %}
                             <li>
-                                <a class="dropdown-item" href="{% url 'groups' item %}">{{ item|title}}
+                                <a class="dropdown-item" href="{% url 'group' item %}">{{ item|title}}
                                 </a>
                             </li>
                             {% endfor %}
