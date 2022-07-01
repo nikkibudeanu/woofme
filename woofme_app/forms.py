@@ -13,6 +13,7 @@ class BreedReviewForm(forms.ModelForm):
         model = BreedReview
         fields = [
             'breed',
+            'breed_group',
             'review',
             'adaptability',
             'trainability',

@@ -12,11 +12,11 @@
 }
 
 hr {
-    color: var(--space);
+    color: #47B5FF;
 }
 
 .blue {
-    color: var(--blue) !important;
+    color: #1363DF !important;
 }
 
 html {
@@ -30,7 +30,7 @@ body {
 /*------------------------ Alert settings  ---------------------- */
 
 .alert-warning {
-    color: var(--winter);
+    color: #DFF6FF;;
     opacity: 0.95;
 }
 
@@ -43,6 +43,7 @@ h3,
 h4 {
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 900;
+    color: #DFF6FF;;
 }
 
 p,
@@ -62,11 +63,11 @@ button,
 a {
     font-weight: 700;
     text-decoration: none;
-    color: var(--navy);
+    color: #06283D;
 }
 
 a:hover {
-    color: var(--winter);
+    color: #DFF6FF;
 }
 
 
@@ -83,14 +84,14 @@ a:hover {
 }
 
 .bg-dark {
-    background-color: var(--navy) !important;
+    background-color: #06283D !important;
 }
 
 /*------------------------ Home page ---------------------- */
 
 .title {
     width: fit-content;
-    background-color: var(--navy);
+    background-color: #06283D;
     margin: 2% auto;
 }
 
@@ -109,13 +110,13 @@ ul.dropdown-menu {
 
 .nav-link.active,
 .navbar-brand.active {
-    color: var(--white) !important;
+    color: #FFFFFF !important;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    background-color: var(--navy) !important;
-    color: var(--white) !important;
+    background-color: #06283D !important;
+    color: #FFFFFF !important;
 }
 
 
@@ -128,28 +129,28 @@ ul.dropdown-menu {
 }
 
 .btn-submit {
-    background-color: var(--winter);
-    color: var(--navy) !important;
+    background-color: #DFF6FF;
+    color: #06283D !important;
 }
 
 .btn-cancel {
-    background-color: var(--winter);
-    color: var(--navy);
+    background-color: #DFF6FF;
+    color: #06283D;
 }
 
 .btn-cancel:hover {
-    color: var(--blue) !important;
+    color: #1363DF !important;
 }
 
 .btn-back {
-    background-color: var(--winter);
-    color: var(--navy);
+    background-color: #DFF6FF;
+    color: #06283D;
 }
 
 .btn-warning {
-    background-color: var(--space);
-    border: var(--blue);
-    color: var(--navy);
+    background-color: #47B5FF;
+    border: #1363DF;
+    color: #06283D;
 }
 
 .btn:hover {
@@ -160,28 +161,28 @@ ul.dropdown-menu {
 }
 
 .fa-edit:hover {
-    color: var(--space);
+    color: #47B5FF;
 }
 
 .fa-trash:hover {
-    color: var(--winter);
+    color: #DFF6FF;
 }
 
 .page-link {
-    color: var(--white);
+    color: #FFFFFF;
     font-weight: 200;
 }
 
 .page-link:hover:not([disabled]),
 .page-link:focus {
-    color: var(--space);
+    color: #47B5FF;
     font-weight: 800;
-    background-color: var(--navy) !important;
-    border: var(--blue);
+    background-color: #06283D !important;
+    border: #1363DF;
 }
 
 .page-link:hover {
-    color: var(--white)
+    color: #FFFFFF;
 }
 
 .pagination {
@@ -209,7 +210,7 @@ img {
     width: 90%;
     min-height: 140px !important;
     margin: 0 auto;
-    border: solid 1px var(--white);
+    border: solid 1px #FFFFFF;
 }
 
 .detail-container {
@@ -271,7 +272,7 @@ img {
 /*------------------------ Star rating  ---------------------- */
 
 .selected {
-    color: var(--space);
+    color: #47B5FF;
 }
 
 .stars {
