@@ -66,6 +66,10 @@ Add Review
 									 {{ review_form.review}}
 								</div>
 
+								<!-- Add breed image on review -->
+				<div class=" text-center">
+					<h3>{{ review_form.breed_image.label_tag }} {{review_form.breed_image}}</h3>
+				</div>
 				<!-- Choose level of each criteria -->
 				<div class="field_container label text-center">
 					<h4>{{ review_form.adaptability.label_tag }} {{ review_form.adaptability}}
