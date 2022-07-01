@@ -2,33 +2,34 @@
 
 {% load static %}
 
-{% block title %}
-Home
+{% block title %} 
+Home 
 {% endblock %}
 
 {% block additional_styles %}
-<style>
+    <style>
     body {
         background-image: url('https://res.cloudinary.com/nikkibudeanu/image/upload/v1656620456/pexels-lumn-406014_rtkieb.jpg')!important;
         background-position: center;
-        }
-</style>
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
 
-<!--Welcome jumbotron -->
-<div class=" container container-box-home bg-dark rounded text-light text-center p-2 col-lg-4 col-11 float-start">
-    <div class="row justify-content-start">
-        <div class="col ">
-            <p>Review your pet</p>
+    <!--Welcome-->
+    <div class=" container container-box-home bg-dark rounded text-light text-center p-2 col-lg-4 col-11 float-start">
+        <div class="row justify-content-start">
+            <div class="col ">
+                <p class ="lead">Woofme - woof your breed!</p>
+                <h1 class="bold">Best place to review your breed!</h1>
+            </div>
         </div>
     </div>
-</div>
 
-{% block extra_js %}
-<!-- Customizible JS -->
-<script src="{% static 'js/script.js' %}"></script>
-{% endblock extra_js %}
+    {% block extra_js %}
+            <!-- Customizible JS -->
+        <script src="{% static 'js/script.js' %}"></script>
+    {% endblock extra_js %}
 
 {% endblock content %}

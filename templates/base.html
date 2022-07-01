@@ -42,6 +42,7 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         {% block additional_styles %}
+
         {% endblock  %}
 
         <title> Woofme |
@@ -55,7 +56,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light bg-light  mt-2">
             <div class="container-fluid">
-                <a class="navbar-brand {% active_link '/' %}" href="{% url 'home' %}">Woofme</a>
+                <a class="navbar-brand {% active_link '/' %}" href="{% url 'home' %}"> Woofme</a>
                 
                 <!-- Collapse Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
