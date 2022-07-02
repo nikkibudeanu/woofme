@@ -103,10 +103,9 @@ class DeleteReviewView(DeleteView):
 
 def search_group_view(request, group):
     """ Define a breed group view on search """
-    group_reviews = BreedReview.objects.filter(slug=group).order_by('-created_at')
+    breed_group_reviews = BreedReview.objects.filter(slug=group).order_by('-created_at')
     return render(request, 'review_list/search_breed_groups.html', {
-        'group': group, 'group_reviews': group_reviews})
-
+        'group': group, 'breed_group_reviews': breed_group_reviews})
 
 def cat_style_menu_on_all_pages(request):
     return{'cat_style_menu': BreedGroup.objects.all().order_by('breed_group')}
