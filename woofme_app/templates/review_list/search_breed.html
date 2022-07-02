@@ -20,7 +20,7 @@ Breed Search
 {% block content %}
 <!-- Reviews by breed group -->
 <section class="shadow-sm m-auto section-container text-center">
-    {% if breed_reviews %}
+    {% if breed_review %}
 
     <!-- Reviews title -->
     <div class="container text-light text-center ">
@@ -29,7 +29,7 @@ Breed Search
 
     <!-- Reviews card -->
     <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
-        {% for breed in breed_reviews %}
+        {% for breed in breed_review %}
         <div class="col col-md-6 col-lg-4 col-xl-3">
             <div class="card w-100 text-light bg-dark rounded text-center">
 
@@ -62,44 +62,52 @@ Breed Search
                             <span class="fas fa-breed {% if review.adaptability > 3 %} selected {% endif %}"></span>
                             <span class="fas fa-breed {% if review.adaptability > 4 %} selected {% endif %}"></span>
                         </p>
+            <!-- Review's adaptability level -->
+            <p class="card-text"> :
+                <span class="fa-solid fa-user-group {% if review.adaptability > 0 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-user-group {% if review.adaptability > 1 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-user-group {% if review.adaptability > 2 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-user-group {% if review.adaptability > 3 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-user-group {% if review.adaptability > 4 %} selected {% endif %}"></span>
+            </p>
 
-                        <!-- Review's trainability level -->
-                        <p class="card-text"> :
-                            <span
-                                class="fas fas fa-euro-sign {% if review.trainability > 0 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fas fa-euro-sign {% if review.trainability > 1 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fas fa-euro-sign {% if review.trainability > 2 %} selected {% endif %}"></span>
-                            <span class="fas fa-euro-sign {% if review.trainability > 3 %} selected {% endif %}"></span>
-                            <span class="fas fa-euro-sign {% if review.trainability > 4 %} selected {% endif %}"></span>
-                        </p>
+            <!-- Review's trainability level -->
+            <p class="card-text"> :
+                <span
+                    class="fa-solid fa-chart-line-up {% if review.trainability > 0 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-chart-line-up {% if review.trainability > 1 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-chart-line-up {% if review.trainability > 2 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-chart-line-up {% if review.trainability > 3 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-chart-line-up {% if review.trainability > 4 %} selected {% endif %}"></span>
+            </p>
 
-                        <!-- Review's friendliness level -->
-                        <p class="card-text"> :
-                            <span
-                                class="fas fas fa-euro-sign {% if review.friendliness > 0 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fas fa-euro-sign {% if review.friendliness > 1 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fas fa-euro-sign {% if review.friendliness > 2 %} selected {% endif %}"></span>
-                            <span class="fas fa-euro-sign {% if review.friendliness > 3 %} selected {% endif %}"></span>
-                            <span class="fas fa-euro-sign {% if review.friendliness > 4 %} selected {% endif %}"></span>
-                        </p>
+            <!-- Review's friendliness level -->
+            <p class="card-text"> :
+                <span
+                    class="fa-solid fa-paw {% if review.friendliness > 0 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-paw {% if review.friendliness > 1 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-paw {% if review.friendliness > 2 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-paw {% if review.friendliness > 3 %} selected {% endif %}"></span>
+                <span class="fa-solid fa-paw {% if review.friendliness > 4 %} selected {% endif %}"></span>
+            </p>
 
-                        <!-- Review's health and grooming needs level -->
-                        <p class="card-text"> :
-                            <span
-                                class="fas fa-breed {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fa-breed {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fa-breed {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fa-breed {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
-                            <span
-                                class="fas fa-breed {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
-                        </p>
+            <!-- Review's health and grooming needs level -->
+            <p class="card-text"> :
+                <span
+                    class="fa-solid fa-heart-pulse {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-heart-pulse {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-heart-pulse {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-heart-pulse {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                <span
+                    class="fa-solid fa-heart-pulse {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
+            </p>
 
                         <!-- Review's rating -->
                         <p class="card-text"> Rating:
