@@ -67,7 +67,7 @@ a {
 }
 
 a:hover {
-    color: #DFF6FF;
+    color: #1363DF;
 }
 
 
@@ -76,6 +76,7 @@ a:hover {
 .bg {
     background-image: url("../images/home_page.jpg");
     background-size: cover;
+    margin: 0 auto;
 }
 
 .bg-dark,
@@ -100,6 +101,7 @@ a:hover {
 
 .navbar {
     z-index: 100 !important;
+
 }
 
 ul.dropdown-menu {
@@ -286,6 +288,8 @@ img {
 .footer {
     color: #06283D !important;
 }
+
+
 
 
 

@@ -118,7 +118,7 @@ Breed Search
                             <span class="fa fa-star {% if review.rating > 4 %} selected {% endif %}"></span></p>
 
                         <!-- Review's breed author and published date -->
-                        <p class="card-text text-truncate text-muted text-sm"> {{ breed.user_name }} -
+                        <p class="card-text text-truncate text-muted text-sm"> {{ breed.username }} -
                             {{ breed.created_at }}
                         </p>
                     </div>
@@ -126,7 +126,7 @@ Breed Search
 
                 <!-- Delete and Edit Options -->
                 {% if user.is_authenticated %}
-                {% if user.id == breed.user_name.id %}
+                {% if user.id == breed.username.id %}
                 <span class="m-auto">
                     <a href="{% url 'edit_review' breed.pk %}" class="text-decoration-none text-white"
                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your breed" aria-label="edit"><i
