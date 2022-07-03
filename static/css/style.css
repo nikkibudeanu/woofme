@@ -3,14 +3,6 @@
 
 /*------------------------ Color settings  ---------------------- */
 
-:root {
-    --navy: #06283D;
-    --blue: #1363DF;
-    --space: #47B5FF;
-    --winter: #DFF6FF;
-    --white: #FFFFFF;
-}
-
 hr {
     color: #47B5FF;
 }
@@ -25,6 +17,7 @@ html {
 
 body {
     padding-bottom: 100px !important;
+    margin: 0 auto;
 }
 
 /*------------------------ Alert settings  ---------------------- */
