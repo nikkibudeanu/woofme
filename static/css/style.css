@@ -74,7 +74,7 @@ a:hover {
 
 .bg-dark,
 .bg-light {
-    opacity: 0.98;
+    opacity: 0.70;
 }
 
 .bg-dark {
@@ -83,10 +83,9 @@ a:hover {
 
 /*------------------------ Home page ---------------------- */
 
-.title {
-    width: fit-content;
+.welcome_page {
     background-color: #06283D;
-    margin: 2% auto;
+    height: 300px;
 }
 
 
@@ -96,6 +95,8 @@ a:hover {
     z-index: 100 !important;
 
 }
+
+
 
 ul.dropdown-menu {
     height: 150px !important;

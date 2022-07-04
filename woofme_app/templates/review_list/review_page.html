@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-Review Details
+Review Page
 {% endblock %}
 
 {% block additional_styles %}
@@ -113,27 +113,27 @@ Review Details
             </small>
         </div>
 
-        <!-- Edit and delete options if user is logged in -->
-        {% if user.is_authenticated %}
-        {% if user.id == object.username.id %}
-        <span>
+       <!-- Edit and delete options if user is logged in -->
+       {% if user.is_authenticated %}
+       {% if user.id == object.username.id %}
+           <span>
 
-            <!-- Edit button -->
-            <h4 class="m-3 text-center">
-                <a href="{% url 'edit_review' object.pk %}" class="text-decoration-none text-white"
-                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review"><i
-                        class="fas fa-edit px-2"></i>
-                </a>
+               <!-- Edit button -->
+               <h4 class="m-3 text-center">
+                   <a href="{% url 'edit_review' object.pk %}" class="text-decoration-none text-white"
+                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review"><i
+                           class="fas fa-edit px-2"></i>
+                   </a>
 
-                <!-- Delete button -->
-                <a href="{% url 'delete_review' object.pk %}" class="text-decoration-none text-white"
-                    data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review">
-                    <i class="fas fa-trash px-2 pb-2 "></i>
-                </a></h4>
-        </span>
-        {% endif %}
-        {% endif %}
-    </div>
+                   <!-- Delete button -->
+                   <a href="{% url 'delete_review' object.pk %}" class="text-decoration-none text-white"
+                       data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review">
+                       <i class="fas fa-trash px-2 pb-2 "></i>
+                   </a></h4>
+           </span>
+       {% endif %}
+   {% endif %}
+</div>
 
     <!-- Back button -->
     <div class="m-2 text-center">
