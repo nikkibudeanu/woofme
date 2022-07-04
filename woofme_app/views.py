@@ -85,21 +85,40 @@ class ReviewPageView(DetailView):
 
 
 class EditReviewView(UpdateView):
+    """ Update a  breed review after editing """
     model = BreedReview
     form_class = BreedReviewForm
     template_name = 'review_list/edit_review.html'
-    
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.username == self.request.user
+
+    def __init__(self):
+        self.updform = None
+
     def form_valid(self, form):
-        self.object = form.save(commit=False)
-        self.object.save()
-        return redirect ('review_page', self.object.pk)
+        """  Validate update review form and save it """
+        self.updform = form.save(commit=False)
+        self.slug = self.updform.breed_group
+        self.updform.save()
+        return redirect('review_page', self.updform.pk)
 
 
 class DeleteReviewView(DeleteView):
+    """ Delete a breed review form """
     model = BreedReview
     form_class = BreedReviewForm
-    template_name = 'review_list/delete_review.html' 
-    succes_url = reverse_lazy('review_list')
+    template_name = 'review_list/delete_review.html'
+    success_url = reverse_lazy('review_list')
+    login_url = reverse_lazy('login')
+    redirect_field_name = 'redirect_to'
+
+    def test_func(self):
+        obj = self.get_object()
+        return obj.username == self.request.user
 
 def search_group_view(request, group):
     """ Define a breed group view on search """

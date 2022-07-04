@@ -2,7 +2,7 @@
 <h1 align=center> Woofme</h1>
 
 
-<p align=center>Rate a dog breed
+<p align=center> Are you a dog owner? <br/> Are you a dog lover? <br/> Find out what people say about different breeds, find your perfect breed or share feedback on your dog's breed on our website. Woofme is a place where you can add a review and do a research on other breeds! <br/> Woofme is a place for dog lovers. <br/> Woofme is a place for (almost) EVERYONE!
 
  </p>
 
