@@ -4,6 +4,9 @@
 
 {% load active_link_tags %}
 
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,7 +45,12 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
         {% block additional_styles %}
-
+        <style>
+        .navbar_brand {
+            background-image: url('https://res.cloudinary.com/nikkibudeanu/image/upload/v1656973607/cover_lmhje2.png')!important;
+            background-position: center;
+        }
+    </style>
         {% endblock  %}
 
         <title> Woofme |
@@ -56,7 +64,7 @@
         <!-- Navigation -->
         <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
             <div class="container-fluid">
-                <a class="navbar-brand {% active_link '/' %}" href="{% url 'home' %}"> Woofme</a>
+                <a class="navbar-left  {% active_link '/' %}" href="{% url 'home' %}"> <img src="../images/cover.png"></a>
                 
                 <!-- Collapse Navigation -->
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse"

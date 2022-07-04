@@ -127,6 +127,7 @@ ul.dropdown-menu {
 .btn-submit {
     background-color: #DFF6FF;
     color: #06283D !important;
+    
 }
 
 .btn-cancel {
@@ -153,6 +154,7 @@ ul.dropdown-menu {
     transform: scale(1.2);
     transition: transform 330ms ease-in-out;
     font-weight: 600;
+    background-color: #1363DF;
 
 }
 
