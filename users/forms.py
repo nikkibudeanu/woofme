@@ -26,7 +26,7 @@ class SignupForm(forms.Form):
                 'class': 'form-control'})
 
     def clean_username(self):
-        """valid username field after form creation"""
+        """Clean username field after form creation"""
         username = self.cleaned_data['username'].lower()
         filterusername = User.objects.filter(username=username)
         if filterusername.count():
@@ -34,7 +34,7 @@ class SignupForm(forms.Form):
         return username
 
     def clean_email(self):
-        """valid email field after form creation"""
+        """Clean email field after form creation"""
         email = self.cleaned_data['email'].lower()
         filteremail = User.objects.filter(email=email)
         if filteremail.count():
@@ -42,7 +42,7 @@ class SignupForm(forms.Form):
         return email
 
     def clean_password2(self):
-        """valid confirm password field after form creation"""
+        """Clean confirm password field after form creation"""
         password1 = self.cleaned_data.get('password1')
         password2 = self.cleaned_data.get('password2')
 
@@ -51,7 +51,7 @@ class SignupForm(forms.Form):
         return password2
 
     def save(self):
-        """Save register form """
+        """Save register form if all information is valid"""
         user = User.objects.create_user(
             self.cleaned_data['username'],
             self.cleaned_data['email'],
