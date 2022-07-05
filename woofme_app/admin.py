@@ -11,10 +11,10 @@ class BreedReviewAdmin(admin.ModelAdmin):
     list_display = (
         'breed_group',
         'breed',
-        'user_name',
+        'username',
         'review',
-        'published_date')
-    list_filter = ['published_date', 'user_name']
+        'created_at')
+    list_filter = ['created_at', 'username']
     search_fields = ['breed', 'review']
 
 
