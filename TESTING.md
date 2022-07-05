@@ -15,7 +15,7 @@ Manual and automated testing were conducted on woofme app, users app as well as 
 
 ========================================================================================
 
-### **Members App** 
+### **Users App** 
 All functions on the users' app were tested automatically using unit tests.
 
 * Overall
@@ -48,3 +48,43 @@ User Stories covered by tests.
 
 </details>
 ========================================================================================
+
+### **woofme_app** 
+
+*  Unittests Overall
+<p><img src="media/readme/unittests/"></p>
+
+* Views 
+<p><img src="media/readme/unittests/"></p>
+
+  * Forms 
+<p><img src="media/readme/unittests/"></p>
+
+ * Urls 
+<p><img src="media/readme/unittests/"></p>
+
+ * Models
+
+<p><img src="media/readme/unittests/"></p>
+
+<details>
+<summary> User stories covered by tests: 
+
++ "User Story: search breed."
++ "User Story : view breeds list."
++ "User Story: add a dog breed + review + image"
++ "User Story: create breed review"
++ "User Story: Open a breed details page."
++ "User Story: See a list of breed groups using a dropdown menu."
++ "User Story: Edit/Delete previously created review."
+</summary>
+
+| test_models| test_views |  test_forms
+|    ---    |  ---       | ---
+| BeerReviewTestCase() | AddReviewViewTest()|  | BreedGroupTestCase()|
+| BreedTestCase()|BreedRatingView()|
+|            |ReviewPageViewTests()|
+|            |EditReviewViewTests()|
+|            |SuccessfulEditReviewViewTests()||            |TestSearchBreedView()|
+</details>
+
