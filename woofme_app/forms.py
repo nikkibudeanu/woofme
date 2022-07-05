@@ -2,7 +2,6 @@
 from cloudinary.forms import CloudinaryFileField
 from django import forms
 from .models import BreedReview, Breed
-# from bootstrap_modal_forms.forms import BSModalModelForm
 
 
 class BreedReviewForm(forms.ModelForm):
@@ -27,6 +26,7 @@ class BreedReviewForm(forms.ModelForm):
                 'class': 'form-control',
                 'placeholder': 'Go on! Write your review here!'})
         }
+
 
 
 class CreateBreedForm(forms.ModelForm):

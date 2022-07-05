@@ -129,7 +129,7 @@ Reviews By Breed Group
                                     </a>
 
                                     <!-- Delete button -->
-                                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white shadow-none" id="edit"
+                                    <a href="{% url 'delete_review' review.pk %}" class="text-decoration-none text-white shadow-none" id="edit"
                                         data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review" aria-label="Delete">
                                         <i class="fas fa-lg fa-trash px-2 pb-2 "></i>
                                     </a>
@@ -181,7 +181,7 @@ Reviews By Breed Group
             <div class="container no-review">
                 <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3 text-light">
 
-                    <!-- Searched style -->
+                    <!-- Searched breed group -->
                     <h1> There's no review for {{ group | title}}</h1>
                     <hr>
                     <p class="lead"> Would you like to be the first? </p>

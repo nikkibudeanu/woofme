@@ -126,7 +126,7 @@ def search_group_view(request, group):
     return render(request, 'review_list/search_breed_groups.html', {
         'group': group, 'breed_group_reviews': breed_group_reviews})
 
-def cat_style_menu_on_all_pages(request):
+def cat_style_menu_on_all_pages(_request):
     return{'cat_style_menu': BreedGroup.objects.all().order_by('breed_group')}
 
 
