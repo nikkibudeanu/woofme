@@ -51,7 +51,7 @@ class AddReviewView( LoginRequiredMixin, View):
             
             if review_form.is_valid():
                 review = review_form.save(commit=False)
-                review.user_name = request.user
+                review.username = request.user
                 review.save()
                 return redirect('review_page', review.pk)
             else:
@@ -71,20 +71,14 @@ class AddReviewView( LoginRequiredMixin, View):
 class BreedRatingView(ListView):
     model = BreedReview
     template_name = 'review_list.html'
-    paginate_by = 3
-
-
-class BreedGroupCreateView(ListView):
-    """ Create a breed group on add review page """
-    template_name = 'add_review/create_breed_group.html'
-
+    paginate_by = 6
 
 class ReviewPageView(DetailView):
     model = BreedReview
     template_name = 'review_list/review_page.html'
 
 
-class EditReviewView(UpdateView):
+class EditReviewView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     """ Update a  breed review after editing """
     model = BreedReview
     form_class = BreedReviewForm
@@ -107,7 +101,7 @@ class EditReviewView(UpdateView):
         return redirect('review_page', self.updform.pk)
 
 
-class DeleteReviewView(DeleteView):
+class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
     """ Delete a breed review form """
     model = BreedReview
     form_class = BreedReviewForm

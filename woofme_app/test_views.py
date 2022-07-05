@@ -68,7 +68,7 @@ class BreedRatingView(SetupViewTestCase):
 class ReviewPageViewTests(SetupViewTestCase):
     """Test Review page view response, correct url and template """
 
-    def test_review_detail_view_url_exists(self):
+    def test_review_page_view_url_exists(self):
         """ Test if review detail url exist """
         response = self.client.get(
             '/review_list/review_page/' + str(self.breed_review.id))
