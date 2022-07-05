@@ -234,3 +234,25 @@ class SuccessfulEditReviewViewTests(SetupViewTestCase):
         response = self.client.get(reverse('review_edit', kwargs={
             'pk': self.breed_review.id}))
         self.assertContains(response, 'Adaptability')
+
+
+class TestSearchBreedView(SetupViewTestCase):
+    """ Test if search breed views """
+    def setUp(self):
+        """ Setup user and review"""
+        super().setUp()
+        self.client.login(username=self.username, password=self.password)
+
+    def test_search_breed_view_get(self):
+        """ test if breed name is loading on search"""
+        search = {'searched': self.breed.name}
+        response = self.client.post(reverse('search_breed'), search)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list/search_breed.html')
+
+    def test_search_breed_view_post(self):
+        """ Test if breed name search are working in post"""
+        search = {'searched': self.breed.name}
+        response = self.client.post(reverse('search_breed'), search)
+        self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, 'review_list/search_breed.html')
