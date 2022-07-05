@@ -33,12 +33,12 @@ Review
     </div>
 
     <!-- Reviews card -->
-    <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
+    <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center ">
 
         <!-- Reviews for loop -->
         {% for review in object_list %}
-        <div class="col col-md-6 col-lg-4 col-xl-3">
-            <div class="card w-100 text-light bg-dark rounded ">
+        <div class="col col-md-6 col-lg-4 col-xl-3 ">
+            <div class="card w-100 text-light bg-dark rounded reviews-card ">
 
                 <!-- Card hyperlink to breed detail page -->
                 <a href="{% url 'review_page' review.pk %}"
