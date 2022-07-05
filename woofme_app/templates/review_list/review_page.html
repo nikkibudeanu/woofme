@@ -43,50 +43,50 @@ Review Page
                     <h4 class="text-right mb-4 mx-2 ">Breed Group : {{ object.breed_group|title }}</h4>
 
             <!-- Review's adaptability level -->
-            <p class="card-text"> :
-                <span class="fas fa-user-friends {% if review.adaptability > 0 %} selected {% endif %}"></span>
-                <span class="fas fa-user-friends {% if review.adaptability > 1 %} selected {% endif %}"></span>
-                <span class="fas fa-user-friends {% if review.adaptability > 2 %} selected {% endif %}"></span>
-                <span class="fas fa-user-friends {% if review.adaptability > 3 %} selected {% endif %}"></span>
-                <span class="fas fa-user-friends {% if review.adaptability > 4 %} selected {% endif %}"></span>
+            <p class="card-text"> Adaptability:
+                <span class="fas fa-user-friends {% if object.adaptability > 0 %} selected {% endif %}"></span>
+                <span class="fas fa-user-friends {% if object.adaptability > 1 %} selected {% endif %}"></span>
+                <span class="fas fa-user-friends {% if object.adaptability > 2 %} selected {% endif %}"></span>
+                <span class="fas fa-user-friends {% if object.adaptability > 3 %} selected {% endif %}"></span>
+                <span class="fas fa-user-friends {% if object.adaptability > 4 %} selected {% endif %}"></span>
             </p>
 
             <!-- Review's trainability level -->
-            <p class="card-text"> :
+            <p class="card-text"> Trainability:
                 <span
-                    class="fas fa-glasses {% if review.trainability > 0 %} selected {% endif %}"></span>
+                    class="fas fa-glasses {% if object.trainability > 0 %} selected {% endif %}"></span>
                 <span
-                    class="fas fa-glasses {% if review.trainability > 1 %} selected {% endif %}"></span>
+                    class="fas fa-glasses {% if object.trainability > 1 %} selected {% endif %}"></span>
                 <span
-                    class="fas fa-glasses {% if review.trainability > 2 %} selected {% endif %}"></span>
-                <span class="fas fa-glasses {% if review.trainability > 3 %} selected {% endif %}"></span>
-                <span class="fas fa-glasses {% if review.trainability > 4 %} selected {% endif %}"></span>
+                    class="fas fa-glasses {% if object.trainability > 2 %} selected {% endif %}"></span>
+                <span class="fas fa-glasses {% if object.trainability > 3 %} selected {% endif %}"></span>
+                <span class="fas fa-glasses {% if object.trainability > 4 %} selected {% endif %}"></span>
             </p>
 
             <!-- Review's friendliness level -->
-            <p class="card-text"> :
+            <p class="card-text"> Friendliness:
                 <span
-                    class="fas fa-paw {% if review.friendliness > 0 %} selected {% endif %}"></span>
+                    class="fas fa-paw {% if object.friendliness > 0 %} selected {% endif %}"></span>
                 <span
-                    class="fas fa-paw {% if review.friendliness > 1 %} selected {% endif %}"></span>
+                    class="fas fa-paw {% if object.friendliness > 1 %} selected {% endif %}"></span>
                 <span
-                    class="fas fa-paw {% if review.friendliness > 2 %} selected {% endif %}"></span>
-                <span class="fas fa-paw {% if review.friendliness > 3 %} selected {% endif %}"></span>
-                <span class="fas fa-paw {% if review.friendliness > 4 %} selected {% endif %}"></span>
+                    class="fas fa-paw {% if object.friendliness > 2 %} selected {% endif %}"></span>
+                <span class="fas fa-paw {% if object.friendliness > 3 %} selected {% endif %}"></span>
+                <span class="fas fa-paw {% if object.friendliness > 4 %} selected {% endif %}"></span>
             </p>
 
-            <!-- Review's health and grooming needs level -->
-            <p class="card-text"> :
+            <!-- object's health and grooming needs level -->
+            <p class="card-text"> Health and grooming needs:
                 <span
-                    class="far fa-heart {% if review.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
+                    class="far fa-heart {% if object.health_and_grooming_needs > 0 %} selected {% endif %}"></span>
                 <span
-                    class="far fa-heart {% if review.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
+                    class="far fa-heart {% if object.health_and_grooming_needs > 1 %} selected {% endif %}"></span>
                 <span
-                    class="far fa-heart {% if review.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
+                    class="far fa-heart {% if object.health_and_grooming_needs > 2 %} selected {% endif %}"></span>
                 <span
-                    class="far fa-heart {% if review.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
+                    class="far fa-heart {% if object.health_and_grooming_needs > 3 %} selected {% endif %}"></span>
                 <span
-                    class="far fa-heart {% if review.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
+                    class="far fa-heart {% if object.health_and_grooming_needs > 4 %} selected {% endif %}"></span>
             </p>
 
                     <!-- Reviews breed rating-->
