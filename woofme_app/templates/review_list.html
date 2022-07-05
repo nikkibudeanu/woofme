@@ -125,11 +125,11 @@ Review
                 {% if user.is_authenticated %}
                 {% if user.id == review.username.id %}
                 <span class="m-auto">
-                    <a href="{% url 'edit_review' review.pk %}" class="text-decoration-none text-white shadow-none"
+                    <a href="{% url 'review_edit' review.pk %}" class="text-decoration-none text-white shadow-none"
                         aria-label="Edit" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review">
                         <i class="fas fa-lg fa-edit px-2"></i>
                     </a>
-                    <a href="{% url 'delete_review' review.pk %}" class="text-decoration-none text-white shadow-none"
+                    <a href="{% url 'review_delete' review.pk %}" class="text-decoration-none text-white shadow-none"
                         aria-label="Delete" id="edit" data-bs-toggle="tooltip" data-bs-placement="bottom"
                         title="Delete your review">
                         <i class="fas fa-lg fa-trash px-2 pb-2 "></i>

@@ -120,13 +120,13 @@ Review Page
 
                <!-- Edit button -->
                <h4 class="m-3 text-center">
-                   <a href="{% url 'edit_review' object.pk %}" class="text-decoration-none text-white"
+                   <a href="{% url 'review_edit' object.pk %}" class="text-decoration-none text-white"
                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Edit your review"><i
                            class="fas fa-edit px-2"></i>
                    </a>
 
                    <!-- Delete button -->
-                   <a href="{% url 'delete_review' object.pk %}" class="text-decoration-none text-white"
+                   <a href="{% url 'review_delete' object.pk %}" class="text-decoration-none text-white"
                        data-bs-toggle="tooltip" data-bs-placement="bottom" title="Delete your review">
                        <i class="fas fa-trash px-2 pb-2 "></i>
                    </a></h4>
