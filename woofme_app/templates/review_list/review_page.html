@@ -40,7 +40,7 @@ Review Page
                 <div class="card-body">
 
                     <!-- Reviews breed name-->
-                    <h4 class="text-right mb-4 mx-2 ">Breed Group : {{ object.breed_group|title }}</h4>
+                    <h3 class="text-center mb-4 mx-2 ">Breed Group : {{ object.breed_group|title }}</h3>
 
             <!-- Review's adaptability level -->
             <p class="card-text"> Adaptability:
@@ -90,12 +90,12 @@ Review Page
             </p>
 
                     <!-- Reviews breed rating-->
-                    <p class="card-text m-2"> Rating:
+                    <h2 class="card-text m-2 text-center"> Rating:
                         <span class="fa fa-star {% if object.rating > 0 %} selected {% endif %}"></span>
                         <span class="fa fa-star {% if object.rating > 1 %} selected {% endif %}"></span>
                         <span class="fa fa-star {% if object.rating > 2 %} selected {% endif %}"></span>
                         <span class="fa fa-star {% if object.rating > 3 %} selected {% endif %}"></span>
-                        <span class="fa fa-star {% if object.rating > 4 %} selected {% endif %}"></span></p>
+                        <span class="fa fa-star {% if object.rating > 4 %} selected {% endif %}"></span></h2>
                 </div>
 
                 <!-- Reviews text -->
