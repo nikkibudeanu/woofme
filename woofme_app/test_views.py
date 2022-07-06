@@ -115,6 +115,23 @@ class AddReviewViewTest(SetupViewTestCase):
         self.client.login(user_name=self.username, password=self.password)
         self.response = self.client.get(self.url)
 
+    def test_add_review_breed_group_post(self):
+        """ Login a mock user and test if add breed group is using
+        correct form and post it correct """
+        super().__init__()
+        self.client.login(username='anna', password='12345')
+        payload = {'breed_group': 'group review'}
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+
+    def test_add_review_breed_group_form_invalid(self):
+        """ Login a mock user and test if add breed group is using
+        correct form and refresh page when beer style is empty """
+        self.client.login(username='anna', password='12345')
+        payload = {'breed_group': ''}
+        response = self.client.post(reverse('add_review'), payload)
+        self.assertEqual(response.status_code, 200)
+
     def test_add_review_breed_name(self):
         """ Login a user and test if add breed name is using
         correct form and post it correct """
@@ -164,8 +181,8 @@ class AddReviewViewTest(SetupViewTestCase):
                     'rating': '1'
                     }
         response = self.client.post(reverse('add_review'), payload)
-        self.assertEqual(response.status_code, 200)
-        self.assertIn('review_form', response.context)
+        self.assertEqual(response.status_code, 302)
+        self.assertIn('breed_form', response.context)
 
 
 class EditReviewViewTest(SetupViewTestCase):
