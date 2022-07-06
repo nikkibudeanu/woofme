@@ -1,7 +1,6 @@
-
+""" System module"""
 import os
 from pathlib import Path
-from os import path
 import logging
 
 import dj_database_url

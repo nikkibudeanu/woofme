@@ -16,18 +16,16 @@ class HomeView(ListView):
     template_name = 'home.html'
 
 
-class AddReviewView( LoginRequiredMixin, View):
+class AddReviewView(LoginRequiredMixin, View):
     """ Render add review page view """
     template_name = 'add_review.html'
     login_url = reverse_lazy('login')
     redirect_field_name = 'redirect_to'
-    
 
     def get_object(self):
         """ Get objects from breed review model"""
         obj = BreedReview.objects.all()
         return obj
-
 
     def get_context_data(self, **kwargs):
         """ Get the right form """
@@ -37,18 +35,16 @@ class AddReviewView( LoginRequiredMixin, View):
         if 'breed_form' not in kwargs:
             kwargs['breed_form'] = CreateBreedForm()
         return kwargs
-    
-    
+
     def get(self, request):
         """ return to add breed form page after creating a breed"""
         return render(request, self.template_name, self.get_context_data())
-        
+
     def post(self, request):
         """ validate data in the add review forms"""
         ctxt = {}
         if 'review' in request.POST:
             review_form = BreedReviewForm(request.POST, request.FILES)
-            
             if review_form.is_valid():
                 review = review_form.save(commit=False)
                 review.username = request.user
@@ -56,7 +52,7 @@ class AddReviewView( LoginRequiredMixin, View):
                 return redirect('review_page', review.pk)
             else:
                 ctxt['review_form'] = review_form
-        
+
         elif 'name' in request.POST:
             breed_form = CreateBreedForm(request.POST)
             if breed_form.is_valid():
@@ -64,16 +60,20 @@ class AddReviewView( LoginRequiredMixin, View):
                 breed_form.save()
             else:
                 ctxt['breed_form'] = breed_form
-    
-        return render(request, self.template_name, self.get_context_data(**ctxt))
+
+        return render(request,
+                      self.template_name, self.get_context_data(**ctxt))
 
 
 class BreedRatingView(ListView):
+    """ Render view for a list of breed ratings"""
     model = BreedReview
     template_name = 'review_list.html'
     paginate_by = 6
 
+
 class ReviewPageView(DetailView):
+    """ Render view for a detailed review page"""
     model = BreedReview
     template_name = 'review_list/review_page.html'
 
@@ -114,13 +114,17 @@ class DeleteReviewView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
         obj = self.get_object()
         return obj.username == self.request.user
 
+
 def search_group_view(request, group):
     """ Define a breed group view on search """
-    breed_group_reviews = BreedReview.objects.filter(slug=group).order_by('-created_at')
+    breed_group_reviews = BreedReview.objects.filter(
+                          slug=group).order_by('-created_at')
     return render(request, 'review_list/search_breed_groups.html', {
         'group': group, 'breed_group_reviews': breed_group_reviews})
 
+
 def cat_style_menu_on_all_pages(_request):
+    """ Cat style menu function for breed group"""
     return{'cat_style_menu': BreedGroup.objects.all().order_by('breed_group')}
 
 
@@ -130,7 +134,6 @@ def search_breed_view(request):
         searched = request.POST['searched']
     elif request.method == "GET":
         searched = request.GET['searched']
-
 
     breeds = BreedReview.objects.filter(
         breed__name__icontains=searched).order_by('-created_at')
