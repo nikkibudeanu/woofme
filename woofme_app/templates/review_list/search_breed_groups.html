@@ -5,14 +5,14 @@
 {% load cloudinary %}
 
 {% block title %} 
-Reviews by group 
+Reviews by Groups
 {% endblock %}
 
 {% block additional_styles %}
     <!-- Customizible CSS -->
     <style>
         body {
-            background-image: url("https://res.cloudinary.com/fernandascloud/image/upload/v1637186919/background_2_rydjwk.jpg")!important;
+            background-image: url("")!important;
         }
     </style>
 {% endblock %}
@@ -42,16 +42,19 @@ Reviews by group
                             <h2 class="card-title m-3 text-truncate "> {{ review.breed }} </h2>
                             <hr>
 
-                            <!-- Review's breed's group name -->
+                            <!-- Review's breed's style name -->
                             <h3 class="text-truncate mx-2" >{{ review.breed_group}}</h3>
 
-                            <!-- Review's breed image -->
+                            <!-- Review's beer image -->
                             <img src="{{ review.breed_image.url }}" class="card-img-top rounded-2 img-container" alt="{{ review.breed }}">
 
                             <!-- Review's card body -->
                             <div class="card-body">
 
-                                <!-- Review's breed rating -->
+                                <!-- Review's text -->
+                                <p class="card-text text-truncate">{{ review.review }}</p>
+
+                                <!-- Review's beer rating -->
                                 <p class="card-text"> Rating:
                                     <span class="fa fa-star {% if review.rating > 0 %} selected {% endif %}"></span>
                                     <span class="fa fa-star {% if review.rating > 1 %} selected {% endif %}"></span>
@@ -59,7 +62,7 @@ Reviews by group
                                     <span class="fa fa-star {% if review.rating > 3 %} selected {% endif %}"></span>
                                     <span class="fa fa-star {% if review.rating > 4 %} selected {% endif %}"></span></p>
 
-                                <!-- Review's breed fauthor and pub date -->
+                                <!-- Review's breed author and pub date -->
                                 <p class="card-text text-truncate text-muted text-sm"> {{ review.username }} - {{ review.created_at }} 
                                 </p>
                             </div>
@@ -138,7 +141,7 @@ Reviews by group
 
                         <!-- Review now button -->
                         <a href="{% url 'add_review' %}" class="btn btn-warning btn-lg m-2 fw-bold shadow-none">Review your
-                                Breed Now! </a>
+                                Breed! </a>
                     {% else %}
 
                         <!-- Login now button -->
