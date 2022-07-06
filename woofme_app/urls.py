@@ -14,7 +14,7 @@ urlpatterns = [
          EditReviewView.as_view(), name='review_edit'),
     path('review_list/delete/<int:pk>',
          DeleteReviewView.as_view(), name='review_delete'),
-    path('review_list/search_breed_groups/<str:group>',
-         search_group_view, name='group'),
-    path('review_list/search_breed', search_breed_view, name='search_breed'),
+    path('review_list/search/<str:group>',
+         search_group_view, name='search'),
+    path('review_list/search', search_breed_view, name='search_breed'),
 ]

@@ -113,7 +113,7 @@
                             <ul class="dropdown-menu" aria-label="Dropdown Breed Group">
                                 {% for item in cat_style_menu %}
                                 <li>
-                                    <a class="dropdown-item" href="{% url 'group' item %}">{{ item|title}}
+                                    <a class="dropdown-item" href="{% url 'search' item %}">{{ item|title}}
                                     </a>
                                 </li>
                                 {% endfor %}

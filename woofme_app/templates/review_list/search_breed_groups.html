@@ -30,7 +30,7 @@ Reviews by Groups
 
             <!-- Reviews card -->
             <div class="row row-cols-1 row-cols-md-2 g-4 m-auto d-flex justify-content-center">
-                {% for review in breed_group_reviews %}
+                {% for breed_group_review in breed_group_reviews %}
                 <div class="col col-md-6 col-lg-4 col-xl-3">
                     <div class="card w-100 text-light bg-dark rounded text-center">
 
@@ -42,7 +42,7 @@ Reviews by Groups
                             <h2 class="card-title m-3 text-truncate "> {{ review.breed }} </h2>
                             <hr>
 
-                            <!-- Review's breed's style name -->
+                            <!-- Review's breed's group name -->
                             <h3 class="text-truncate mx-2" >{{ review.breed_group}}</h3>
 
                             <!-- Review's beer image -->
