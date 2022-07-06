@@ -88,3 +88,22 @@ User Stories covered by tests.
 |            |SuccessfulEditReviewViewTests()||            |TestSearchBreedView()|
 </details>
 
+
+### **Overal Test on plataform** 
+
+
+In order to check that I covered all automated tests, I have used coverage tools.
+
+<p><img src="media/readme/unittests/"></p>
+
+
++ **woofme/views.py**
+
+
+
++ **woofme_app/views.py**
+
+  
++ **woofme/settings.py**
+
+   
