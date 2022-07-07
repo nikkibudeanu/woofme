@@ -102,25 +102,8 @@
                             </li>
                         {% endif %}
                     </ul>
-                    <ul class="navbar-nav me-4 mb-2 mb-lg-0">
-                        
-                        <!--  Search breed group button -->
-                        <li class="nav-item dropdown ">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
-                                data-bs-toggle="dropdown" data-bd-auto-close="True" aria-expanded="false">
-                                Breed groups
-                            </a>                       
-                            <ul class="dropdown-menu" aria-label="Dropdown Breed Group">
-                                {% for item in cat_style_menu %}
-                                <li>
-                                    <a class="dropdown-item" href="{% url 'search' item %}">{{ item|title}}
-                                    </a>
-                                </li>
-                                {% endfor %}
-                            </ul>
-                        </li>
-                    </ul>
-
+         
+                    
                     <!--  Search breed button -->
                     <form class="d-flex text-end" action="{% url 'search_breed' %}" method="post">
                         {% csrf_token %}
