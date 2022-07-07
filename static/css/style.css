@@ -67,7 +67,6 @@ a:hover {
 /*------------------------ Background settings  ---------------------- */
 
 .bg {
-    background-image: url("../images/home_page.jpg");
     background-size: cover;
     margin: 0 auto;
 }
