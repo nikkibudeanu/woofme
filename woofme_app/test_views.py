@@ -170,18 +170,10 @@ class AddReviewViewTest(SetupViewTestCase):
         """ Create a  user and a review, check if review is incorrect and
         refesh the page """
         self.client.login(username='nikki', password='12345')
-        payload = {
-                    'breed_group': self.breed_group.id,
-                    'breed': self.breed.id,
-                    'review': 'Review test',
-                    'adaptability': '4',
-                    'friendliness': '4',
-                    'trainability': '4',
-                    'health_and_grooming_needs': '3',
-                    'rating': '1'
+        payload = { 'breed.name': ''
                     }
         response = self.client.post(reverse('add_review'), payload)
-        self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 200)
         self.assertIn('breed_form', response.context)
 
 

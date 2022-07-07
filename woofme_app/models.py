@@ -68,11 +68,11 @@ class BreedReview(models.Model):
     rating = models.IntegerField(choices=RATING_CHOICES, default=0)
 
     def __str__(self):
-        return str(self.breed) + '|' + str(self.username)
+        return str(self.breed).lower()
 
     def get_absolute_url(self):
         """ set absolute url """
-        return reverse('review_list', kwargs={'pk': self.pk})
+        return reverse('review_page', kwargs={'pk': self.pk})
 
 
 breed_review = BreedReview.objects.all()

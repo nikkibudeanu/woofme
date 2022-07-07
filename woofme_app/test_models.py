@@ -51,6 +51,11 @@ class BreedTestCase(SetupModelTestCase):
 
 class BreedReviewTestCase(SetupModelTestCase):
     """ Test breedreview model"""
+    def test__str__(self):
+        """ Test if review is returning all model objetcs and pk """
+        self.assertEqual(str(self.breed_review), self.breed.name.lower())
+
+    
     def test_absolute_url(self):
         """ Test if breed review page is redirecting correctly"""
         self.assertEqual(self.breed_review.get_absolute_url(), reverse(
