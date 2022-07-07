@@ -1,1 +1,1 @@
-web : gunicorn woofme.wsgi
+web: gunicorn woofme.wsgi
