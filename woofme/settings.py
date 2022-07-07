@@ -11,14 +11,8 @@ if os.path.isfile("env.py"):
 BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
 # For debugging
@@ -28,14 +22,7 @@ if DEBUG:
         level=logging.DEBUG,
         format='%(asctime)s %(levelname)s %(message)s',
     )
-# else:
-#     # will output to logging file
-#     logging.basicConfig(
-#         level=logging.DEBUG,
-#         format='%(asctime)s %(levelname)s %(message)s',
-#         filename='/my_log_file.log',
-#         filemode='a'
-#     )
+
 
 ALLOWED_HOSTS = ['woofmeapp.herokuapp.com', 'localhost']
 
@@ -109,27 +96,17 @@ crispy_template_pack = 'uni_form'
 
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-
 if DEBUG:
     DATABASES = {
      'default': {
          'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),
-     }
-     }
+         'NAME': os.path.join(BASE_DIR / 'db.sqlite3'),}}
 
 else:
     DATABASES = {
         'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
     }
 
-
-# Password validation
-# https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
     {
