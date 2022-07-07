@@ -35,6 +35,12 @@ class SetupModelTestCase(TestCase):
 
 class BreedGroupTestCase(SetupModelTestCase):
     """ Test breed group model"""
+
+    def test__str__(self):
+        """ Test if breed group is returning all model objetcs and pk """
+        self.assertEqual(str(self.breed_group), self.breed_group.breed_group.lower())
+
+
     def test_absolute_url(self):
         """ Test if redirection to add review page is correct """
         self.assertEqual(
@@ -43,6 +49,11 @@ class BreedGroupTestCase(SetupModelTestCase):
 
 class BreedTestCase(SetupModelTestCase):
     """ Test breed model"""
+
+    def test__str__(self):
+        """ Test if breed is returning all model objetcs and pk """
+        self.assertEqual(str(self.breed), self.breed.name.lower())
+
     def test_absolute_url(self):
         """ Test if redirection to add review page is correct """
         self.assertEqual(
