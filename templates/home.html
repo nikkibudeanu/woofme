@@ -9,20 +9,27 @@ Home
 {% block additional_styles %}
 <!-- Customizible CSS -->
 <style>
-    body {
-        background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1656620456/pexels-lumn-406014_rtkieb.jpg") !important;
+    .bg {
+        background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1657234694/ce8b1e76965389.5c7945b0cffef_qkyyjm.gif") !important;
+        background-size: 40%;
+        background-repeat: no-repeat;
+        background-position-x: 50%;
+        background-position-y: 70%;
+    }
+
+    body{
+        background-color: #DFF6FF;
     }
 </style>
 {% endblock %}
 {% block content %}
 
     <!--Welcome-->
-    <div class=" container container-box-home bg-dark rounded text-light text-center welcome_page ">
+    <div class=" container container-box-home bg-gradient-dark rounded text-light text-center welcome_page ">
         <div class="row justify-content-center">
             <div class="col ">
                 <h1 class ="bold">Woofme - review your breed!</h1>
-                <h2 class ="bold">Rate your dog's breed and tell us more about your pet...</h2>
-
+                <h4 >Rate your dog's breed and tell us more about your pet...</h4>
             </div>
         </div>
     </div>
