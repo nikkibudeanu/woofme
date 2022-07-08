@@ -55,7 +55,7 @@ button,
 a {
     font-weight: 700;
     text-decoration: none;
-    color: #06283D;
+    color: #DFF6FF;
 }
 
 a:hover {
@@ -92,6 +92,10 @@ a:hover {
 .navbar {
     z-index: 100 !important;
 
+}
+
+.navbar a{
+    color:#DFF6FF;
 }
 
 
@@ -279,7 +283,7 @@ img {
 /*------------------------ Footer  ---------------------- */
 
 .footer {
-    color: #06283D !important;
+    color:#DFF6FF !important;
 }
 
 
