@@ -6,7 +6,7 @@ Please see below all tests.
 
 ## Code Validation Testing
 
-## Automated tests
+## Auto-tests
 
 ### **WOOFME** 
 Manual and automated testing were conducted on woofme app, users app as well as the project urls.
@@ -16,7 +16,7 @@ Manual and automated testing were conducted on woofme app, users app as well as 
 ========================================================================================
 
 ### **Users App** 
-All functions on the users' app were tested automatically using unit tests.
+Almost all functions on the users' app were tested automatically using unit tests. Manual testing was performed on the other tests to ensure there are no errors.
 
 * Overall
 <p><img src="media/readme/unittests/overall-users.png"></p>
@@ -81,11 +81,11 @@ User Stories covered by tests.
 
 | test_models| test_views |  test_forms
 |    ---    |  ---       | ---
-| breedReviewTestCase() | AddReviewViewTest()|  | BreedGroupTestCase()|
-| BreedTestCase()|BreedRatingView()|
+| BreedReviewTestCase() | AddReviewViewTest()  |  CreateBreedFormTest()
+| BreedTestCase()           |BreedRatingView()|
 |            |ReviewPageViewTests()|
 |            |EditReviewViewTests()|
-|            |SuccessfulEditReviewViewTests()||            |TestSearchBreedView()|
+|            |SuccessfulEditReviewViewTests()|
 </details>
 
 
