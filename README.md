@@ -238,7 +238,7 @@ Test cases were linked with every User story presented above, and can be found i
 
 
 ## Future Features
-
+* Single sign-on using social media.
 
 
 
