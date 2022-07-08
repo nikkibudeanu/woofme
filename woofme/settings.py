@@ -14,7 +14,12 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-DEBUG = False
+if os.environ.get("DEVELOPMENT"):
+    development = True
+else:
+    development = False
+
+DEBUG = development
 
 # For debugging
 if DEBUG:
@@ -99,9 +104,18 @@ crispy_template_pack = 'uni_form'
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
 
-DATABASES = {
-   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-}
+if DEBUG:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+else:
+
+    DATABASES = {
+        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
