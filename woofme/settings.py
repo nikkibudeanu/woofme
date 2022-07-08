@@ -97,17 +97,19 @@ crispy_template_pack = 'uni_form'
 
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
-if DEBUG:
-    DATABASES = {
-     'default': {
-         'ENGINE': 'django.db.backends.sqlite3',
-         'NAME': os.path.join(BASE_DIR , 'db.sqlite3')}}
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
-else:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
 
+# Otherwise we are local - So use this(sqlLite):
+#else:
+#    DATABASES = {
+#        'default': {
+#            'ENGINE': 'django.db.backends.sqlite3',
+#            'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+#       }
+#    }
 
 AUTH_PASSWORD_VALIDATORS = [
     {
