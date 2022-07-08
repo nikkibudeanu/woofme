@@ -72,18 +72,18 @@ The wireframes are created with Figma.
 
 * Add review page wireframe
 
-<img height="50%" src="media/readme/wireframes/1.png">
+<img width="500" src="media/readme/wireframes/1.png">
 
 
 
 * Review list page wireframe
 
-<img height="50%" src="media/readme/wireframes/2.png">
+<img width="500"" src="media/readme/wireframes/2.png">
 
 
 * Search page wireframe(if breed is on the db)
 
-<img height="50%" src="media/readme/wireframes/6.png">
+<img width="500" src="media/readme/wireframes/6.png">
 
 If breed is not on the website, user will get feedback and he will have access to a button which redirects to add review page so he can add the first review for the breed. 
 
@@ -92,18 +92,18 @@ If breed is not on the website, user will get feedback and he will have access t
 
 If user is logged in and is looking at a previously added review, he will have the options to delete or edit it. 
 
-<img height="50%" src="media/readme/wireframes/5.png">
+<img width="500" src="media/readme/wireframes/5.png">
 
 
 * Login/Logout/Register pages wireframe
 
 + Login page:
 
-<img height="50%" src="media/readme/wireframes/3.png">
+<img width="500" src="media/readme/wireframes/3.png">
 
 + Register page:
 
-<img height="50%" src="media/readme/wireframes/4.png">
+<img width="500" src="media/readme/wireframes/4.png">
 
 
 ### 5. Surface
@@ -286,14 +286,56 @@ All code validation and tests details can be found [here](TESTING.md).
 
 ## Project Bugs and Solutions:
 
+| Bugs              | Solutions |
+| ---               | --------- |
+| When deploying, the website css and database was failing on Heroku. | Debug Update and transfering all data to postgres. A model did not have a slug as per old migrations.
+| Rating criterias on review page and search breed pages were not updating visually. | Typeerror on these pages (review instead of object). 
+| Delete and Edit buttons were not displaying. | TypeError on delete and edit pages links.
+| Search breed page not working.| Old variable name for "created_at" field - TypeError.
 
 ## Deployment 
 
 This App is deployed using Heroku.
 
+<details>
+<summary>Deployment steps </summary>
+ 
+ 1. Ensure all apps are listed on requirements.txt. 
+ 
+Command:  ` pip3 freeze > requirements.txt`. 
+ 
+ 2. Setting up your Heroku
+ 
+  2.1 Login to heroku and enter your details: 
+  command: ` heroku login -i` 
+
+    <img src="media/readme/deployment/heroku_login.png">
+
+    
+    2.3 Get your app name from heroku.
+    command: `heroku apps`
+    
+
+    2.4 Set the heroku remote. 
+    ommand: `heroku git:remote -a woofmeapp`
+    
+
+    2.5. Add, commit and push to github
+    command: `git add . && git commit -m "Deploy to Heroku via CLI"`
+
+    2.6. 5. Push to both github and heroku
+    `command: git push origin main`
+    `command: git push heroku main`
+       
+</details>
+
 ## FAQ about the uptime script
 
 # Credits
+
+## Media
+
++ All pictures and images used in this project are from [Pexels](https://pexels.com).
 
 ### Work based on other code
 
