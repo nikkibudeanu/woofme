@@ -9,7 +9,7 @@ class BreedGroup(models.Model):
     """ Create a breed group model form """
     breed_group = models.CharField(max_length=128, unique=True, null=True)
     description = models.TextField(max_length=2000, null=True)
-
+    slug = models.CharField(max_length=50, null=True)
 
     def __str__(self):
         """ Return breed group name string """
