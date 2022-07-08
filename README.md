@@ -234,7 +234,7 @@ Test cases were linked with every User story presented above, and can be found i
 1. Users can change a review field using this page.
 2. The back button will bring the user to the previous page without changes on review. 
 
-<img width="800" src="media/readme/features/edit.png">
+<img width="400" src="media/readme/features/edit.png">
 
 ### **Delete Review Page** 
 
@@ -249,6 +249,11 @@ Test cases were linked with every User story presented above, and can be found i
 2. If no review is available, users will get feedback. 
 
 <img width="800" src="media/readme/features/no-review.png">
+
+### **Login Page** 
+
+
+### **Register Page** 
 
 
 ## Future Features
