@@ -25,8 +25,7 @@ class TestRegister(TestCase):
                 'password2': '123456'
             })
             self.assertEqual(response.status_code, 302)
-
-        
+     
     def test_register_user_get(self):
             """ Test redirect if user is invalid is correct"""
             response = self.client.get(reverse('register'))
@@ -76,6 +75,7 @@ class TestLogout(TestCase):
             email='nikki@gmail.com',
             password='12345'
             )
+    
     def test_logout(self):
         """ Test redirection if user is logged out"""
         response = self.client.get(reverse('logout'))

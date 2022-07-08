@@ -82,29 +82,58 @@ User Stories covered by tests.
 | test_models| test_views |  test_forms
 |    ---    |  ---       | ---
 | BreedReviewTestCase() | AddReviewViewTest()  |  CreateBreedFormTest()
-| BreedTestCase()           |BreedRatingView()|
-|            |ReviewPageViewTests()|
+| BreedTestCase()      |BreedRatingView()|
+| BreedGroupTestCase()  |ReviewPageViewTests()|
 |            |EditReviewViewTests()|
 |            |SuccessfulEditReviewViewTests()|
 </details>
 
+<details>
+<summary>Tests covering User Story:
 
-### **Overal Test on plataform** 
+<details><summary>
+Tests covering User Story :
+
++ "User Story: Search breed."
+
+</summary>
+
+| test_views |   
+|  ---       |    
+| TestSearchBreedView() |  
+
+</details>
+
+### **Overall Test on plataform** 
 
 
-In order to check that I covered all automated tests, I have used coverage tools.
+In order to check that I covered all automated tests, I have used coverage tools.See the results below:
 
-<p><img src="media/readme/unittests/"></p>
-
-
-+ **woofme/views.py**
+<p><img src="media/readme/unittests/covreport.png"></p>
 
 
++ **woofme**
 
-+ **woofme_app/views.py**
+Overall report for the woofme project.
+
+Uncovered lines in settings file were tested manually. In the woofme/views file, the uncovered lines are those related to error handling pages (400, 404 , 500). They were tested manually with no errors.
+
+
+<p><img src="media/readme/unittests/covreport-woofme.png"></p>
+
+
++ **woofme_app**
+
+Uncovered lines on woofme app are present only on views file. They are related to DeleteReviewViews and EditReviewViews. Manual tests were performed to ensure no error was detected.
+
+<p><img src="media/readme/unittests/covreport-woofmeapp.png"></p>
 
   
-+ **woofme/settings.py**
++ **users app**
+
+On the users app, there are also some uncovered lines on the views that were tested manually. 
+
+<p><img src="media/readme/unittests/covreport-users.png"></p>
 
    
    ## Integration Test Case
@@ -112,20 +141,19 @@ In order to check that I covered all automated tests, I have used coverage tools
 
 + On this project, the Incremental Testing method was used.
 
- Integrated units were checked after the developer finished writing code for every new feature. This approach was used to find defects early and because it was easy to find the cause of the defect thanks to a step-by-step examination. 
+ Incremental testing approach was used for this project to find issues at an early stage and solve them. Please find these tests for each feature below.
 
-+ The integration tests were divided by features/pages and its described below: 
 
 
 ### **Navbar**
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click B Reviews' navbar button| To be directed to the breed Reviews Page|
-| 2 | Click login's navbar button | To be directed to the Login Page|
-| 3 | Click in one of breed groups' options on the dropdown menu| To be directed to the breed group category page with a piece of information about my search|
-| 4 | Add a breed name (present on DB) on left field and click search | To be directed to the breed category page with a piece of information about my search|
-| 5 | Add a breed name (not present on DB) on left field and click search | To be directed to the breed category page with information about the unexistence of records about this breed|
+| 1 | Click Breed Reviews' navbar button| To be directed to the breed Reviews Page|
+| 2 | Click Logo navbar button| To be directed to the home Page|
+| 3 | Add a breed name (present on DB) on left field and  search | To be directed to the search breed page with a short intro to the review.|
+| 4 | Add a breed name (not present on DB) on left field search | To be directed to the search breed page with feedback on lack of reviews and button to add review page.|
+| 5 | Click login's navbar button | To be directed to the Login Page|
 | 6 | A logged User click logout's navbar button | To be logged out and directed to the Home Page|
 
 ### **Login**
@@ -133,14 +161,14 @@ In order to check that I covered all automated tests, I have used coverage tools
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
 | 1 | Enter login credentials and click on the Login button| To be directed to the home page|
-| 2 | Enter invalid login credentials and click on the Login button| To be presented to an error message for each invalid field|
+| 2 | Enter wrong redentials and click on the Login button| Error message!|
 
 ### **Register**
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Enter all register data and click on the Sign In button| To be directed to the home page, presented to a success message and already logged in|
-| 2 | Enter invalid register data in any field and click on the Login button| To be given to an error message|
+| 1 | Enter all register data and click on the Sign In button| To be directed to the home page, displayed a success message and logged in.|
+| 2 | Enter invalid register information in any field and click on the Login button| To be given to an error message|
 
 
 
@@ -148,16 +176,16 @@ In order to check that I covered all automated tests, I have used coverage tools
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click in a breed review card| To be directed to the breed detail view 
-| 2 | Click on Edit button present on card| To be direct to update review page|
-| 3 | Click on Delete button present on card| To be direct to confirm deletion page|
+| 1 | Click in a breed review card on the review list| To be directed to the breed page view |
+| 2 | Click on Edit button present on card| To be redirected to edit review page|
+| 3 | Click on Delete button present on card| To be redirected to confirm deletion page|
 
 ### **Footer** 
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click on the LinkedIn button| To be directed to the developer's LinkedIn page. |
-| 2 | Click on the Github button | To be directed to the developer's GitHub page.|
+| 1 | Click on the social media buttons| To be directed to the developer's social media pages. |
+
 
 
 
@@ -169,15 +197,16 @@ In order to check that I covered all automated tests, I have used coverage tools
 | 2 | Click Last pagination button| To be direct to the last review page|
 | 3 | Click First pagination button| To be direct to the first review page|
 | 4 | Click Previous pagination button| To be direct to the previous review page|
-| 5 | Click Go Back button on update review page| To be direct to the previous navigated page|
+| 5 | Click Go Back button on edit review page| To be direct to the previous navigated page|
 | 5 | Click Back to Reviews button on detail review page| To be direct to the breed reviews navigated page|
 | 6 | Click Edit button on edit review page| To be direct to the breed page navigated page and be presented with new updated review|
 | 7 | Click on a star in rating breed or update breed page | Populate breed rating field on review form|
 | 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be presented with all criterias choices (1-5)|
 | 12 | Click on browse image button on add breed rate or update breed page | Open your directory to find an image to upload|
 | 13 | Check clear on update breed page | Clear image previously uploaded to breed review|
-| 14 | Click Review Your breed Now on breed or breed group categories page| To be direct to the add breed review page|
-| 15 | Click Login and Review on breed or breed group categories page| To be direct to the login page|
+| 14 | Click Review Your breed Now on search breed page| To be direct to the add breed review page|
+| 15 | Click on the icon button on the main page| To be direct to the breed reviews list|
+
 
 
 ## Python (PEP8) Validation
@@ -205,12 +234,31 @@ In order to check that I covered all automated tests, I have used coverage tools
 ## Exploratory Testing
 ========================================================================================
 
-### Initial User Testing (Alpha)
+### Initial User Testing 
 
 A session was held with an test-user. The feedback obtained is listed below:
 
+1. **Home page**
+
+  1.1 The user required a different background image to have more contrast.
+  1.2 The user required a button on home page which redirect to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
+
+
+2. **Navbar** 2.1 The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
+
+3. **Search breed and review list** 3.1 Too much information on review cards, you can see everything without opening the review page. 
+
+4. **extra tips** 4.1 The user proposed to integrate a search by breed group function to the website. 
+
 
 ### **Response to the user experience test:**
+
++ All user feedback was taken into account and incorporated except 4.1 as it is planned to be a future feature.
+
+
+### Final User Testing 
+
+For this test, I have created a checklist for the user which included tests for all features of the pages. Please see the results below: 
 
 
 ## Manual Testing
