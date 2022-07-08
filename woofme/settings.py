@@ -20,6 +20,7 @@ else:
     development = False
 DEBUG = development
 
+
 # For debugging
 if DEBUG:
     # will output to your console
