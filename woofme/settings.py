@@ -4,8 +4,9 @@ from pathlib import Path
 import logging
 
 import dj_database_url
-if os.path.isfile("env.py"):
-    import env
+if os.path.isfile('env.py'):
+    import env  # noqa
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -98,18 +99,10 @@ crispy_template_pack = 'uni_form'
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
 
-if 'DATABASE_URL' in os.environ:
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-    
+DATABASES = {
+   'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
+
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
