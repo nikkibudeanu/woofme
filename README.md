@@ -122,13 +122,13 @@ Tthe font was chosen with [Google Fonts](https://fonts.google.com/) to be used a
 
 The font is chosen in 2 weights: 300 for the paragraphs and 900 for the headings.
 
-<img  src="media/readme/fonts.png">
+<img width="500" src="media/readme/fonts.png">
 
 
 ## Functional Scope 
 **Woofme Flowchart**
 
-<img height= "700" src="media/readme/chart.png">
+<img width="500" src="media/readme/chart.png">
 
 **Agile Methodology**
 All functionality and development of the project was managed using GitHub project tool and personal notes.
@@ -183,16 +183,16 @@ Test cases were linked with every User story presented above, and can be found i
 
 1. Login and  Register User buttons are present on the navbar if the user is not logged. 
 
-<img width="800" src="media/readme/features/nav-desk.png">
+<img width="500" src="media/readme/features/nav-desk.png">
 
 * On smaller devices, the navigation bar is going to be a hamburger menu to ensure a better navigation.
 
 
-<img width="800" src="media/readme/features/nav-mob.png">
+<img width="500" src="media/readme/features/nav-mob.png">
 
 2. Logout and Rate a breed buttons are present if the user is logged. 
 
-<img width="800" src="media/readme/features/logout.png">
+<img width="500" src="media/readme/features/logout.png">
 
 3. Breed reviews and search breed by name/ group are present to all users (logged or not).
 
@@ -200,7 +200,7 @@ Test cases were linked with every User story presented above, and can be found i
 
     i. Find a breed by its name.
 
-     <img width="400" src="media/readme/features/searched.png">
+     <img width="500" src="media/readme/features/searched.png">
 
     ii. Users will get feedback if there are no reviews on the breed they are looking for and will be encouraged to rate that breed.
 
@@ -212,7 +212,7 @@ Test cases were linked with every User story presented above, and can be found i
 
 1. Users will access a list of all reviews.
 
-  <img width="800" src="media/readme/features/list.png">
+  <img width="500" src="media/readme/features/list.png">
 
 2. Each review card contains breed name, group, image, the preview of the review , each criteria level, breed rating, author and publication date. 
 
@@ -226,7 +226,7 @@ Test cases were linked with every User story presented above, and can be found i
 
   1.1 When an old user is accessing the previously created review, he will have two buttons available : edit and delete.
    
-<img width="200" src="media/readme/features/edit-delete.png">
+<img width="500" src="media/readme/features/edit-delete.png">
 
 
 ### **Edit Review Page** 
@@ -234,13 +234,13 @@ Test cases were linked with every User story presented above, and can be found i
 1. Users can change a review field using this page.
 2. The back button will bring the user to the previous page without changes on review. 
 
-<img width="400" src="media/readme/features/edit.png">
+<img width="500" src="media/readme/features/edit.png">
 
 ### **Delete Review Page** 
 
 1. When clicking on the delete button, the users will be redirected to the delete review page where they can get rid of the review.
 
-<img width="800" src="media/readme/features/delete.png">
+<img width="600" src="media/readme/features/delete.png">
 
 ### **Search breed Page** 
 
@@ -248,7 +248,7 @@ Test cases were linked with every User story presented above, and can be found i
 
 2. If no review is available, users will get feedback. 
 
-<img width="800" src="media/readme/features/no-review.png">
+<img width="600" src="media/readme/features/no-review.png">
 
 ### **Login Page** 
 
