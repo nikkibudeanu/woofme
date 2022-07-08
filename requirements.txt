@@ -3,7 +3,6 @@ cloudinary==1.29.0
 dj-database-url==0.5.0
 dj3-cloudinary-storage==0.0.6
 Django==3.2.14
-bootstrap5
 django-active-link==0.1.8
 django-bootstrap-modal-forms==2.2.0
 django-bootstrap-v5==1.0.11
