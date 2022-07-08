@@ -3,14 +3,12 @@ from django.urls import reverse
 from django.db import models
 from django.contrib.auth.models import User
 from cloudinary.models import CloudinaryField
-from slugger import AutoSlugField
 
 
 class BreedGroup(models.Model):
     """ Create a breed group model form """
     breed_group = models.CharField(max_length=128, unique=True, null=True)
     description = models.TextField(max_length=2000, null=True)
-    slug = AutoSlugField(populate_from='breed_group', default='group')
 
 
     def __str__(self):

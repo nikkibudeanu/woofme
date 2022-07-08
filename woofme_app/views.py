@@ -37,7 +37,7 @@ class AddReviewView(LoginRequiredMixin, View):
         return kwargs
 
     def get(self, request):
-        """ return to add breed form page after creating a breed"""
+        """ return to add review breed form page after creating a breed"""
         return render(request, self.template_name, self.get_context_data())
 
     def post(self, request):

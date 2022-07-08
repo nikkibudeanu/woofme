@@ -11,7 +11,7 @@ Please see below all tests.
 ### **WOOFME** 
 Manual and automated testing were conducted on woofme app, users app as well as the project urls.
 
-<p><img src="media/readme/"></p>
+<p><img src="media/readme/unittests/overall.png"></p>
 
 ========================================================================================
 
@@ -19,16 +19,16 @@ Manual and automated testing were conducted on woofme app, users app as well as 
 All functions on the users' app were tested automatically using unit tests.
 
 * Overall
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/overall-users.png"></p>
 
 
 * Forms
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/forms-users.png"></p>
 
 
 
 * Views
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/views-users.png"></p>
 
 
 <details>
@@ -52,20 +52,20 @@ User Stories covered by tests.
 ### **woofme_app** 
 
 *  Unittests Overall
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/overall-woofmeapp.png"></p>
 
 * Views 
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/views-woofmeapp.png"></p>
 
   * Forms 
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/forms-woofmeapp.png"></p>
 
  * Urls 
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/urls-woofmeapp.png"></p>
 
  * Models
 
-<p><img src="media/readme/unittests/"></p>
+<p><img src="media/readme/unittests/models-woofmeapp.png"></p>
 
 <details>
 <summary> User stories covered by tests: 
