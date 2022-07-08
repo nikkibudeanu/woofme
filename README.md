@@ -69,39 +69,66 @@ As a project owner, I would like to create :
 
 The wireframes are created with Figma.
 
-* Home page wireframe
-
 
 * Add review page wireframe
+
+<img height="50%" src="media/readme/wireframes/1.png">
+
 
 
 * Review list page wireframe
 
+<img height="50%" src="media/readme/wireframes/2.png">
 
-* Search page wireframe
+
+* Search page wireframe(if breed is on the db)
+
+<img height="50%" src="media/readme/wireframes/6.png">
+
+If breed is not on the website, user will get feedback and he will have access to a button which redirects to add review page so he can add the first review for the breed. 
 
 
 * Review page wireframe
 
+If user is logged in and is looking at a previously added review, he will have the options to delete or edit it. 
+
+<img height="50%" src="media/readme/wireframes/5.png">
+
 
 * Login/Logout/Register pages wireframe
+
++ Login page:
+
+<img height="50%" src="media/readme/wireframes/3.png">
+
++ Register page:
+
+<img height="50%" src="media/readme/wireframes/4.png">
+
 
 ### 5. Surface
 
 
-
 * Colors
-<img src="media/color_palette.jpg">
+
+My color choice was a blue color palette which is very user friendly and appealing. I collected it from icolorpalette.com .
+
+<img width="300" src="media/readme/color_palette.jpg">
 
 
 * Font selection
 
+Tthe font was chosen with [Google Fonts](https://fonts.google.com/) to be used across the website.
+
+The font is chosen in 2 weights: 300 for the paragraphs and 900 for the headings.
+
+<img  src="media/readme/fonts.png">
 
 
 ## Functional Scope 
 **Woofme Flowchart**
 
-<img height= "700" src="media/readme/">
+<img height= "700" src="media/readme/chart.png">
 
 **Agile Methodology**
 All functionality and development of the project was managed using GitHub project tool and personal notes.
@@ -143,13 +170,10 @@ Test cases were linked with every User story presented above, and can be found i
 * Sprint 6
 
   + Create final tests
-
+  + README file
 
 </details>
 
-
-## Release History
-<img width= "800" src="">
 
 ## Features
 
@@ -159,53 +183,50 @@ Test cases were linked with every User story presented above, and can be found i
 
 1. Login and  Register User buttons are present on the navbar if the user is not logged. 
 
-<img width="800" src="media/readme/">
+<img width="800" src="media/readme/features/nav-desk.png">
+
+* On smaller devices, the navigation bar is going to be a hamburger menu to ensure a better navigation.
+
+
+<img width="800" src="media/readme/features/nav-mob.png">
 
 2. Logout and Rate a breed buttons are present if the user is logged. 
 
-<img width="800" src="media/readme/">
+<img width="800" src="media/readme/features/logout.png">
 
 3. Breed reviews and search breed by name/ group are present to all users (logged or not).
 
-4. User can use the search bar to look for a favorite breed
+4. User can use the search bar to look for a favorite breed.
 
-    i. Dropdown menu with all breed groups.
+    i. Find a breed by its name.
 
-    ii. Find a breed by its name.
+     <img width="400" src="media/readme/features/searched.png">
 
-     <img width="400" src="media/readme/">
+    ii. Users will get feedback if there are no reviews on the breed they are looking for and will be encouraged to rate that breed.
 
-    iii. Users will get feedback if there are no reviews on the breed they are looking for and will be encouraged to rate that breed.
+    iii. If the review is found, the user will be redirected to the review page to see all details on the searched breed.
 
-    iv. If the review is found, the user will be redirected to the review page to see all details on the searched breed.
 
-5. On smaller devices, the navigation bar is going to be a hamburger menu to ensure a better navigation.
-
-  <img width="400" src="media/readme/">
 
 ### **Breed review list page**
 
 1. Users will access a list of all reviews.
 
-  <img width="800" src="media/readme/">
+  <img width="800" src="media/readme/features/list.png">
 
 2. Each review card contains breed name, group, image, the preview of the review , each criteria level, breed rating, author and publication date. 
 
 * The entire card is a link to the breed review  page.
 
-<img height="50%" src="media/readme/">
-
-* When breed name and breed group are long, should apply a truncate class. The full names can be seen on the breed review page.
+<img height="50%" src="media/readme/features/review-page.png">
 
 ### **Breed  review  page** 
 
 1. On this page, users can access the entire content for a review. 
 
-<img width="800" src="media/readme/">
-
   1.1 When an old user is accessing the previously created review, he will have two buttons available : edit and delete.
    
-<img width="200" src="media/readme/">
+<img width="200" src="media/readme/features/edit-delete.png">
 
 
 ### **Edit Review Page** 
@@ -213,32 +234,26 @@ Test cases were linked with every User story presented above, and can be found i
 1. Users can change a review field using this page.
 2. The back button will bring the user to the previous page without changes on review. 
 
-<img width="800" src="media/readme/">
+<img width="800" src="media/readme/features/edit.png">
 
 ### **Delete Review Page** 
 
 1. When clicking on the delete button, the users will be redirected to the delete review page where they can get rid of the review.
 
-<img width="800" src="media/readme/">
+<img width="800" src="media/readme/features/delete.png">
 
-### **Search breed group, breed Pages** 
+### **Search breed Page** 
 
-1. After searching a breed using the search bar or the dropdown menu, the users will be redirected to these pages.
-
-  1.1 Breed group search example:
-
-  <img width="800"  src="media/readme/">
-
-  1.2 Breed search example: 
-
-  <img height="800" src="media/readme/">
+1. After searching a breed using the search bar, the users will be redirected to a results page. 
 
 2. If no review is available, users will get feedback. 
 
+<img width="800" src="media/readme/features/no-review.png">
 
 
 ## Future Features
 * Single sign-on using social media.
+* Serch by breed-group.
 
 
 
@@ -249,15 +264,15 @@ Python , Javascript, CSS
 
 ## Frameworks, Libraries & Programs Used
 
-+ Figma:
-+ Font Awesome: 
-+ Git: 
-+ GitHub: 
-+ Google Fonts: 
-+ Django: 
-+ Pexels:
++ Canva: used for building wireframes.
++ Font Awesome: used for icons.
++ Git: used for development.
++ GitHub: used for user stories.
++ Google Fonts: used for fonts links.
++ Django: language.
++ Pexels: used for all pictures.
 + Multi Device Website Mockup Generator: Used to generate mockup image.
-+ getcssscan.com for the boxshadow.
++ getcssscan.com: used for the box shadow on review cards. 
 
 
 
