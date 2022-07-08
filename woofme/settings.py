@@ -14,8 +14,7 @@ TEMPLATES_DIR = os.path.join(BASE_DIR, 'templates')
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
 
-development = os.environ.get("DEVELOPMENT")
-DEBUG = development
+DEBUG = "DEVELOPMENT" in os.environ
 
 # For debugging
 if DEBUG:
