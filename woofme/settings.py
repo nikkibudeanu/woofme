@@ -5,7 +5,7 @@ import logging
 
 import dj_database_url
 if os.path.isfile('env.py'):
-    import env  # noqa
+    import env  
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -94,18 +94,17 @@ crispy_template_pack = 'uni_form'
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
 
-if development:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.sqlite3',
-            'NAME': BASE_DIR / 'db.sqlite3',
-        }
-    }
-else:
-
-    DATABASES = {
-        'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
-    }
+# if development:
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.sqlite3',
+#             'NAME': BASE_DIR / 'db.sqlite3',
+#         }
+#     }
+# else:
+DATABASES = {
+    'default': dj_database_url.parse(os.environ.get('DATABASE_URL'))
+}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
