@@ -18,7 +18,6 @@ if os.environ.get("DEVELOPMENT"):
     development = True
 else:
     development = False
-
 DEBUG = development
 
 # For debugging
@@ -95,7 +94,7 @@ crispy_template_pack = 'uni_form'
 WSGI_APPLICATION = 'woofme.wsgi.application'
 
 
-if DEBUG:
+if development:
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.sqlite3',
