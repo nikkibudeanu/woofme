@@ -254,7 +254,7 @@ The following buttons were tested:
 
 
 ## HTML Code Validation
-
+HTML Validation not perfomed as W3 is not configured for django html files and a lot of invalid errors were showing up. 
 
 ## CSS Code Validation
 
@@ -294,23 +294,26 @@ A session was held with a test user. The feedback obtained is listed below:
 
 1. **Home page**
 
+
   + The user suggested a different background image to have more contrast.
   + The user required a button on the home page that redirects to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
 
 
-2. **Navbar** 
-   +The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
+2. **Navbar**
+
+   + The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
 
 3. **Search breed and review list** 
    + Too much information on review cards, you can see everything without opening the review page. 
 
-4. **extra tips** 
+4. **Extra tips**
+
    + The user proposed to integrate a search by breed group function into the website. 
 
 
 ### **Response to the user experience test:**
 
-+ All user feedback was taken into account and incorporated except 4.1 as it is planned to be a future feature.
++ All user feedback was taken into account and incorporated except 4. as it is planned to be a future feature.
 
 
 ### Final User Testing 
@@ -323,7 +326,7 @@ For this test, I have created a checklist for the user which included tests for 
 
 ### **Response to the user test:**
 
-+ All bugs were fixed before submission and suggestions were implemented. Except second suggestions in point 1. 
++ All bugs were fixed before submission and suggestions were implemented.
 
 ## Manual Testing
 ========================================================================================
