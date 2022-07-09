@@ -2,14 +2,14 @@
 <h1 align=center> Woofme</h1>
 
 
-<p align=center> Are you a dog owner? <br/> Are you a dog lover? <br/> Find out what people say about different breeds, find your perfect breed or share feedback on your dog's breed on our website. Woofme is a place where you can add a review and do a research on other breeds! <br/> Woofme is a place for dog lovers. <br/> Woofme is a place for (almost) EVERYONE!
+<p align=center> Are you a dog owner? <br/> Are you a dog fan or planning to buy a dog? <br/> Find out what people say about different breeds, find your perfect breed or share feedback on your dog's breed on our website. Woofme is a place where you can add a review and do a research on other breeds! <br/> Woofme is a place for dog lovers. <br/> Woofme is a place for (almost) EVERYONE!
 
  </p>
 
-<img src="">
+<img src="media/readme/mockup.png">
 
 
- ## Project Purpose
+Live app link [here](https://woofmeapp.herokuapp.com/)
 
 
 ## User Experience
@@ -257,8 +257,14 @@ Test cases were linked with every User story presented above, and can be found i
 
 
 ## Future Features
+
+I would like to implement the following features: 
+
 * Single sign-on using social media.
-* Serch by breed-group.
+* Serch by breed-group using a dropdown menu.
+* Add icon rating for all criterias.
+* Add image for users.
+* Include a user profile pages with all their data on it. 
 
 
 
@@ -269,15 +275,15 @@ Python , Javascript, CSS
 
 ## Frameworks, Libraries & Programs Used
 
-+ Canva: used for building wireframes.
-+ Font Awesome: used for icons.
-+ Git: used for development.
-+ GitHub: used for user stories.
-+ Google Fonts: used for fonts links.
-+ Django: language.
-+ Pexels: used for all pictures.
-+ Multi Device Website Mockup Generator: Used to generate mockup image.
++ CANVS: used for building wireframes.
++ FONT AWESOME: used for icons.
++ GIT: used for development.
++ GITHUB: used for user stories.
++ GOOGLE FONTS: used for fonts links.
++ DJANGO: main website framework.
++ PEXELS: used for all pictures.
 + getcssscan.com: used for the box shadow on review cards. 
++ techsini.com : used to generate mockups. 
 
 
 
@@ -292,6 +298,7 @@ All code validation and tests details can be found [here](TESTING.md).
 | Rating criterias on review page and search breed pages were not updating visually. | Typeerror on these pages (review instead of object). 
 | Delete and Edit buttons were not displaying. | TypeError on delete and edit pages links.
 | Search breed page not working.| Old variable name for "created_at" field - TypeError.
+| Toolip.js file not loading on heroku and creating issues| no solution yet.
 
 ## Deployment 
 
@@ -329,8 +336,6 @@ Command:  ` pip3 freeze > requirements.txt`.
        
 </details>
 
-## FAQ about the uptime script
-
 # Credits
 
 ## Media
@@ -339,4 +344,13 @@ Command:  ` pip3 freeze > requirements.txt`.
 
 ### Work based on other code
 
+
+[Codemy](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) - Used to create forms: registration and login.<br>
+
+CodeInstitute previous projects code and google sheets commands :coverage, deployment. 
+
 # Acknowledgements
+
++ Stack Overflow and W3 for solving issues and general reference. 
+
++ Tutors Sean and John for helping with transfering data to postgres database and deploying my website. 
