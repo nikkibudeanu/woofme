@@ -62,7 +62,8 @@ class BreedRatingView(SetupViewTestCase):
         display a message """
         response = self.client.get(reverse('review_list'))
         self.assertNotContains(
-                response, 'Hi there! I got lost! I should be on a different page!.')
+                response,
+                'Hi there! I got lost! I should be on a different page!.')
 
 
 class ReviewPageViewTests(SetupViewTestCase):
@@ -105,7 +106,9 @@ class ReviewPageViewTests(SetupViewTestCase):
         response = self.client.get(reverse('review_page', kwargs={
             'pk': self.breed_review.id}))
         self.assertNotContains(
-                response, 'Hi there! I got lost! I should be on a different page!.')
+                response,
+                'Hi there! I got lost! I should be on a different page!.')
+
 
 class AddReviewViewTest(SetupViewTestCase):
     """ Test Add review view's rendering correct url and template """
@@ -152,7 +155,6 @@ class AddReviewViewTest(SetupViewTestCase):
     def test_if_add_review_breed_can_post(self):
         """ Create a  user and a review, check if review is correct post
         and redirect user """
-        
         payload = {
             'breed_group': self.breed_group.id,
             'breed': self.breed.id,
@@ -170,12 +172,10 @@ class AddReviewViewTest(SetupViewTestCase):
         """ Create a  user and a review, check if review is incorrect and
         refesh the page """
         self.client.login(username='nikki', password='12345')
-        payload = { 'breed.name': ''
-                    }
+        payload = {'breed.name': ''}
         response = self.client.post(reverse('add_review'), payload)
         self.assertEqual(response.status_code, 200)
         self.assertIn('breed_form', response.context)
-        
 
 
 class EditReviewViewTest(SetupViewTestCase):
@@ -185,7 +185,7 @@ class EditReviewViewTest(SetupViewTestCase):
         super().setUp()
         self.client.login(user_name=self.username, password=self.password)
         self.response = self.client.get(self.url)
-        
+
     def test_status_code(self):
         """ Test if edit view is rendering right """
         self.assertEqual(self.response.status_code, 200)
@@ -228,7 +228,7 @@ class SuccessfulEditReviewViewTests(SetupViewTestCase):
     def test_edit_review_correct_template(self):
         """ Test if edit review view uses the valid template"""
         response = self.client.get(reverse('review_edit', kwargs={
-            'pk' : self.breed_review.id}))
+            'pk': self.breed_review.id}))
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'review_list/edit_review.html')
 
@@ -237,8 +237,9 @@ class SuccessfulEditReviewViewTests(SetupViewTestCase):
         response = self.client.get(reverse('review_edit', kwargs={
             'pk': self.breed_review.id}))
         self.assertNotContains(
-            response, 'Hi there! I got lost! I should be on a different page!.')
-    
+            response,
+            'Hi there! I got lost! I should be on a different page!.')
+
     def test_edit_review_contains_correct_html(self):
         """ Test if edit review view uses the valid html"""
         response = self.client.get(reverse('review_edit', kwargs={

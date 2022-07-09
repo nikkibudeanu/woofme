@@ -237,6 +237,23 @@ On the users app, there are also some uncovered lines on the views that were tes
 ### **Woofme_app App** 
 
 
+<p float="left">
+        <img src="media/readme/pep8/app-admin.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-apps.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-forms.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-models.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-test-forms.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-test-models.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-test-urls.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-test-views.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-urls.png" width="400" height="200" />
+        <img src="media/readme/pep8/app-views.png" width="400" height="200" />
+
+
+
+</p>
+
+
 ## HTML Code Validation
 
 ## CSS Code Validation

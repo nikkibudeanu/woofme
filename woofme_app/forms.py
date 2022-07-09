@@ -28,7 +28,6 @@ class BreedReviewForm(forms.ModelForm):
         }
 
 
-
 class CreateBreedForm(forms.ModelForm):
     """ Create Breed Form"""
     class Meta:
