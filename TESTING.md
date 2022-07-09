@@ -221,14 +221,14 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 </p>
 
-+ Error in settings file - line too long. 
++ Error in settings file - line too long - link. 
 
 
 ###  **Users App** 
 
 <p float="left">
         <img src="media/readme/pep8/users-forms.png" width="400" height="200" />
-        <img src="media/readme/pep8/woofme-users-test-forms.png" width="400" height="200" />
+        <img src="media/readme/pep8/woofme-test-forms.png" width="400" height="200" />
         <img src="media/readme/pep8/users-test-views.png" width="400" height="200" />
         <img src="media/readme/pep8/users-urls.png" width="400" height="200" />
         <img src="media/readme/pep8/users-views.png" width="400" height="200" />
@@ -249,22 +249,41 @@ On the users app, there are also some uncovered lines on the views that were tes
         <img src="media/readme/pep8/app-urls.png" width="400" height="200" />
         <img src="media/readme/pep8/app-views.png" width="400" height="200" />
 
-
++ line to long errors related to cloudinary links.
 
 </p>
 
 
 ## HTML Code Validation
 
+
 ## CSS Code Validation
+
+<p float="left">
+        <img src="media/readme/validation/css-validation.png" width="40%" />
+</p>
 
 ## JavaScript Code Validation
 
-### **add_review.js** 
+### **add review js** 
 
-### **script.js** 
+<p float="left">
+        <img src="media/readme/validation/add-review-js-valid.png" width="40%" />
+</p>
 
-### **toollip.js** 
+### **script js** 
+
+
+<p float="left">
+        <img src="media/readme/validation/script-js-valid.png" width="40%" />
+</p>
+
+
+### **toollip js** 
+
+<p float="left">
+        <img src="media/readme/validation/toolip-js-valid.png" width="40%" />
+</p>
 
 
 ## Exploratory Testing
