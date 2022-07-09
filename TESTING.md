@@ -254,7 +254,7 @@ The following buttons were tested:
 
 
 ## HTML Code Validation
-HTML Validation not perfomed as W3 is not configured for django html files and a lot of invalid errors were showing up. 
+HTML Validation not perfomed as W3 is not configured for django HTML files and a lot of invalid errors were showing up. However, I manually checked them and made sure formatting is performed and no errors are showing. 
 
 ## CSS Code Validation
 
