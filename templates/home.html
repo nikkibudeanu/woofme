@@ -2,8 +2,8 @@
 
 {% load static %}
 
-{% block title %} 
-Home 
+{% block title %}
+Home
 {% endblock %}
 
 {% block additional_styles %}
@@ -17,26 +17,26 @@ Home
         background-position-y: 70%;
     }
 
-    body{
+    body {
         background-color: #DFF6FF;
     }
 </style>
 {% endblock %}
 {% block content %}
 
-    <!--Welcome-->
-    <div class=" container container-box-home bg-gradient-dark rounded text-light text-center welcome_page ">
-        <div class="row justify-content-center">
-            <div class="col ">
-                <h1 class ="bold">Woofme - review your breed!</h1>
-                <h4 >Rate your dog's breed and tell us more about your pet...</h4>
-            </div>
+<!--Welcome-->
+<div class=" container container-box-home bg-gradient-dark rounded text-light text-center welcome_page ">
+    <div class="row justify-content-center">
+        <div class="col ">
+            <h1 class="bold">Woofme - review your breed!</h1>
+            <h4>Rate your dog's breed and tell us more about your pet...</h4>
         </div>
     </div>
+</div>
 
-    {% block extra_js %}
-            <!-- Customizible JS -->
-        <script src="{% static 'js/script.js' %}"></script>
-    {% endblock extra_js %}
+{% block extra_js %}
+<!-- Customizible JS -->
+<script src="{% static 'js/script.js' %}"></script>
+{% endblock extra_js %}
 
 {% endblock content %}

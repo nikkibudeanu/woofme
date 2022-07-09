@@ -1,60 +1,62 @@
 {% extends 'base.html' %}
 
-{% block title %} 
-Delete review 
+{% block title %}
+Delete review
 {% endblock %}
 
 {% block additional_styles %}
 <!-- Customizible CSS -->
-    <style>
-        body {
-            background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1656759852/OPSEG70_uiv2uv.jpg")!important;
-        }
-    </style>
+<style>
+    body {
+        background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1656759852/OPSEG70_uiv2uv.jpg") !important;
+    }
+</style>
 {% endblock %}
 
 {% block content %}
 
-    <!-- If user is authenticated --> delete container -->
-    {% if user.is_authenticated %}
-        <fieldset>
+<!-- If user is authenticated --> delete container -->
+{% if user.is_authenticated %}
+<fieldset>
 
-            <!-- Delete review container -->
-            <div class="container mt-5 ">
-                <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3">
+    <!-- Delete review container -->
+    <div class="container mt-5 ">
+        <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3">
 
-                    <!-- Delete review container title -->
-                    <h1 class="text-light text-center bold p-3 yellow"> Delete review <hr></h1>
-                    <div class="text-light text-center">
+            <!-- Delete review container title -->
+            <h1 class="text-light text-center bold p-3 yellow"> Delete review
+                <hr>
+            </h1>
+            <div class="text-light text-center">
 
-                        <!-- Review title -->
-                        <h5 class = "mb-2"> Breed: {{ object.breed|title }}</h5>
+                <!-- Review title -->
+                <h5 class="mb-2"> Breed: {{ object.breed|title }}</h5>
 
-                        <!-- Review breed group -->
-                        <h5 class = "mb-3"> Breed Group: {{ object.breed_group|title }}</h5>
-                        
-                        <!-- Review text -->
-                        <div class= "review-detail-box p-3 d-flex align-items-center justify-content-center overflow-auto mb-3">
-                            <p>{{ object.review|title }}</p>
-                        </div>
-                        
-                        <!-- Review author and publication date -->
-                        <p class= "text-muted">Author:{{ object.username }} <br/>Created at: {{ object.created_at}}</p>
+                <!-- Review breed group -->
+                <h5 class="mb-3"> Breed Group: {{ object.breed_group|title }}</h5>
 
-                        <!-- Delete form -->
-                        <form method="POST" actions="">
-                            {% csrf_token %}
-
-                            <!-- Delete button -->
-                            <button class="btn btn-secondary btn-danger btn-lg m-2 fw-bold" >Delete</button>
-
-                            <!-- Back button -->
-                            <input type="button" value="Cancel" onclick="history.back()" class="btn btn-cancel btn-lg m-3">
-                        </form>
-                    </div>
+                <!-- Review text -->
+                <div class="review-detail-box p-3 d-flex align-items-center justify-content-center overflow-auto mb-3">
+                    <p>{{ object.review|title }}</p>
                 </div>
+
+                <!-- Review author and publication date -->
+                <p class="text-muted">Author:{{ object.username }} <br />Created at: {{ object.created_at}}</p>
+
+                <!-- Delete form -->
+                <form method="POST" actions="">
+                    {% csrf_token %}
+
+                    <!-- Delete button -->
+                    <button class="btn btn-secondary btn-danger btn-lg m-2 fw-bold">Delete</button>
+
+                    <!-- Back button -->
+                    <input type="button" value="Cancel" onclick="history.back()" class="btn btn-cancel btn-lg m-3">
+                </form>
             </div>
-        </fieldset>
-    {% endif %}
- 
+        </div>
+    </div>
+</fieldset>
+{% endif %}
+
 {% endblock %}

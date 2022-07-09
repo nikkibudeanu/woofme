@@ -12,28 +12,28 @@ Breed Search
 <!-- Customizible CSS -->
 <style>
     body {
-        background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1656759466/SL-100420-36140-29_tspikv.jpg")!important;
+        background-image: url("https://res.cloudinary.com/nikkibudeanu/image/upload/v1656759466/SL-100420-36140-29_tspikv.jpg") !important;
     }
 </style>
 {% endblock %}
 
 {% block content %}
-    <section>
-        <!-- 400 error container -->
-        <div class="container no-review text-center ">
-            <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3 text-light">
-                <h1 class= "display-1 fw-bolder"> 400 </h1>
-                <h2> Bad request </h2> <hr>
-                <h2> There was an error with your request! </h2>
-            </div>
+<section>
+    <!-- 400 error container -->
+    <div class="container no-review text-center ">
+        <div class="bg-dark col-lg-5 col-11 m-auto rounded m-2 p-3 text-light">
+            <h1 class="display-1 fw-bolder"> 400 </h1>
+            <h2> Bad request </h2>
+            <hr>
+            <h2> There was an error with your request! </h2>
         </div>
+    </div>
 
     <!-- Back to reviews page button -->
     <div class="m-2 text-center">
         <a href="{% url 'home'%}" class="btn btn-submit btn-lg fw-bold mt-3 shadow-none">Home</a>
     </div>
-    </section>
+</section>
 
 
 {% endblock %}
-
