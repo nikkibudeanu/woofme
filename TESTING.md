@@ -88,8 +88,6 @@ User Stories covered by tests.
 |            |SuccessfulEditReviewViewTests()|
 </details>
 
-<details>
-<summary>Tests covering User Story:
 
 <details><summary>
 Tests covering User Story :
@@ -160,15 +158,15 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Enter login credentials and click on the Login button| To be directed to the home page|
-| 2 | Enter wrong redentials and click on the Login button| Error message!|
+| 1 | Enter login credentials and click on the Login button| To be directed to the home page and success message.|
+| 2 | Enter invalid data in login form and click login button.| Error message!|
 
 ### **Register**
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Enter all register data and click on the Sign In button| To be directed to the home page, displayed a success message and logged in.|
-| 2 | Enter invalid register information in any field and click on the Login button| To be given to an error message|
+| 1 | Enter data and click register button| Directed home page + success alert message.|
+| 2 | Enter invalid data in the register form.| ERROR MESSAGE.|
 
 
 
@@ -176,15 +174,15 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click in a breed review card on the review list| To be directed to the breed page view |
-| 2 | Click on Edit button present on card| To be redirected to edit review page|
-| 3 | Click on Delete button present on card| To be redirected to confirm deletion page|
+| 1 | Click in a breed review card on the review list| To be directed to the breed page view. |
+| 2 | Click on Edit button on card| To be redirected to edit review page|
+| 3 | Click on Delete button on card| To be redirected to confirm deletion page|
 
 ### **Footer** 
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click on the social media buttons| To be directed to the developer's social media pages. |
+| 1 | Click on the social media buttons| To be directed to social media pages. |
 
 
 
@@ -195,17 +193,16 @@ On the users app, there are also some uncovered lines on the views that were tes
 |:----:|:----:|:----:|
 | 1 | Click Next pagination button| To be direct to the next review page|
 | 2 | Click Last pagination button| To be direct to the last review page|
-| 3 | Click First pagination button| To be direct to the first review page|
-| 4 | Click Previous pagination button| To be direct to the previous review page|
+| 3 | Click First button| To be direct to the first review page|
+| 4 | Click Previous button| To be direct to the previous review page|
 | 5 | Click Go Back button on edit review page| To be direct to the previous navigated page|
 | 5 | Click Back to Reviews button on detail review page| To be direct to the breed reviews navigated page|
 | 6 | Click Edit button on edit review page| To be direct to the breed page navigated page and be presented with new updated review|
 | 7 | Click on a star in rating breed or update breed page | Populate breed rating field on review form|
-| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be presented with all criterias choices (1-5)|
-| 12 | Click on browse image button on add breed rate or update breed page | Open your directory to find an image to upload|
-| 13 | Check clear on update breed page | Clear image previously uploaded to breed review|
-| 14 | Click Review Your breed Now on search breed page| To be direct to the add breed review page|
-| 15 | Click on the icon button on the main page| To be direct to the breed reviews list|
+| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be displayed with all criterias choices (1-5)|
+| 12 | Click on browse image button on add breed rate or update breed page. | Open your directory to find an image to upload|
+| 13 | Click Review Your breed Now on search breed page| To be direct to the add breed review page|
+| 14 | Click on the icon button on the main page| To be direct to the breed reviews list|
 
 
 
@@ -327,9 +324,15 @@ For this test, I have created a checklist for the user which included tests for 
 ========================================================================================
 
 ### Desktop
+* Google Chrome: everything is working good. All features are functioning, no problems performing all steps of CRUD. 
+
+* Safari: no issues found here in final check.  
+
 
 
 ### Mobile
+
+* Tested with Iphone 11 PRO and Woofme works well without errors.
 
 
 ### WAVE Accesibility validation
