@@ -288,6 +288,7 @@ Python, Javascript, CSS
 + PEXELS: used for all pictures.
 + getcssscan.com: used for the box-shadow on review cards. 
 + techsini.com: used to generate mockups. 
++ GRAMMARLY: to correct grammar on Testing and Readme files.
 
 
 

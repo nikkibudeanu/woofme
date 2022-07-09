@@ -1,6 +1,6 @@
 # Testing
 
-During the code development, tests were perfomed to make sure the functions/views/urls are running as expected.
+During the code development, tests were performed to make sure the functions/views/URLs are running as expected.
 
 Please see below all tests.
 
@@ -9,7 +9,7 @@ Please see below all tests.
 ## Auto-tests
 
 ### **WOOFME** 
-Manual and automated testing were conducted on woofme app, users app as well as the project urls.
+Manual and automated testing was conducted on woofme app, users app as well as the project URLs.
 
 <p><img src="media/readme/unittests/overall.png"></p>
 
@@ -71,7 +71,7 @@ User Stories covered by tests.
 <summary> User stories covered by tests: 
 
 + "User Story: search breed."
-+ "User Story : view breeds list."
++ "User Story: view breeds list."
 + "User Story: add a dog breed + review + image"
 + "User Story: create breed review"
 + "User Story: Open a breed details page."
@@ -105,7 +105,7 @@ Tests covering User Story :
 ### **Overall Test on plataform** 
 
 
-In order to check that I covered all automated tests, I have used coverage tools.See the results below:
+To check that I covered all automated tests, I have used coverage tools. See the results below:
 
 <p><img src="media/readme/unittests/covreport.png"></p>
 
@@ -114,7 +114,7 @@ In order to check that I covered all automated tests, I have used coverage tools
 
 Overall report for the woofme project.
 
-Uncovered lines in settings file were tested manually. In the woofme/views file, the uncovered lines are those related to error handling pages (400, 404 , 500). They were tested manually with no errors.
+Uncovered lines in the settings file were tested manually. In the woofme/views file, the uncovered lines are those related to error handling pages (400, 404, 500). They were tested manually with no errors.
 
 
 <p><img src="media/readme/unittests/covreport-woofme.png"></p>
@@ -122,14 +122,14 @@ Uncovered lines in settings file were tested manually. In the woofme/views file,
 
 + **woofme_app**
 
-Uncovered lines on woofme app are present only on views file. They are related to DeleteReviewViews and EditReviewViews. Manual tests were performed to ensure no error was detected.
+Uncovered lines on woofme app are present only on the views file. They are related to DeleteReviewViews and EditReviewViews. Manual tests were performed to ensure no error was detected.
 
 <p><img src="media/readme/unittests/covreport-woofmeapp.png"></p>
 
   
 + **users app**
 
-On the users app, there are also some uncovered lines on the views that were tested manually. 
+On the users' app, there are also some uncovered lines on the views that were tested manually. 
 
 <p><img src="media/readme/unittests/covreport-users.png"></p>
 
@@ -139,7 +139,7 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 + On this project, the Incremental Testing method was used.
 
- Incremental testing approach was used for this project to find issues at an early stage and solve them. Please find these tests for each feature below.
+ An incremental testing approach was used for this project to find issues at an early stage and solve them. Please find these tests for each feature below.
 
 
 
@@ -148,18 +148,18 @@ On the users app, there are also some uncovered lines on the views that were tes
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
 | 1 | Click Breed Reviews' navbar button| To be directed to the breed Reviews Page|
-| 2 | Click Logo navbar button| To be directed to the home Page|
-| 3 | Add a breed name (present on DB) on left field and  search | To be directed to the search breed page with a short intro to the review.|
+| 2 | Click the Logo navbar button| To be directed to the home page|
+| 3 | Add a breed name (present on DB) on the left field and search | To be directed to the search breed page with a short intro to the review.|
 | 4 | Add a breed name (not present on DB) on left field search | To be directed to the search breed page with feedback on lack of reviews and button to add review page.|
 | 5 | Click login's navbar button | To be directed to the Login Page|
-| 6 | A logged User click logout's navbar button | To be logged out and directed to the Home Page|
+| 6 | A logged User clicks logout's navbar button | To be logged out and directed to the Home Page|
 
 ### **Login**
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
 | 1 | Enter login credentials and click on the Login button| To be directed to the home page and success message.|
-| 2 | Enter invalid data in login form and click login button.| Error message!|
+| 2 | Enter invalid data in the login form and click the login button.| Error message!|
 
 ### **Register**
 
@@ -175,8 +175,8 @@ On the users app, there are also some uncovered lines on the views that were tes
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
 | 1 | Click in a breed review card on the review list| To be directed to the breed page view. |
-| 2 | Click on Edit button on card| To be redirected to edit review page|
-| 3 | Click on Delete button on card| To be redirected to confirm deletion page|
+| 2 | Click on the Edit button on the card| To be redirected to the edit review page|
+| 3 | Click on the Delete button on the card| To be redirected to confirm deletion page|
 
 ### **Footer** 
 
@@ -191,17 +191,17 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 | Test Case Id | Description | Expect result|
 |:----:|:----:|:----:|
-| 1 | Click Next pagination button| To be direct to the next review page|
-| 2 | Click Last pagination button| To be direct to the last review page|
-| 3 | Click First button| To be direct to the first review page|
-| 4 | Click Previous button| To be direct to the previous review page|
-| 5 | Click Go Back button on edit review page| To be direct to the previous navigated page|
-| 5 | Click Back to Reviews button on detail review page| To be direct to the breed reviews navigated page|
-| 6 | Click Edit button on edit review page| To be direct to the breed page navigated page and be presented with new updated review|
+| 1 | Click the Next pagination button| To be direct to the next review page|
+| 2 | Click the Last pagination button| To be direct to the last review page|
+| 3 | Click the First button| To be direct to the first review page|
+| 4 | Click the Previous button| To be direct to the previous review page|
+| 5 | Click the Go Back button on the edit review page| To be direct to the previous navigated page|
+| 5 | Click the Back to Reviews button on the detail review page| To be direct to the breed reviews navigated page|
+| 6 | Click the Edit button on the edit review page| To be direct to the breed page navigated page and be presented with a new updated review|
 | 7 | Click on a star in rating breed or update breed page | Populate breed rating field on review form|
-| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be displayed with all criterias choices (1-5)|
-| 12 | Click on browse image button on add breed rate or update breed page. | Open your directory to find an image to upload|
-| 13 | Click Review Your breed Now on search breed page| To be direct to the add breed review page|
+| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be displayed with all criteria choices (1-5)|
+| 12 | Click on the browse image button on add breed rate or update breed page. | Open your directory to find an image to upload|
+| 13 | Click Review Your breed Now on the search breed page| To be direct to the add breed review page|
 | 14 | Click on the icon button on the main page| To be direct to the breed reviews list|
 
 
@@ -246,7 +246,7 @@ On the users app, there are also some uncovered lines on the views that were tes
         <img src="media/readme/pep8/app-urls.png" width="400" height="200" />
         <img src="media/readme/pep8/app-views.png" width="400" height="200" />
 
-+ line to long errors related to cloudinary links.
++ line too long errors related to cloudinary links.
 
 </p>
 
@@ -288,19 +288,19 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 ### Initial User Testing 
 
-A session was held with an test-user. The feedback obtained is listed below:
+A session was held with a test user. The feedback obtained is listed below:
 
 1. **Home page**
 
   1.1 The user required a different background image to have more contrast.
-  1.2 The user required a button on home page which redirect to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
+  1.2 The user required a button on the home page that redirects to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
 
 
 2. **Navbar** 2.1 The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
 
 3. **Search breed and review list** 3.1 Too much information on review cards, you can see everything without opening the review page. 
 
-4. **extra tips** 4.1 The user proposed to integrate a search by breed group function to the website. 
+4. **extra tips** 4.1 The user proposed to integrate a search by breed group function into the website. 
 
 
 ### **Response to the user experience test:**
@@ -324,7 +324,7 @@ For this test, I have created a checklist for the user which included tests for 
 ========================================================================================
 
 ### Desktop
-* Google Chrome: everything is working good. All features are functioning, no problems performing all steps of CRUD. 
+* Google Chrome: everything is working well. All features are functioning, no problems performing all steps of CRUD. 
 
 * Safari: no issues found here in final check.  
 
@@ -332,7 +332,7 @@ For this test, I have created a checklist for the user which included tests for 
 
 ### Mobile
 
-* Tested with Iphone 11 PRO and Woofme works well without errors.
+* Tested with iPhone 11 PRO and Woofme works well without errors.
 
 
 ### WAVE Accesibility validation
@@ -403,7 +403,3 @@ For this test, I have created a checklist for the user which included tests for 
 
 
 # Unfixed bugs
-
-
-
-
