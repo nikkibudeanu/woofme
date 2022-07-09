@@ -6,7 +6,7 @@
 
  </p>
 
-<img src="media/readme/mockup.png">
+<img width="400" src="media/readme/mockup.png">
 
 
 Live app link [here](https://woofmeapp.herokuapp.com/)
