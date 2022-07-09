@@ -37,12 +37,13 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
 </summary>
 
 + Create breed reviews by adding:
-* Breed name
-* Breed Group
-* A review of the breed
-* Adaptability, trainability, friendliness, and health and grooming needs scores. 
-* Overall breed rating
-* Breed image
+
+   1. Breed name
+   2. Breed Group
+   3. A review of the breed
+   4. Adaptability, trainability, friendliness, and health and grooming needs scores. 
+   5. Overall breed rating
+   6.  Breed image
 
   2.2 Create a new breed if a breed is not in the database.
 
