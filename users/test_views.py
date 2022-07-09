@@ -17,19 +17,19 @@ class TestRegister(TestCase):
         self.assertEqual(response.status_code, 302)
 
     def test_register_user_not_valid(self):
-            """ Test view if user is not valid """
-            response = self.client.post(reverse('register'), data={
-                'username': 'Aiokdn',
-                'email': 'aiokdjb@gmail.com',
-                'password1': '12345a',
-                'password2': '123456'
+        """ Test view if user is not valid """
+        response = self.client.post(reverse('register'), data={
+            'username': 'Aiokdn',
+            'email': 'aiokdjb@gmail.com',
+            'password1': '12345a',
+            'password2': '123456'
             })
-            self.assertEqual(response.status_code, 302)
+        self.assertEqual(response.status_code, 302)
 
     def test_register_user_get(self):
-            """ Test redirect if user is invalid is correct"""
-            response = self.client.get(reverse('register'))
-            self.assertEqual(response.status_code, 200)
+        """ Test redirect if user is invalid is correct"""
+        response = self.client.get(reverse('register'))
+        self.assertEqual(response.status_code, 200)
 
 
 class TestLogin(TestCase):
