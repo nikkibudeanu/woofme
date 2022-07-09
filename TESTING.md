@@ -221,6 +221,9 @@ On the users app, there are also some uncovered lines on the views that were tes
 
 </p>
 
++ Error in settings file - line too long. 
+
+
 ###  **Users App** 
 
 <p float="left">
@@ -229,8 +232,6 @@ On the users app, there are also some uncovered lines on the views that were tes
         <img src="media/readme/pep8/users-test-views.png" width="400" height="200" />
         <img src="media/readme/pep8/users-urls.png" width="400" height="200" />
         <img src="media/readme/pep8/users-views.png" width="400" height="200" />
-
-
 </p>
 
 ### **Woofme_app App** 

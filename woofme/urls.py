@@ -14,4 +14,3 @@ urlpatterns = [
 handler404 = "woofme.views.page_not_found"
 handler500 = "woofme.views.custom_error"
 handler400 = "woofme.views.bad_request"
-

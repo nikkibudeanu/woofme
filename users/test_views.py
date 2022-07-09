@@ -25,12 +25,13 @@ class TestRegister(TestCase):
                 'password2': '123456'
             })
             self.assertEqual(response.status_code, 302)
-     
+
     def test_register_user_get(self):
             """ Test redirect if user is invalid is correct"""
             response = self.client.get(reverse('register'))
             self.assertEqual(response.status_code, 200)
-    
+
+
 class TestLogin(TestCase):
     """ Test login function"""
     def setUp(self):
@@ -43,9 +44,9 @@ class TestLogin(TestCase):
     def test_if_user_can_login(self):
         """ Test redirection if user logs in"""
         response = self.client.post(reverse(
-            'login'),{
+            'login'), {
             "username": "nikki",
-            "password":"12345"})
+            "password": "12345"})
         self.assertRedirects(
             response, '/users/login_user',
             status_code=302,
@@ -55,7 +56,7 @@ class TestLogin(TestCase):
     def test_if_user_cannot_login(self):
         """ Test redirection is user is not able to login"""
         response = self.client.post(reverse(
-            'login'),{
+            'login'), {
                 "username": "",
                 "password": "12345"
                 })
@@ -75,7 +76,7 @@ class TestLogout(TestCase):
             email='nikki@gmail.com',
             password='12345'
             )
-    
+
     def test_logout(self):
         """ Test redirection if user is logged out"""
         response = self.client.get(reverse('logout'))
