@@ -294,15 +294,18 @@ A session was held with a test user. The feedback obtained is listed below:
 
 1. **Home page**
 
-  1.1 The user required a different background image to have more contrast.
-  1.2 The user required a button on the home page that redirects to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
+  + The user suggested a different background image to have more contrast.
+  + The user required a button on the home page that redirects to the review list(not only the navbar breed reviews button). This is to increase interaction on the body of the home page.
 
 
-2. **Navbar** 2.1 The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
+2. **Navbar** 
+   +The colors on the navbar are not contrasting with the background color of the home page which creates a visual illusion. 
 
-3. **Search breed and review list** 3.1 Too much information on review cards, you can see everything without opening the review page. 
+3. **Search breed and review list** 
+   + Too much information on review cards, you can see everything without opening the review page. 
 
-4. **extra tips** 4.1 The user proposed to integrate a search by breed group function into the website. 
+4. **extra tips** 
+   + The user proposed to integrate a search by breed group function into the website. 
 
 
 ### **Response to the user experience test:**
@@ -320,7 +323,7 @@ For this test, I have created a checklist for the user which included tests for 
 
 ### **Response to the user test:**
 
-+ All bugs were fixed before submission. 
++ All bugs were fixed before submission and suggestions were implemented. Except second suggestions in point 1. 
 
 ## Manual Testing
 ========================================================================================
@@ -405,3 +408,5 @@ For this test, I have created a checklist for the user which included tests for 
 
 
 # Unfixed bugs
+
+* No unfixed bugs present, only future features that I have tried but not managed to finish: breed groups drop-down menu. Not implemented as decided to do it at a late stage in my project development. Very eager to implement it as soon as my project is graded.
