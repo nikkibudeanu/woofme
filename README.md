@@ -169,7 +169,7 @@ Test cases were linked with every User story presented above, and can be found i
 
 * Sprint 6
 
-  + Create final tests
+  + Create final tests + TESTING file
   + README file
 
 </details>
@@ -252,8 +252,12 @@ Test cases were linked with every User story presented above, and can be found i
 
 ### **Login Page** 
 
+<img width="600" src="media/readme/features/login.png">
+
 
 ### **Register Page** 
+
+<img width="600" src="media/readme/features/register.png">
 
 
 ## Future Features
@@ -345,9 +349,9 @@ Command:  ` pip3 freeze > requirements.txt`.
 ### Work based on other code
 
 
-[Codemy](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) - Used to create forms: registration and login.<br>
+* [Codemy](https://www.youtube.com/channel/UCFB0dxMudkws1q8w5NJEAmw) - Used to create forms: registration and login.<br>
 
-CodeInstitute previous projects code and google sheets commands :coverage, deployment. 
+* CodeInstitute previous projects code and google sheets commands :coverage, deployment. 
 
 # Acknowledgements
 

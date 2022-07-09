@@ -362,7 +362,7 @@ For this test, I have created a checklist for the user which included tests for 
         <img src="media/readme/validation/login-wave.png" width="40%" />
 </p>
 
-**Register Page (with no reviews) analysis**
+**Register Page  analysis**
 
 <p float="left">
         <img src="media/readme/validation/register-wave.png" width="40%" />
@@ -395,7 +395,7 @@ For this test, I have created a checklist for the user which included tests for 
         <img src="media/readme/validation/login-lighthouse.png" width="40%" />
 </p>
 
-**Register Page (with no reviews) Lighthouse analysis**
+**Register Page Lighthouse analysis**
 
 <p float="left">
         <img src="media/readme/validation/register-lighthouse.png" width="40%" />
