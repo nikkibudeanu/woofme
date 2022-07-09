@@ -292,7 +292,7 @@ Error explanation- Bootstrap is defined on the base file.
 
 ### Initial User Testing 
 
-A session was held with a test user. The feedback obtained is listed below:
+The test user was my husband. I held a test session with him and here are the results! 
 
 1. **Home page**
 
