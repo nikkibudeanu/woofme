@@ -73,32 +73,32 @@ As a project owner, I would like to create :
 The wireframes are created with Figma.
 
 
-* Add review page wireframe
+## Add review page wireframe
 
 <img width="500" src="media/readme/wireframes/1.png">
 
 
 
-* Review list page wireframe
+## Review list page wireframe
 
-<img width="500"" src="media/readme/wireframes/2.png">
+<img width="500" src="media/readme/wireframes/2.png">
 
 
-* Search page wireframe(if the breed is on the database)
+## Search page wireframe(if the breed is on the database)
 
 <img width="500" src="media/readme/wireframes/6.png">
 
 If the breed is not on the website, the user will get feedback and he will have access to a button that redirects to add review page so he can add the first review for the breed. 
 
 
-* Review page wireframe
+## Review page wireframe
 
 If the user is logged in and is looking at a previously added review, he will have the option to delete or edit it. 
 
 <img width="500" src="media/readme/wireframes/5.png">
 
 
-* Login/Logout/Register pages wireframe
+## Login/Logout/Register pages wireframe
 
 + Login page:
 
