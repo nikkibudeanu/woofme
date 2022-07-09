@@ -310,7 +310,7 @@ img {
 
 }
 
-@media only screen and (max-width: 900px) {
+@media only screen and (max-width: 1000px) {
     .margin-screen-md {
         margin: 5%;
     }
@@ -324,6 +324,14 @@ img {
     #id_breed_image {
         width: 90%
     }
+
+    .container-box-home {
+        margin-left: 100px;
+        }
+
+    
+
+    
  
 }
 
@@ -368,6 +376,12 @@ img {
     }
 
     .margin-bottom {
-        margin-bottom: 30%;
+        margin-bottom: 20%;
     }
+
+    .container-box-home {
+        margin-left: 20px;
+        width:90%;
+
+        }
 }
