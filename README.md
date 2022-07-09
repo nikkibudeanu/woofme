@@ -6,7 +6,7 @@
 
  </p>
 
-<img width="400" src="media/readme/mockup.png">
+<img width="700" src="media/readme/mockup.png">
 
 
 Live app link [here](https://woofmeapp.herokuapp.com/)
@@ -26,7 +26,7 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
 
 2. As a logged user, I would like to be able to...
 
-* Create breed reviews by adding:
+  2.1 Create breed reviews by adding:
 
 
 + Breed name
@@ -36,14 +36,14 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
 + Overall breed rating
 + Breed image
 
-* Create a new breed if a breed is not in the database.
+  2.2 Create a new breed if a breed is not in the database.
 
-* Edit and delete a previously added review.
+  2.3  Edit and delete a previously added review.
 
-* Check a breed review after being added. 
+  2.4 Check a breed review after being added. 
 
 
-### 1. Strategy
+## 1. Strategy
 
  + **Project Goal**
   
@@ -51,7 +51,7 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
   friendliness, health and grooming needs as well as trainability. 
 
 
-### 2. Scope 
+## 2. Scope 
 
 As a project owner, I would like to create :
 
@@ -60,7 +60,7 @@ As a project owner, I would like to create :
 * a visually appealing website on all devices.
 
 
-### 3. Structure
+## 3. Structure
 
 * Navbar is fixed on top to facilitate Woofme users to navigate easily and pleasantly. 
 * Edit, Delete, and Add review buttons present on all forms to enable users to have an intuitive and smooth experience.
@@ -68,39 +68,39 @@ As a project owner, I would like to create :
 * Login/Logout/Register options are present on the navbar to ensure that Woofme users can perform each of the actions easily.
 
 
-### 4. Skeleton
+## 4. Skeleton
 
-The wireframes are created with Figma.
+The wireframes are created with Canva.
 
 
-## Add review page wireframe
+### 1. Add review page wireframe
 
 <img width="500" src="media/readme/wireframes/1.png">
 
 
 
-## Review list page wireframe
+### 2. Review list page wireframe
 
 <img width="500" src="media/readme/wireframes/2.png">
 
 
-## Search page wireframe(if the breed is on the database)
+### 3. Search page wireframe(if the breed is on the database)
 
 <img width="500" src="media/readme/wireframes/6.png">
 
 If the breed is not on the website, the user will get feedback and he will have access to a button that redirects to add review page so he can add the first review for the breed. 
 
 
-## Review page wireframe
+### 4. Review page wireframe
 
 If the user is logged in and is looking at a previously added review, he will have the option to delete or edit it. 
 
 <img width="500" src="media/readme/wireframes/5.png">
 
 
-## Login/Logout/Register pages wireframe
+### 5. Login/Logout/Register pages wireframes
 
-+ Login page:
+ + Login page:
 
 <img width="500" src="media/readme/wireframes/3.png">
 
@@ -109,7 +109,7 @@ If the user is logged in and is looking at a previously added review, he will ha
 <img width="500" src="media/readme/wireframes/4.png">
 
 
-### 5. Surface
+## 5. Surface
 
 
 * Colors
@@ -307,7 +307,7 @@ All code validation and test details can be found [here](TESTING.md).
 | Rating criteria on the review page and search breed pages were not updated visually. | Typeerror on these pages (review instead of object). 
 | Delete and Edit buttons were not displaying. | TypeError on delete and edit page links.
 | Search breed page not working.| Old variable name for "created_at" field - TypeError.
-| Toolip.js file not loading on Heroku and creating issues| no solution yet.
+| Toolip.js file not loading on Heroku and creating issues| Installed bootstrap js directory to the static files.
 
 ## Deployment 
 
