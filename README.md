@@ -23,10 +23,10 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
 <details>
 <summary> As a user, I would like to be able to: 
 
-+ Register on Woofme using username, email,  and password. 
-+ Be able to view all the reviews added on Woofme.
-+ Be able to view detailed reviews about different breeds.
-+ Search for a breed or breed group on the navigation bar.  
+   + Register on Woofme using username, email,  and password. 
+   + Be able to view all the reviews added on Woofme.
+   + Be able to view detailed reviews about different breeds.
+   + Search for a breed or breed group on the navigation bar.  
 
 </summary>
 </details>
@@ -36,20 +36,20 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
  As a logged user, I would like to be able to:
 </summary>
 
-+ Create breed reviews by adding:
+  + Create breed reviews by adding:
 
-   1. Breed name
-   2. Breed Group
-   3. A review of the breed
-   4. Adaptability, trainability, friendliness, and health and grooming needs scores. 
-   5. Overall breed rating
-   6.  Breed image
+     1. Breed name
+     2. Breed Group
+     3. A review of the breed
+     4. Adaptability, trainability, friendliness, and health and grooming needs scores. 
+     5. Overall breed rating
+     6.  Breed image
 
-  2.2 Create a new breed if a breed is not in the database.
+   2.2 Create a new breed if a breed is not in the database.
 
-  2.3  Edit and delete a previously added review.
+   2.3  Edit and delete a previously added review.
 
-  2.4 Check a breed review after being added. 
+   2.4 Check a breed review after being added. 
 </details>
 
 ## 1. Strategy
