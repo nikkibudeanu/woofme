@@ -325,8 +325,6 @@ Command:  ` pip3 freeze > requirements.txt`.
   2.1 Login to Heroku and enter your details: 
   command: ` Heroku login -i` 
 
-    <img src="media/readme/deployment/heroku_login.png">
-
     
   2.2 Get your app name from Heroku.
     command: `Heroku apps`

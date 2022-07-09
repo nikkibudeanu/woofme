@@ -145,7 +145,7 @@ On the users' app, there are also some uncovered lines on the views that were te
 
 ### **Navbar**
 
-| Test Case Id | Description | Expect result|
+| Test Case Id | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Click Breed Reviews' navbar button| To be directed to the breed Reviews Page|
 | 2 | Click the Logo navbar button| To be directed to the home page|
@@ -156,14 +156,14 @@ On the users' app, there are also some uncovered lines on the views that were te
 
 ### **Login**
 
-| Test Case Id | Description | Expect result|
+| Test Case Id | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Enter login credentials and click on the Login button| To be directed to the home page and success message.|
 | 2 | Enter invalid data in the login form and click the login button.| Error message!|
 
 ### **Register**
 
-| Test Case Id | Description | Expect result|
+| Test | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Enter data and click register button| Directed home page + success alert message.|
 | 2 | Enter invalid data in the register form.| ERROR MESSAGE.|
@@ -172,7 +172,7 @@ On the users' app, there are also some uncovered lines on the views that were te
 
 ### **Reviews Card**
 
-| Test Case Id | Description | Expect result|
+| Test | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Click in a breed review card on the review list| To be directed to the breed page view. |
 | 2 | Click on the Edit button on the card| To be redirected to the edit review page|
@@ -180,7 +180,7 @@ On the users' app, there are also some uncovered lines on the views that were te
 
 ### **Footer** 
 
-| Test Case Id | Description | Expect result|
+| Test | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Click on the social media buttons| To be directed to social media pages. |
 
@@ -189,7 +189,7 @@ On the users' app, there are also some uncovered lines on the views that were te
 
 ### **Buttons**
 
-| Test Case Id | Description | Expect result|
+| Test | Description | RESULT|
 |:----:|:----:|:----:|
 | 1 | Click the Next pagination button| To be direct to the next review page|
 | 2 | Click the Last pagination button| To be direct to the last review page|
@@ -197,12 +197,11 @@ On the users' app, there are also some uncovered lines on the views that were te
 | 4 | Click the Previous button| To be direct to the previous review page|
 | 5 | Click the Go Back button on the edit review page| To be direct to the previous navigated page|
 | 5 | Click the Back to Reviews button on the detail review page| To be direct to the breed reviews navigated page|
-| 6 | Click the Edit button on the edit review page| To be direct to the breed page navigated page and be presented with a new updated review|
-| 7 | Click on a star in rating breed or update breed page | Populate breed rating field on review form|
-| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or update breed page | Be displayed with all criteria choices (1-5)|
-| 12 | Click on the browse image button on add breed rate or update breed page. | Open your directory to find an image to upload|
-| 13 | Click Review Your breed Now on the search breed page| To be direct to the add breed review page|
-| 14 | Click on the icon button on the main page| To be direct to the breed reviews list|
+| 6 | Click the Edit button on the edit review page| To be direct to the breed page navigated page and be presented with a new edited review|
+| 7 | Click on a star in rating breed or edit breed page | Populate breed rating field on review form|
+| 10 | Click on adaptability/trainability/friendliness/health and grooming needs dropdown button on add breed rate or edited breed page | Be displayed with all criteria choices (1-5)|
+| 12 | Click on the browse image button on add breed rate or edit breed page. | Open your directory to find an image to upload|
+
 
 
 
