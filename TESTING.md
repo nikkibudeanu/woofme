@@ -316,29 +316,36 @@ A session was held with an test-user. The feedback obtained is listed below:
 For this test, I have created a checklist for the user which included tests for all features of the pages. Please see the results below: 
 
 
+[Final user test](media/readme/unittests/user-test.png) <br>
+
+
+### **Response to the user test:**
+
++ All bugs were fixed before submission. 
+
 ## Manual Testing
 ========================================================================================
-### Desktop
 
+### Desktop
 
 
 ### Mobile
 
 
 
-### WAVE Accessibility validation
+### Lighthouse validation
 
-**Home page WAVE analysis**
+**Home page Lighthouse analysis**
 
-**Breed Reviews WAVE analysis**
+**Breed Reviews Lighthouse analysis**
 
-**Add review Page WAVE analysis**
+**Add review Page Lighthouse analysis**
 
-**Edit review Page WAVE analysis**
+**Edit review Page Lighthouse analysis**
 
-**Breed Search Page WAVE analysis**
+**Breed Search Page Lighthouse analysis**
 
-**Breed Search Page (with no reviews) WAVE analysis**
+**Breed Search Page (with no reviews) Lighthouse analysis**
 
 
 # Unfixed bugs
