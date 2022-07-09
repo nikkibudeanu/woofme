@@ -26,7 +26,8 @@ class Breed(models.Model):
     breed_group = models.ForeignKey(
         BreedGroup, on_delete=models.CASCADE, null=True)
     slug = models.CharField(max_length=50, null=True)
-    breed_image = CloudinaryField('image', blank=True, transformation={'width': '600', 'height': '600', 'crop':'fill', 'gravity':"auto"})
+    breed_image = CloudinaryField('image', blank=True, transformation={
+        'width': '600', 'height': '600', 'crop': 'fill', 'gravity': "auto"})
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
 
@@ -49,13 +50,23 @@ class BreedReview(models.Model):
         (5, '5'),
     )
 
-    breed_group = models.ForeignKey(BreedGroup, on_delete=models.CASCADE, null=True)
+    breed_group = models.ForeignKey(
+        BreedGroup, on_delete=models.CASCADE, null=True)
     breed = models.ForeignKey(Breed, on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True, null=True)
     updated_at = models.DateTimeField(auto_now_add=True, null=True)
     username = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     review = models.TextField(max_length=200)
-    breed_image = CloudinaryField('image', blank=True, transformation={'width': '600', 'height': '600', 'crop':'fill', 'gravity':"auto"})
+    breed_image = CloudinaryField(
+        'image',
+        blank=True,
+        transformation={
+            'width': '600', 'height': '600', 'crop': 'fill', 'gravity': "auto"
+            },
+        default=(
+            "https://res.cloudinary.com/nikkibudeanu/image/upload/v1657234328/dog_gif_e5azfj.gif"
+            )
+            )
     adaptability = models.IntegerField(choices=RATING_CHOICES, default=0)
     friendliness = models.IntegerField(choices=RATING_CHOICES, default=0)
     trainability = models.IntegerField(choices=RATING_CHOICES, default=0)
