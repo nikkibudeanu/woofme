@@ -21,14 +21,12 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
 
 
 <details>
-<summary> As a user, I would like to be able to: 
+<summary> As a user, I would like to be able to:  </summary>
 
    + Register on Woofme using username, email,  and password. 
    + Be able to view all the reviews added on Woofme.
    + Be able to view detailed reviews about different breeds.
    + Search for a breed or breed group on the navigation bar.  
-
-</summary>
 </details>
 
 <details>
@@ -36,7 +34,7 @@ Live app link [here](https://woofmeapp.herokuapp.com/)
  As a logged user, I would like to be able to:
 </summary>
 
-  + Create breed reviews by adding:
++ Create breed reviews by adding:
 
      1. Breed name
      2. Breed Group
