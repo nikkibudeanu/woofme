@@ -1,4 +1,4 @@
-""""System module """
+""""System module"""
 from django.urls import path
 from . import views
 
