@@ -280,6 +280,8 @@ HTML Validation not perfomed as W3 is not configured for django HTML files and a
 
 ### **toollip js** 
 
+Error explanation- Bootstrap is defined on the base file. 
+
 <p float="left">
         <img src="media/readme/validation/toolip-js-valid.png" width="40%" />
 </p>
@@ -321,7 +323,9 @@ A session was held with a test user. The feedback obtained is listed below:
 For this test, I have created a checklist for the user which included tests for all features of the pages. Please see the results below: 
 
 
-[Final user test](media/readme/unittests/user-test.png) <br>
+<p float="left">
+        <img src="media/readme/unittests/user-test.png" width="40%" />
+</p>
 
 
 ### **Response to the user test:**
