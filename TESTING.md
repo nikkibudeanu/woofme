@@ -332,20 +332,71 @@ For this test, I have created a checklist for the user which included tests for 
 ### Mobile
 
 
+### WAVE Accesibility validation
+
+**Home page analysis**
+
+<p float="left">
+        <img src="media/readme/validation/home-wave.png" width="40%" />
+</p>
+
+
+**Breed Reviews analysis**
+
+<p float="left">
+        <img src="media/readme/validation/reviewlist-wave.png" width="40%" />
+</p>
+
+**Add review Page analysis**
+
+<p float="left">
+        <img src="media/readme/validation/addreview-wave.png" width="40%" />
+</p>
+
+**Login Page analysis**
+
+<p float="left">
+        <img src="media/readme/validation/login-wave.png" width="40%" />
+</p>
+
+**Register Page (with no reviews) analysis**
+
+<p float="left">
+        <img src="media/readme/validation/register-wave.png" width="40%" />
+</p>
 
 ### Lighthouse validation
 
 **Home page Lighthouse analysis**
 
+<p float="left">
+        <img src="media/readme/validation/home-lighthouse.png" width="40%" />
+</p>
+
 **Breed Reviews Lighthouse analysis**
+
+<p float="left">
+        <img src="media/readme/validation/reviewlist-lighthouse.png" width="40%" />
+</p>
 
 **Add review Page Lighthouse analysis**
 
-**Edit review Page Lighthouse analysis**
+<p float="left">
+        <img src="media/readme/validation/addreview-lighthouse.png" width="40%" />
+</p>
 
-**Breed Search Page Lighthouse analysis**
 
-**Breed Search Page (with no reviews) Lighthouse analysis**
+**Login Page Lighthouse analysis**
+
+<p float="left">
+        <img src="media/readme/validation/login-lighthouse.png" width="40%" />
+</p>
+
+**Register Page (with no reviews) Lighthouse analysis**
+
+<p float="left">
+        <img src="media/readme/validation/register-lighthouse.png" width="40%" />
+</p>
 
 
 # Unfixed bugs
