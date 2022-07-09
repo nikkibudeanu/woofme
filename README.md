@@ -142,7 +142,10 @@ The font is chosen in 2 weights: 300 for the paragraphs and 900 for the headings
 
 **Agile Methodology**
 
-All functionality and development of the project were managed using the GitHub project tool and personal notes.
+All functionality and development of the project were managed using the GitHub project tool and personal notes. Please see below the user stories managed in GitHub that allowed me to break the development process to several sprints. As it was only involving me, I was creating the issues and managing them along the process.
+
+<img width="500" src="media/readme/agile.png">
+
 
 <details>
 <summary>All sprints are described here.</summary>
