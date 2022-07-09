@@ -26,4 +26,3 @@ class CreateBreedFormTest(TestCase):
             "breed_name": str('a'*300)
         })
         self.assertFalse(form.is_valid())
-

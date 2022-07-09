@@ -1,5 +1,4 @@
 """Imports"""
-from cloudinary.forms import CloudinaryFileField
 from django import forms
 from .models import BreedReview, Breed
 

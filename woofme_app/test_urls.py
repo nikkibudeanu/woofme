@@ -8,7 +8,7 @@ class TestUrls(TestCase):
         """ test if home view loads without errors"""
         response = self.client.get('')
         self.assertEqual(response.status_code, 200)
-   
+
     def test_add_review_page_working(self):
         """ test if add review page is loading without errors """
         response = self.client.get('/add_review/')
