@@ -62,7 +62,7 @@ Add Review
 						<div class="text-center label">
 							<h2 class="m-2 p-2"> {{ review_form.review.label_tag }}</h2>
 						</div>
-						<div class="text-center ">
+						<div class="text-center review-field">
 							{{ review_form.review}}
 						</div>
 
@@ -96,37 +96,6 @@ Add Review
 								class="btn btn-submit btn-lg m-3 shadow-none">
 						</div>
 					</form>
-				</div>
-			</div>
-		</div>
-	</div>
-
-	<!-- breed Group Modal -->
-	<div>
-		<div class="modal fade" id="breedgroupmodal" tabindex="-1" aria-label="breed Group Modal" aria-hidden="true">
-			<div class="modal-dialog modal-dialog-centered">
-				<div class="modal-content">
-
-					<!-- Create a breed group title -->
-					<div class="modal-header">
-						<h5 class="modal-title" id="BreedGroupModalLabel">Create a Breed Group</h5>
-						<button type="button" class="btn-close shadow-none" data-bs-dismiss="modal"
-							aria-label="Close"></button>
-					</div>
-
-					<!-- Create a breed group form-->
-					<div class="modal-body">
-						<form method="POST">
-							{% csrf_token %}
-							{{ group_form.as_p }}
-
-							<!-- Create group submit button -->
-							<div class="m-2 text-center">
-								<input name="comment" class="btn btn-submit shadow-none" type="submit"
-									value="Create Group" />
-							</div>
-						</form>
-					</div>
 				</div>
 			</div>
 		</div>

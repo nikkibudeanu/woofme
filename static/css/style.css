@@ -1,5 +1,4 @@
-<!---------------------------- Google Fonts ------->
-@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;900&display=swap');
+< !---------------------------- Google Fonts ------->@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;900&display=swap');
 
 /*------------------------ Color settings  ---------------------- */
 
@@ -23,7 +22,8 @@ body {
 /*------------------------ Alert settings  ---------------------- */
 
 .alert-warning {
-    color: #DFF6FF;;
+    color: #DFF6FF;
+    ;
     opacity: 0.95;
 }
 
@@ -32,10 +32,11 @@ body {
 
 h1,
 h2,
-h3{
+h3 {
     font-family: 'Libre Franklin', sans-serif;
     font-weight: 900;
-    color: #DFF6FF;;
+    color: #DFF6FF;
+    ;
 }
 
 p,
@@ -66,7 +67,7 @@ a:hover {
 /*------------------------ Background settings  ---------------------- */
 
 .bg {
-    background-size:cover;
+    background-size: cover;
     margin: 0 auto;
 }
 
@@ -94,8 +95,8 @@ a:hover {
 
 }
 
-.navbar a{
-    color:#DFF6FF;
+.navbar a {
+    color: #DFF6FF;
 }
 
 
@@ -111,14 +112,13 @@ ul.dropdown-menu {
 }
 
 .custom-toggler .navbar-toggler-icon {
-    background-image: url(
-"data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0, 128, 0, 0.8)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
 }
 
 .nav-link.active,
 .navbar-brand.active {
     color: #47B5FF !important;
-    
+
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -138,7 +138,7 @@ ul.dropdown-menu {
 .btn-submit {
     background-color: #DFF6FF;
     color: #06283D !important;
-    
+
 }
 
 .btn-cancel {
@@ -292,13 +292,15 @@ img {
 /*------------------------ Footer  ---------------------- */
 
 .footer {
-    color:#DFF6FF !important;
+    color: #DFF6FF !important;
 }
 
 
 /*------------------------ Card body -----------------------*/
-.reviews-card:hover{
-    box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px;}
+.reviews-card:hover {
+    box-shadow: rgba(255, 255, 255, 0.56) 0px 22px 70px 4px;
+}
+
 /*------------------------ Media Query  ---------------------- */
 
 @media (min-width: 1200px) {
@@ -312,6 +314,17 @@ img {
     .margin-screen-md {
         margin: 5%;
     }
+    #id_breed_group,
+    #id_breed,
+    #id_review,
+    #id_adaptability,
+    #id_trainability,
+    #id_friendliness,
+    #id_health_and_grooming_needs,
+    #id_breed_image {
+        width: 90%
+    }
+ 
 }
 
 @media only screen and (max-width: 600px) {
@@ -342,14 +355,15 @@ img {
         width: 250px;
     }
 
- 
-#id_breed_group,
-#id_breed,
-#id_adaptability,
-#id_trainability,
-#id_friendliness,
-#id_health_and_grooming_needs,
-#id_breed_image  {
+
+    #id_breed_group,
+    #id_breed,
+    #id_review,
+    #id_adaptability,
+    #id_trainability,
+    #id_friendliness,
+    #id_health_and_grooming_needs,
+    #id_breed_image {
         width: 90%
     }
 
