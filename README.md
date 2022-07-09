@@ -134,6 +134,7 @@ The font is chosen in 2 weights: 300 for the paragraphs and 900 for the headings
 <img width="500" src="media/readme/chart.png">
 
 **Agile Methodology**
+
 All functionality and development of the project were managed using the GitHub project tool and personal notes.
 
 <details>
@@ -319,7 +320,7 @@ This App is deployed using Heroku.
  
 Command:  ` pip3 freeze > requirements.txt`. 
  
- 2. Setting up your Heroku
+2. Setting up your Heroku
  
   2.1 Login to Heroku and enter your details: 
   command: ` Heroku login -i` 
@@ -327,18 +328,18 @@ Command:  ` pip3 freeze > requirements.txt`.
     <img src="media/readme/deployment/heroku_login.png">
 
     
-    2.3 Get your app name from Heroku.
+  2.2 Get your app name from Heroku.
     command: `Heroku apps`
     
 
-    2.4 Set the Heroku remote. 
+  2.3 Set the Heroku remote. 
     command: `Heroku git: remote -a woofmeapp`
     
 
-    2.5. Add, commit, and push to GitHub
+  2.4 Add, commit, and push to GitHub
     command: `git add. && git commit -m "Deploy to Heroku via CLI"`
 
-    2.6. 5. Push to both GitHub and Heroku
+  2.5 Push to both GitHub and Heroku
     `command: git push origin main`
     `command: git push Heroku main`
        
